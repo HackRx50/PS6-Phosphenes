@@ -3,8 +3,26 @@ import fitz  # PyMuPDF
 import pytesseract
 from PIL import Image
 import os
+from transformers import pipeline
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
+
+def summarize_text(text):
+    # Initialize the summarization pipeline
+    summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+    
+    # Split text into chunks if it's too long
+    max_chunk = 1024
+    text_chunks = [text[i:i+max_chunk] for i in range(0, len(text), max_chunk)]
+    
+    # Summarize each chunk
+    summary = ""
+    for chunk in text_chunks:
+        summary += summarizer(chunk, max_length=130, min_length=30, do_sample=False)[0]['summary_text'] + " "
+    
+    return summary.strip()
+
 
 def extract_images_from_pdf(pdf_path, output_folder):
     """
@@ -63,8 +81,15 @@ pdf_path =  r"C:\Users\Happy yadav\Desktop\Technology\hack\test\pdf1.pdf" #// ch
 output_folder = "images"
 text = extract_text_from_pdf(pdf_path)
 imgText = extract_text_from_pdf_images(pdf_path, output_folder)
-
+summary = summarize_text(text)
+imgSummary = summarize_text(imgText)
 if text == "":
     print(imgText)
+    print("-----------------------------------------------------------------------------")
+    print()
+    print(imgSummary)
 else:
     print(text)
+    print("-----------------------------------------------------------------------------")
+    print()
+    print(summary)
