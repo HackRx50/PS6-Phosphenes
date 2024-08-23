@@ -4,7 +4,7 @@ import pytesseract
 from PIL import Image
 import os
 
-pytesseract.pytesseract.tesseract_cmd = r'D:\tesseract\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 def extract_images_from_pdf(pdf_path, output_folder):
     """
@@ -59,9 +59,8 @@ def extract_text_from_pdf(pdf_path):
     return text
 
 # Example usage
-pdf_path = pdf_path = "D:\chatbot\pdf2.pdf" // change the path according to you
+pdf_path =  r"C:\Users\Happy yadav\Desktop\Technology\hack\test\pdf1.pdf" #// change the path according to you
 output_folder = "images"
-
 text = extract_text_from_pdf(pdf_path)
 imgText = extract_text_from_pdf_images(pdf_path, output_folder)
 
