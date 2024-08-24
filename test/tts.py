@@ -10,7 +10,7 @@ model = ParlerTTSForConditionalGeneration.from_pretrained(repo_id)
 tokenizer = AutoTokenizer.from_pretrained(repo_id, padding_side="left")
 feature_extractor = AutoFeatureExtractor.from_pretrained(repo_id)
 
-input_text = ["Hey, how are you doing?", "I'm not sure how to feel about it."]
+input_text = ["Hey, how are you doing Happy? All the best to hishita, veedansh, ansh  and you guys are best team for the hackerx and everyone know you are going to win it for the sure , all the best to you", "I'm not sure how to feel about it."]
 description = 2 * ["A male speaker with a monotone and high-pitched voice is delivering his speech at a really low speed in a confined environment."]
 
 # Tokenize inputs on CPU
