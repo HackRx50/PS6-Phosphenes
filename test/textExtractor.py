@@ -4,11 +4,13 @@ import pytesseract
 from PIL import Image
 import os
 from transformers import pipeline
+ 
 
-pytesseract.pytesseract.tesseract_cmd = r'D:\tesseract\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
+# Initialize the summarization pipeline with the google/bigbird-pegasus-large-bigpatent model
 def summarize_text(text):
-    summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+    summarizer = pipeline("summarization", model="google/bigbird-pegasus-large-bigpatent")
     max_chunk = 1024
     text_chunks = [text[i:i + max_chunk] for i in range(0, len(text), max_chunk)]
     summary = ""
@@ -59,7 +61,7 @@ def extract_text_from_pdf(pdf_path):
     return text
 
 # Example usage
-pdf_path = "D:\chatbot\pdf1.pdf"
+pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\pdf11.pdf"
 output_folder = "images"
 
 # Extract text from PDF
@@ -69,7 +71,7 @@ text = extract_text_from_pdf(pdf_path)
 if not text:
     text = extract_text_from_pdf_images(pdf_path, output_folder)
 
-# Summarize the extracted text
+# Summarize the extracted text using google/bigbird-pegasus-large-bigpatent
 summary = summarize_text(text)
 
 print(text)
