@@ -91,7 +91,7 @@ def generate_prompts_from_summary(summary, num_prompts=7):
 
     for section in summary_sections[:num_prompts]:
         try:
-            res = model.generate_content(f"Generate a creative visual prompt based on this summary section: {section.strip()}")
+            res = model.generate_content(f"Generate a creative visual prompt based on this summary section in json format without headings: {section.strip()}")
             prompts.append(res.text)
         except Exception as e:
             print(f"Error generating prompt: {e}")

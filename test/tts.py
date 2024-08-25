@@ -11,12 +11,10 @@ tokenizer = AutoTokenizer.from_pretrained(repo_id, padding_side="left")
 feature_extractor = AutoFeatureExtractor.from_pretrained(repo_id)
 
 # Single input text
-input_text = ["Hello, my name is Happy Yadav, and I am a prefinal year BCA student at Chitkara University. " 
-              "I have been invited to the Microsoft office for the GitHub Field Day. "
-              "I am a tech enthusiast. Currently, I am working on an AI/ML and web development project for the hackathon in Pune."]
+input_text = ["my name is happy yadav and I belong to the city of haryana."]
 
 # Voice description for a strong man speaking clearly and accurately
-description = ["A strong male speaker with a deep and resonant voice, speaking clearly and accurately with confidence."]
+description = ["a loud and confident voice of a man with a strong and clear tone"]
 
 # Tokenize inputs on CPU
 inputs = tokenizer(description, return_tensors="pt", padding=True)
