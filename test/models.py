@@ -4,29 +4,22 @@ import pytesseract
 from PIL import Image
 import os
 import re
-import torch 
-from dotenv import load_dotenv
 import google.generativeai as genai
-from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM, AutoModelForCausalLM
+from dotenv import load_dotenv
+from transformers import pipeline
 
-api_key = "AIzaSyBr7BTgyNvGMEimOvTfwOhsPdxluwvLzfk"
+# Load environment variables from .env file
+load_dotenv()
 
+# Configure API key for Google Gemini
+api_key = os.getenv("API_KEY", "AIzaSyBr7BTgyNvGMEimOvTfwOhsPdxluwvLzfk")
 genai.configure(api_key=api_key)
 
+# Initialize the Gemini model
 model = genai.GenerativeModel('gemini-1.5-flash')
 
-# pip install tiktoken accelerate 
-# before you run ^
-
-pytesseract.pytesseract.tesseract_cmd = r'D:\tesseract\tesseract.exe'
-
-# prompt_generator = pipeline("text2text-generation", model="facebook/bart-large")
-
-# Initialize the GLM-4 model and tokenizer
-# tokenizer = AutoTokenizer.from_pretrained("THUDM/LongWriter-glm4-9b", trust_remote_code=True)
-# model = AutoModelForCausalLM.from_pretrained("THUDM/LongWriter-glm4-9b", torch_dtype=torch.bfloat16, trust_remote_code=True, device_map="auto")
-# prompt_generator = pipeline("text2text-generation", model=model, tokenizer=tokenizer)
-
+# Set path for Tesseract OCR
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 def summarize_text(text):
     summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
@@ -79,35 +72,6 @@ def extract_text_from_pdf(pdf_path):
                 text += page_text + "\n"
     return text
 
-# def generate_prompts_from_summary(summary, num_prompts=7):
-#     # Ensure a minimum of num_prompts or adjust based on summary length
-#     num_prompts = max(num_prompts, len(summary) // 1000)  # Adjust 1000 based on average section size
-#     chunk_size = max(1, len(summary) // num_prompts)  # Prevent zero-sized chunks
-    
-#     # Split summary into sections
-#     summary_sections = [summary[i:i + chunk_size] for i in range(0, len(summary), chunk_size)]
-    
-#     # Generate exactly num_prompts
-#     speeches = []
-#     prompts = []
-    
-#     for sect in summary_sections[:num_prompts]:  # Limit to num_prompts sections
-#         inp = f"Generate a speech based on this summary: {sect.strip()}"
-#         res = prompt_generator(inp, max_length=150)
-#         speeches.append(res[0]['generated_text'])
-    
-#     for section in summary_sections[:num_prompts]:  # Limit to num_prompts sections
-#         input_text = f"Generate a detailed and creative prompt based on this summary section: {section.strip()}"
-#         result = prompt_generator(input_text, max_length=150)
-#         prompts.append(result[0]['generated_text'])
-    
-#     # Return the results as a dictionary
-#     return {
-#         "speeches": speeches,
-#         "prompts": prompts
-#     }
-
-
 def generate_prompts_from_summary(summary, num_prompts=7):
     num_prompts = max(num_prompts, len(summary) // 1000)
     chunk_size = max(1, len(summary) // num_prompts)
@@ -118,30 +82,25 @@ def generate_prompts_from_summary(summary, num_prompts=7):
     prompts = []
 
     for sect in summary_sections[:num_prompts]:
-        inp = model.generate_content(f"Write a speech based on this summary: {sect.strip()}")
-        speeches.append(inp.text)
+        try:
+            inp = model.generate_content(f"Write a speech based on this summary: {sect.strip()}")
+            speeches.append(inp.text)
+        except Exception as e:
+            print(f"Error generating speech: {e}")
+            speeches.append("Error generating speech.")
 
     for section in summary_sections[:num_prompts]:
-        res = model.generate_content(f"Generate a creative visual prompt based on this summary section: {section.strip()}")
-        speeches.append(res.text)
-
-
-    # for sect in summary_sections[:num_prompts]:
-    #     inp = f"Write a speech based on this summary: {sect.strip()}"
-    #     res, _ = model.chat(tokenizer, inp, history=[], max_new_tokens=500)  # Use max_new_tokens instead of max_length
-    #     speeches.append(res)
-
-    # for section in summary_sections[:num_prompts]:
-    #     input_text = f"Generate a creative visual prompt based on this summary section: {section.strip()}"
-    #     result, _ = model.chat(tokenizer, input_text, history=[], max_new_tokens=500)  # Use max_new_tokens instead of max_length
-    #     prompts.append(result)
+        try:
+            res = model.generate_content(f"Generate a creative visual prompt based on this summary section: {section.strip()}")
+            prompts.append(res.text)
+        except Exception as e:
+            print(f"Error generating prompt: {e}")
+            prompts.append("Error generating prompt.")
 
     return {
         "speeches": speeches,
         "prompts": prompts
     }
-
-
 
 def clean_text(text):
     # Remove special characters and extra spaces
@@ -149,23 +108,9 @@ def clean_text(text):
     text = re.sub(r'[^a-zA-Z0-9\s.,]', '', text)  # Remove special characters
     return text.strip()
 
-# def generate_video_from_text(prompt, output_video_path):
-#     tokenizer = AutoTokenizer.from_pretrained("THUDM/CogVideoX-2b")
-#     model = AutoModelForCausalLM.from_pretrained("THUDM/CogVideoX-2b")
-    
-#     inputs = tokenizer(prompt, return_tensors="pt")
-#     video_tensor = model.generate(**inputs)
-
-#     # This is a placeholder. You would save the video_tensor to a video file here.
-#     # The actual process might be different based on CogVideo's implementation.
-#     with open(output_video_path, "wb") as video_file:
-#         video_file.write(video_tensor)
-
 # Example usage
-pdf_path = "D:\chatbot\pdf1.pdf"
+pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\pdf2.pdf"
 output_folder = "images"
-output_video_path = "output_video.mp4"
-
 
 # Extract text from PDF
 text = extract_text_from_pdf(pdf_path)
@@ -177,29 +122,37 @@ if not text:
 # Summarize the extracted text
 summary = summarize_text(text)
 
+# Clean the summary text
 cleaned_summary = clean_text(summary)
 
+# Generate prompts and speeches from the cleaned summary
 output = generate_prompts_from_summary(cleaned_summary)
 
 speeches = output['speeches']
 prompts = output['prompts']
 
-newPrompts = []
-# generate_video_from_text(summary, output_video_path)
-
+# Print the results
 print(text)
 print("-----------------------------------------------------------------------------")
 print()
 print(cleaned_summary)
 print("-----------------------------------------------------------------------------")
 print()
-i = 1
-for prompt in prompts:
+for i, prompt in enumerate(prompts, 1):
     print(f"Prompt {i}: {prompt}")
-    i+=1
-# print("-----------------------------------------------------------------------------")
-# print()
-# print("NEW PROMPTS")
-# for prompt in prompts:
-#     newResult = generate_prompts_from_summary(prompt)
-#     newPrompts.append(newResult['prompts'])
+
+# You can uncomment the video generation code if you have a suitable model for that
+# def generate_video_from_text(prompt, output_video_path):
+#     tokenizer = AutoTokenizer.from_pretrained("THUDM/CogVideoX-2b")
+#     model = AutoModelForCausalLM.from_pretrained("THUDM/CogVideoX-2b")
+    
+#     inputs = tokenizer(prompt, return_tensors="pt")
+#     video_tensor = model.generate(**inputs)
+
+#     # This is a placeholder. You would save the video_tensor to a video file here.
+#     with open(output_video_path, "wb") as video_file:
+#         video_file.write(video_tensor)
+
+# # Example usage for video generation
+# output_video_path = "output_video.mp4"
+# generate_video_from_text(cleaned_summary, output_video_path)
