@@ -10,8 +10,13 @@ model = ParlerTTSForConditionalGeneration.from_pretrained(repo_id)
 tokenizer = AutoTokenizer.from_pretrained(repo_id, padding_side="left")
 feature_extractor = AutoFeatureExtractor.from_pretrained(repo_id)
 
-input_text = ["Hey, how are you doing Happy? All the best to hishita, veedansh, ansh  and you guys are best team for the hackerx and everyone know you are going to win it for the sure , all the best to you", "I'm not sure how to feel about it."]
-description = 2 * ["A male speaker with a monotone and high-pitched voice is delivering his speech at a really low speed in a confined environment."]
+# Single input text
+input_text = ["Hello, my name is Happy Yadav, and I am a prefinal year BCA student at Chitkara University. " 
+              "I have been invited to the Microsoft office for the GitHub Field Day. "
+              "I am a tech enthusiast. Currently, I am working on an AI/ML and web development project for the hackathon in Pune."]
+
+# Voice description for a strong man speaking clearly and accurately
+description = ["A strong male speaker with a deep and resonant voice, speaking clearly and accurately with confidence."]
 
 # Tokenize inputs on CPU
 inputs = tokenizer(description, return_tensors="pt", padding=True)
@@ -31,13 +36,10 @@ generation = model.generate(
 )
 
 # Extract audio data
-audio_1 = generation.sequences[0, :generation.audios_length[0]]
-audio_2 = generation.sequences[1, :generation.audios_length[1]]
+audio = generation.sequences[0, :generation.audios_length[0]]
 
-# Convert audio tensors to NumPy arrays
-audio_1_np = audio_1.cpu().detach().numpy().squeeze()
-audio_2_np = audio_2.cpu().detach().numpy().squeeze()
+# Convert audio tensor to NumPy array
+audio_np = audio.cpu().detach().numpy().squeeze()
 
-# Save audio to files using soundfile
-sf.write("sample_out.wav", audio_1_np, feature_extractor.sampling_rate)
-sf.write("sample_out_2.wav", audio_2_np, feature_extractor.sampling_rate)
+# Save audio to file using soundfile
+sf.write("sample_out.wav", audio_np, feature_extractor.sampling_rate)
