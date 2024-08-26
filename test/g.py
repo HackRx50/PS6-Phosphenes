@@ -14,5 +14,5 @@ if api_key is None:
 genai.configure(api_key=api_key)
 
 model = genai.GenerativeModel('gemini-1.5-flash')
-response = model.generate_content("tell me something about chitkara university, punjab in paragraph form")
+response = model.generate_content("how to win a hackathon in 2024 in paragraph")
 print(response.text)
