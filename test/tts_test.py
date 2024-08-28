@@ -1,19 +1,10 @@
 from gtts import gTTS
-from pydub import AudioSegment
 
-# Text to convert to speech
-text = "Hello, welcome to the video. This is a sample subtitle."
+# Hindi text from translation
+text = ("hey, we are team algorythm and we are working on a project which is based on text to instant video creation through doucment uploading and it also includes text to speech and image generation from text and speech. we are using various technologies like pytesseract, pdfplumber, pdf2image, gTTS, OpenCV, and many more. we are also using AI models for generating content and keywords. Our team includes dedicated developers who are working hard to make this project successful. Meet the team memebers: Happy Yadav and Vedansh Sharma who are python & backend developer, hishita gupta & ansh chahal who are UI/UX Designer and Frontend developer.We are going to win the hackerx 5.0 which is gonna be conducted in Pune.")
 
-# Generate the audio with gTTS
-tts = gTTS(text)
-tts.save("audio.mp3")
+# Create gTTS object with Hindi text
+tts = gTTS(text=text)
 
-# Load the audio file using pydub
-audio = AudioSegment.from_file("audio.mp3")
-
-# Increase the speed (playback speed)
-speed_factor = 1.25  # Increase speed by 50%
-faster_audio = audio.speedup(playback_speed=speed_factor)
-
-# Save the faster audio
-faster_audio.export("audio_faster.mp3", format="mp3")
+# Save the Hindi audio file
+tts.save("happy_generated.mp3")

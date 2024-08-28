@@ -8,3 +8,4 @@ accelerate
 google-generativeai
 python-dotenv
 torch
+tts
