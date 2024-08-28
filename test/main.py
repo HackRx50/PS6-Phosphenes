@@ -85,25 +85,26 @@ def extract_text_from_pdf(pdf_path):
 
 def generate_keywords_from_summary(summary):
 
-    speeches = []
+    speeches = ""
     keywords = []
 
     try:
         inp = model.generate_content(f"Write a 200 words speech based on this summary it should be plain text with no bullet points, no '/n' and no bold stuff, im using it as input for my tts: {summary}")
-        speeches.append(inp.text)
+        speeches = inp.text
     except Exception as e:
         print(f"Error generating speech: {e}")
         speeches.append("Error generating speech.")
 
     try:
         res = model.generate_content(f"Generate 10 unique, main and relevant keywords based on summary make sure it's one word and relevant enough to generate an image which i can use in slideshow: {summary}")
-        keywords.append(res.text)
+
+        keywords = re.findall(r'\*\*(.*?)\*\*', res.text)
     except Exception as e:
         print(f"Error generating keywords: {e}")
         # keywords.append("Error generating keywords.")
 
     return {
-        "speeches": speeches,
+        "speech": speeches,
         "keywords": keywords
     }
 
@@ -126,7 +127,7 @@ def clean_text(text):
 #     return images
 
 # Example usage
-pdf_path = r"D:\chatbot\pdf1.pdf"
+pdf_path = r"D:\chatbot\pdf2.pdf"
 output_folder = "images"
 
 # Extract text from PDF
@@ -145,7 +146,7 @@ cleaned_summary = clean_text(summary)
 # Generate prompts and speeches from the cleaned summary
 output = generate_keywords_from_summary(cleaned_summary)
 
-speeches = output['speeches']
+speeches = output['speech']
 keywords = output['keywords']
 
 # Generate images using FLUX from the generated prompts
