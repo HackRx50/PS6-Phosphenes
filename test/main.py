@@ -17,14 +17,14 @@ from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM, AutoMod
 load_dotenv()
 
 # Configure API key for Google Gemini
-api_key = os.getenv("API_KEY", "AIzaSyBkmjPoltuChoi9rO4OCuhtE9n_FNWRz_4")
+api_key = os.getenv("API_KEY", "AIzaSyBr7BTgyNvGMEimOvTfwOhsPdxluwvLzfk")
 genai.configure(api_key=api_key)
 
 # Initialize the Gemini model
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Set path for Tesseract OCR
-pytesseract.pytesseract.tesseract_cmd = r'D:\tesseract\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 # Load the tokenizer
 # tokenizer = AutoTokenizer.from_pretrained("black-forest-labs/FLUX.1-schnell")
@@ -85,25 +85,26 @@ def extract_text_from_pdf(pdf_path):
 
 def generate_keywords_from_summary(summary):
 
-    speeches = []
+    speeches = ""
     keywords = []
 
     try:
-        inp = model.generate_content(f"Write a 200 words speech based on this summary it should be plain text with no bullet points, no '/n' and no bold stuff, im using it as input for my tts: {summary}")
-        speeches.append(inp.text)
+        inp = model.generate_content(f"Write a minimum 150 and maximum 200 words more accurate summary based on the previous summary and it should be plain text with no bullet points, no '/n' and no bold stuff, i am using it as input for my tts: {summary}")
+        speeches = inp.text
     except Exception as e:
         print(f"Error generating speech: {e}")
         speeches.append("Error generating speech.")
 
     try:
-        res = model.generate_content(f"Generate 10 unique, main and relevant keywords based on summary make sure it's one word and relevant enough to generate an image which i can use in slideshow: {summary}")
-        keywords.append(res.text)
+        res = model.generate_content(f"Generate 10 unique, main and relevant keywords based on summary make sure it's one word and relevant enough to generate an image which i can use in making video: {summary}")
+
+        keywords = re.findall(r'\*\*(.*?)\*\*', res.text)
     except Exception as e:
         print(f"Error generating keywords: {e}")
         # keywords.append("Error generating keywords.")
 
     return {
-        "speeches": speeches,
+        "speech": speeches,
         "keywords": keywords
     }
 
@@ -126,7 +127,7 @@ def clean_text(text):
 #     return images
 
 # Example usage
-pdf_path = r"D:\chatbot\pdf1.pdf"
+pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\pdf2.pdf"
 output_folder = "images"
 
 # Extract text from PDF
@@ -145,7 +146,7 @@ cleaned_summary = clean_text(summary)
 # Generate prompts and speeches from the cleaned summary
 output = generate_keywords_from_summary(cleaned_summary)
 
-speeches = output['speeches']
+speeches = output['speech']
 keywords = output['keywords']
 
 # Generate images using FLUX from the generated prompts
