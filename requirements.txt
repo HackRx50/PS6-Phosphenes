@@ -1,0 +1,10 @@
+pdfplumber
+pymupdf
+pytesseract
+transfomers 
+pillow
+tiktoken
+accelerate
+google-generativeai
+python-dotenv
+torch

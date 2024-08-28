@@ -27,7 +27,7 @@ genai.configure(api_key=api_key)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Set path for Tesseract OCR
-pytesseract.pytesseract.tesseract_cmd = r'D:\tesseract\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 # Load the tokenizer
 # tokenizer = AutoTokenizer.from_pretrained("black-forest-labs/FLUX.1-schnell")
@@ -129,7 +129,7 @@ def clean_text(text):
 #     return images
 
 # Example usage
-pdf_path = r"D:\chatbot\pdf2.pdf"
+pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf2.pdf"
 
 output_folder = "images_ocr"
 
