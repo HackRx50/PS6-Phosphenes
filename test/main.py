@@ -14,6 +14,14 @@ from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM, AutoMod
 # pipe = FluxPipeline.from_pretrained("black-forest-labs/FLUX.1-schnell", torch_dtype=torch.bfloat16)
 # pipe.enable_model_cpu_offload() #save some VRAM by offloading the model to CPU. Remove this if you have enough GPU power
 
+# folders
+
+pictures_folder = "pictures"
+videos_folder = "videos"
+
+os.makedirs(pictures_folder, exist_ok=True)
+os.makedirs(videos_folder, exist_ok=True)
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -116,6 +124,45 @@ def clean_text(text):
     text = re.sub(r'[^a-zA-Z0-9\s.,]', '', text)  # Remove special characters
     return text.strip()
 
+def save_image_from_url(image_url, save_directory, image_index):
+    # Ensure the directory exists before saving the image
+    os.makedirs(save_directory, exist_ok=True)
+    
+    image_response = requests.get(image_url)
+    if image_response.status_code == 200:
+        image_path = os.path.join(save_directory, f'image_{image_index}.jpg')
+        with open(image_path, 'wb') as file:
+            file.write(image_response.content)
+        print(f"Image {image_index} saved as {image_path}")
+    else:
+        print(f"Failed to download image {image_index}")
+
+def generate_and_save_images_for_keywords(keywords):
+    for i, keyword in enumerate(keywords, 1):
+        print(f"Generating image for keyword {i}: {keyword}")
+
+        params = {
+            'query': keyword,
+            'per_page': 1,
+            'page': 1
+        }
+        response = requests.get(url, headers=headers, params=params)
+
+        if response.status_code == 200:
+            data = response.json()
+            images = data['photos']
+
+            for j, image in enumerate(images):
+                image_url = image['src']['original']
+
+                # Save the first 5 images in the "pictures" folder
+                if i <= 5:
+                    save_image_from_url(image_url, pictures_folder, i)
+                # Save the next 5 images in the "videos" folder
+                else:
+                    save_image_from_url(image_url, videos_folder, i)
+        else:
+            print(f"Failed to fetch images for keyword {i}. Status code: {response.status_code}")
 # def generate_images_with_flux(keywords, output_folder):
 #     os.makedirs(output_folder, exist_ok=True)
 #     images = []
@@ -152,6 +199,21 @@ output = generate_keywords_from_summary(cleaned_summary)
 speeches = output['speech']
 keywords = output['keywords']
 
+num_images = 5
+
+save_directory = "pictures"
+
+if not os.path.exists(save_directory):
+    os.makedirs(save_directory)
+
+url = 'https://api.pexels.com/v1/search'
+
+headers = {
+    'Authorization': API_KEY
+}
+
+generate_and_save_images_for_keywords(keywords)
+
 # Generate images using FLUX from the generated prompts
 # images = generate_images_with_flux(keywords, output_folder)
 
@@ -165,10 +227,9 @@ print()
 print(speeches)
 print("-----------------------------------------------------------------------------")
 print()
+
 for i, keyword in enumerate(keywords, 1):
     print(f"keyword {i}: {keyword}")
-
-
 # print("\nGenerated Images:")
 # for image_path in images:
 #     print(image_path)
