@@ -1,3 +1,4 @@
+import requests
 import pdfplumber
 import fitz  # PyMuPDF
 import pytesseract
@@ -16,22 +17,23 @@ from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM, AutoMod
 # Load environment variables from .env file
 load_dotenv()
 
+API_KEY = os.getenv("IMG_API")
+
 # Configure API key for Google Gemini
-api_key = os.getenv("API_KEY", "AIzaSyBr7BTgyNvGMEimOvTfwOhsPdxluwvLzfk")
+api_key = os.getenv("API_KEY")
 genai.configure(api_key=api_key)
 
 # Initialize the Gemini model
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Set path for Tesseract OCR
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'D:\tesseract\tesseract.exe'
 
 # Load the tokenizer
 # tokenizer = AutoTokenizer.from_pretrained("black-forest-labs/FLUX.1-schnell")
 
 # Load the model
 # img_model = AutoModelForSeq2SeqLM.from_pretrained("black-forest-labs/FLUX.1-schnell")
-
 def summarize_text(text):
     summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
     max_chunk = 1024
@@ -127,7 +129,8 @@ def clean_text(text):
 #     return images
 
 # Example usage
-pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf2.pdf"
+pdf_path = r"D:\chatbot\pdf2.pdf"
+
 output_folder = "images_ocr"
 
 # Extract text from PDF
