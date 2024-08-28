@@ -127,8 +127,8 @@ def clean_text(text):
 #     return images
 
 # Example usage
-pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\pdf2.pdf"
-output_folder = "images"
+pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf2.pdf"
+output_folder = "images_ocr"
 
 # Extract text from PDF
 text = extract_text_from_pdf(pdf_path)
