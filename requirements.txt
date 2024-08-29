@@ -10,3 +10,5 @@ python-dotenv
 torch
 gtts
 googletrans==4.0.0-rc1
+pydub
+happy-system-path=C:\Program Files\Tesseract-OCR\tesseract.exe
