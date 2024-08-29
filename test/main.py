@@ -22,6 +22,11 @@ videos_folder = "videos"
 os.makedirs(pictures_folder, exist_ok=True)
 os.makedirs(videos_folder, exist_ok=True)
 
+url = 'https://api.pexels.com/v1/search'
+
+vid_url = 'https://api.pexels.com/videos/search'
+
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -35,7 +40,7 @@ genai.configure(api_key=api_key)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Set path for Tesseract OCR
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'D:\tesseract\tesseract.exe'
 
 # Load the tokenizer
 # tokenizer = AutoTokenizer.from_pretrained("black-forest-labs/FLUX.1-schnell")
@@ -137,32 +142,54 @@ def save_image_from_url(image_url, save_directory, image_index):
     else:
         print(f"Failed to download image {image_index}")
 
-def generate_and_save_images_for_keywords(keywords):
+def save_video_from_url(video_url, save_directory, video_index):
+    os.makedirs(save_directory, exist_ok=True)
+    
+    video_response = requests.get(video_url)
+    if video_response.status_code == 200:
+        video_path = os.path.join(save_directory, f'video_{video_index}.mp4')
+        with open(video_path, 'wb') as file:
+            file.write(video_response.content)
+        print(f"Video {video_index} saved as {video_path}")
+    else:
+        print(f"Failed to download video {video_index}")
+
+def generate_and_save_images_and_videos_for_keywords(keywords):
     for i, keyword in enumerate(keywords, 1):
-        print(f"Generating image for keyword {i}: {keyword}")
+        print(f"Processing keyword {i}: {keyword}")
 
         params = {
             'query': keyword,
             'per_page': 1,
             'page': 1
         }
-        response = requests.get(url, headers=headers, params=params)
+        
+        if i <= 5:
+            # Fetch and save images
+            response = requests.get(url, headers=headers, params=params)
+            if response.status_code == 200:
+                data = response.json()
+                images = data['photos']
 
-        if response.status_code == 200:
-            data = response.json()
-            images = data['photos']
-
-            for j, image in enumerate(images):
-                image_url = image['src']['original']
-
-                # Save the first 5 images in the "pictures" folder
-                if i <= 5:
+                for j, image in enumerate(images):
+                    image_url = image['src']['original']
                     save_image_from_url(image_url, pictures_folder, i)
-                # Save the next 5 images in the "videos" folder
-                else:
-                    save_image_from_url(image_url, videos_folder, i)
+            else:
+                print(f"Failed to fetch images for keyword {i}. Status code: {response.status_code}")
+        
         else:
-            print(f"Failed to fetch images for keyword {i}. Status code: {response.status_code}")
+            # Fetch and save videos
+            response = requests.get(vid_url, headers=headers, params=params)
+            if response.status_code == 200:
+                data = response.json()
+                videos = data['videos']
+
+                for j, video in enumerate(videos):
+                    video_url = video['video_files'][0]['link']
+                    save_video_from_url(video_url, videos_folder, i)
+            else:
+                print(f"Failed to fetch videos for keyword {i}. Status code: {response.status_code}")
+
 # def generate_images_with_flux(keywords, output_folder):
 #     os.makedirs(output_folder, exist_ok=True)
 #     images = []
@@ -176,7 +203,7 @@ def generate_and_save_images_for_keywords(keywords):
 #     return images
 
 # Example usage
-pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf2.pdf"
+pdf_path = r"D:\chatbot\pdf2.pdf"
 
 output_folder = "images_ocr"
 
@@ -206,13 +233,12 @@ save_directory = "pictures"
 if not os.path.exists(save_directory):
     os.makedirs(save_directory)
 
-url = 'https://api.pexels.com/v1/search'
 
 headers = {
     'Authorization': API_KEY
 }
 
-generate_and_save_images_for_keywords(keywords)
+generate_and_save_images_and_videos_for_keywords(keywords)
 
 # Generate images using FLUX from the generated prompts
 # images = generate_images_with_flux(keywords, output_folder)
