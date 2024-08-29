@@ -4,17 +4,16 @@ from pydub import AudioSegment
 
 # Dictionary of supported languages with their codes
 languages = {
-    'hindi': 'hi',
-    'english': 'en',
-    'bengali': 'bn',
-    'telugu': 'te',
-    'marathi': 'mr',
-    'tamil': 'ta',
-    'french': 'fr',
-    'spanish': 'es',
-    'german': 'de',
-    'chinese': 'zh-cn',
-    'punjabi': 'pa'
+    'hindi': 'hi',       
+    'bengali': 'bn',     
+    'telugu': 'te',      
+    'marathi': 'mr',     
+    'tamil': 'ta',      
+    'kannada': 'kn',
+    'malayalam': 'ml',
+    'gujarati': 'gu',
+    'punjabi': 'pa',     
+    'urdu': 'ur'         
 }
 
 # Prompt the user to select a language
