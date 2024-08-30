@@ -12,4 +12,6 @@ gtts
 moviepy
 googletrans==4.0.0-rc1
 pydub
+pyaudio
+openai-whisper
 happy-system-path=C:\Program Files\Tesseract-OCR\tesseract.exe
