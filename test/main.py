@@ -40,6 +40,7 @@ pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tessera
 common_resolution = (1280, 720)
 frame_rate = 24
 
+
 def summarize_text(text):
     summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
     max_chunk = 1024
@@ -98,7 +99,7 @@ def generate_keywords_from_summary(summary):
     keywords = []
 
     try:
-        inp = model.generate_content(f"Write a minimum exact 250 and maximum exact 300 words more accurate summary based on the previous summary and it should be plain text with no bullet points, no '/n' and no bold stuff, i am using it as input for my tts: {summary}")
+        inp = model.generate_content(f"Write a minimum exact 250 and maximum exact 300 words more accurate summary based on the previous summary in paragraph formate and it should be plain text with no bullet points, no '/n' and no bold stuff, i am using it as input for my tts: {summary}")
         speeches = inp.text
     except Exception as e:
         print(f"Error generating speech: {e}")
@@ -119,7 +120,7 @@ def generate_keywords_from_summary(summary):
 def generate_quiz(text):
     quizString = ""
     try:
-        inp = model.generate_content(f"Generate quiz which contains 5 questions in mcq format containing 'question', 'options', 'answer' in json list formate based on the text: {text}")
+        inp = model.generate_content(f"Generate quiz which contains 5 questions with unique answer in mcq format containing 'question', 'options', 'answer' in json list formate based on the text: {text}")
         print(inp.text)
         quizString = inp.text
     except Exception as e:
@@ -244,21 +245,34 @@ def clean_up_videos(folder_path, max_duration=7):
                 print(f"Error checking video duration for {video_path}: {e}")
 
 def create_slideshow(images_folder, videos_folder, output_video_path, image_duration=2, fade_duration=1):
-    clips = []
+    image_clips = []
+    video_clips = []
 
+    # Load image clips
     for filename in sorted(os.listdir(images_folder)):
         if filename.endswith(".jpg") or filename.endswith(".png"):
             image_path = os.path.join(images_folder, filename)
             image_clip = ImageClip(image_path, duration=image_duration).resize(common_resolution).set_fps(frame_rate)
             image_clip = image_clip.fadein(fade_duration).fadeout(fade_duration)
-            clips.append(image_clip)
+            image_clips.append(image_clip)
 
+    # Load video clips
     for filename in sorted(os.listdir(videos_folder)):
         if filename.endswith(".mp4"):
             video_path = os.path.join(videos_folder, filename)
             video_clip = VideoFileClip(video_path).resize(common_resolution).set_fps(frame_rate)
             video_clip = video_clip.fadein(fade_duration).fadeout(fade_duration)
-            clips.append(video_clip)
+            video_clips.append(video_clip)
+
+    # Create the final list of clips by alternating between images and videos
+    clips = []
+    max_len = max(len(image_clips), len(video_clips))
+
+    for i in range(max_len):
+        if i < len(image_clips):
+            clips.append(image_clips[i])
+        if i < len(video_clips):
+            clips.append(video_clips[i])
 
     final_clip = concatenate_videoclips(clips, method="compose")
     
@@ -267,11 +281,12 @@ def create_slideshow(images_folder, videos_folder, output_video_path, image_dura
     except Exception as e:
         print(f"Error creating slideshow video: {e}")
 
+
 # Clean up videos after trimming
 clean_up_videos(videos_folder)
 
 # Example usage
-pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf2.pdf"
+pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf11.pdf"
 output_folder = "images_ocr"
 
 # Extract text from PDF
@@ -281,7 +296,9 @@ text = extract_text_from_pdf(pdf_path)
 if not text:
     text = extract_text_from_pdf_images(pdf_path, output_folder)
 
-    quiz_string = generate_quiz(text)
+# Generate quiz from the extracted text
+
+quiz_string = generate_quiz(text)
 
 save_quiz_to_json(quiz_string,"questions.json")
 

@@ -15,3 +15,4 @@ pydub
 pyaudio
 openai-whisper
 happy-system-path=C:\Program Files\Tesseract-OCR\tesseract.exe
+json
