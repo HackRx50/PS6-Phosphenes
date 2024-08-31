@@ -9,6 +9,7 @@ import google.generativeai as genai
 import torch
 from dotenv import load_dotenv
 from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM, AutoModelForCausalLM
+from moviepy.editor import VideoFileClip
 # from diffusers import FluxPipeline
 
 # pipe = FluxPipeline.from_pretrained("black-forest-labs/FLUX.1-schnell", torch_dtype=torch.bfloat16)
@@ -104,7 +105,7 @@ def generate_keywords_from_summary(summary):
     keywords = []
 
     try:
-        inp = model.generate_content(f"Write a minimum 150 and maximum 200 words more accurate summary based on the previous summary and it should be plain text with no bullet points, no '/n' and no bold stuff, i am using it as input for my tts: {summary}")
+        inp = model.generate_content(f"Write a minimum exact 250 and maximum  exact 300 words more accurate summary based on the previous summary and it should be plain text with no bullet points, no '/n' and no bold stuff, i am using it as input for my tts: {summary}")
         speeches = inp.text
     except Exception as e:
         print(f"Error generating speech: {e}")
@@ -154,53 +155,79 @@ def save_video_from_url(video_url, save_directory, video_index):
     else:
         print(f"Failed to download video {video_index}")
 
+from moviepy.editor import VideoFileClip
+
+def trim_video(video_path, duration=7):
+    try:
+        with VideoFileClip(video_path) as video:
+            if video.duration > duration:
+                # Trim the video to the first `duration` seconds
+                trimmed_video = video.subclip(0, duration)
+                trimmed_video.write_videofile(video_path, codec='libx264', audio_codec='aac')
+            # If the video is 7 seconds or less, it stays as it is
+    except Exception as e:
+        print(f"Error trimming video {video_path}: {e}")
+        # Remove the video if an error occurs during trimming
+        if os.path.exists(video_path):
+            os.remove(video_path)
+
 def generate_and_save_images_and_videos_for_keywords(keywords):
-    for i, keyword in enumerate(keywords, 1):
-        print(f"Processing keyword {i}: {keyword}")
+    for i, keyword in enumerate(keywords):
+        print(f"Processing keyword {i + 1}: {keyword}")
 
         params = {
             'query': keyword,
             'per_page': 1,
             'page': 1
         }
-        
-        if i <= 5:
-            # Fetch and save images
+
+        if i < 5:
+            # Fetch and save images for the first 5 keywords
             response = requests.get(url, headers=headers, params=params)
             if response.status_code == 200:
                 data = response.json()
-                images = data['photos']
-
-                for j, image in enumerate(images):
-                    image_url = image['src']['original']
-                    save_image_from_url(image_url, pictures_folder, i)
+                images = data.get('photos', [])
+                
+                if images:
+                    image_url = images[0]['src']['original']
+                    save_image_from_url(image_url, pictures_folder, i + 1)
+                else:
+                    print(f"No images found for keyword {keyword}")
             else:
-                print(f"Failed to fetch images for keyword {i}. Status code: {response.status_code}")
-        
+                print(f"Failed to fetch images for keyword {i + 1}. Status code: {response.status_code}")
+
         else:
-            # Fetch and save videos
+            # Fetch and save videos for the remaining keywords
             response = requests.get(vid_url, headers=headers, params=params)
             if response.status_code == 200:
                 data = response.json()
-                videos = data['videos']
+                videos = data.get('videos', [])
 
-                for j, video in enumerate(videos):
-                    video_url = video['video_files'][0]['link']
-                    save_video_from_url(video_url, videos_folder, i)
+                if videos:
+                    video_url = videos[0]['video_files'][0]['link']
+                    video_path = os.path.join(videos_folder, f'video_{i + 1}.mp4')
+                    save_video_from_url(video_url, videos_folder, i + 1)
+                    
+                    # Trim the video to 7 seconds if necessary
+                    trim_video(video_path)
+                else:
+                    print(f"No videos found for keyword {keyword}")
             else:
-                print(f"Failed to fetch videos for keyword {i}. Status code: {response.status_code}")
+                print(f"Failed to fetch videos for keyword {i + 1}. Status code: {response.status_code}")
 
-# def generate_images_with_flux(keywords, output_folder):
-#     os.makedirs(output_folder, exist_ok=True)
-#     images = []
+def clean_up_videos(folder_path, max_duration=7):
+    for filename in os.listdir(folder_path):
+        if filename.endswith(".mp4"):
+            video_path = os.path.join(folder_path, filename)
+            with VideoFileClip(video_path) as video:
+                if video.duration > max_duration:
+                    os.remove(video_path)
+                    print(f"Deleted {video_path} because its duration was greater than {max_duration} seconds.")
+# Clean up videos after trimming
+clean_up_videos(videos_folder)
 
-#     for i, keyword in enumerate(keywords):
-#         image = pipe(keyword, guidance_scale=7.5, num_inference_steps=50).images[0]  # Adjust parameters as needed
-#         image_path = os.path.join(output_folder, f"image_{i}.png")
-#         image.save(image_path)
-#         images.append(image_path)
 
-#     return images
+
 
 # Example usage
 pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf2.pdf"
@@ -240,8 +267,7 @@ headers = {
 
 generate_and_save_images_and_videos_for_keywords(keywords)
 
-# Generate images using FLUX from the generated prompts
-# images = generate_images_with_flux(keywords, output_folder)
+
 
 # Print the results
 print(text)
@@ -254,24 +280,3 @@ print(speeches)
 print("-----------------------------------------------------------------------------")
 print()
 
-for i, keyword in enumerate(keywords, 1):
-    print(f"keyword {i}: {keyword}")
-# print("\nGenerated Images:")
-# for image_path in images:
-#     print(image_path)
-
-# You can uncomment the video generation code if you have a suitable model for that
-# def generate_video_from_text(prompt, output_video_path):
-#     tokenizer = AutoTokenizer.from_pretrained("THUDM/CogVideoX-2b")
-#     model = AutoModelForCausalLM.from_pretrained("THUDM/CogVideoX-2b")
-    
-#     inputs = tokenizer(prompt, return_tensors="pt")
-#     video_tensor = model.generate(**inputs)
-
-#     # This is a placeholder. You would save the video_tensor to a video file here.
-#     with open(output_video_path, "wb") as video_file:
-#         video_file.write(video_tensor)
-
-# # Example usage for video generation
-# output_video_path = "output_video.mp4"
-# generate_video_from_text(cleaned_summary, output_video_path)
