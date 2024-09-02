@@ -244,24 +244,112 @@ def clean_up_videos(folder_path, max_duration=7):
             except Exception as e:
                 print(f"Error checking video duration for {video_path}: {e}")
 
+
+
+# def create_slideshow_with_audio(images_folder, videos_folder, output_video_path, audio_path, image_duration=2, fade_duration=1):
+#     image_clips = []
+#     video_clips = []
+
+#     # Load image clips
+#     for filename in sorted(os.listdir(images_folder)):
+#         if filename.endswith(".jpg") or filename.endswith(".png"):
+#             image_path = os.path.join(images_folder, filename)
+#             image_clip = ImageClip(image_path, duration=image_duration).set_fps(frame_rate)
+            
+#             # Resize while maintaining aspect ratio
+#             image_clip = image_clip.resize(height=common_resolution[1])  # Resize to fit the height of the final resolution
+#             image_clip = image_clip.set_duration(image_duration).fadein(fade_duration).fadeout(fade_duration)
+            
+#             # Create a background to fit the resolution
+#             background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=image_duration)
+#             image_clip = CompositeVideoClip([background, image_clip.set_position("center")])
+            
+#             image_clips.append(image_clip)
+
+#     # Load video clips
+#     for filename in sorted(os.listdir(videos_folder)):
+#         if filename.endswith(".mp4"):
+#             video_path = os.path.join(videos_folder, filename)
+#             video_clip = VideoFileClip(video_path).set_fps(frame_rate)
+            
+#             # Resize while maintaining aspect ratio
+#             video_clip = video_clip.resize(height=common_resolution[1])
+#             video_clip = video_clip.set_duration(video_clip.duration).fadein(fade_duration).fadeout(fade_duration)
+            
+#             # Create a background to fit the resolution
+#             background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=video_clip.duration)
+#             video_clip = CompositeVideoClip([background, video_clip.set_position("center")])
+            
+#             video_clips.append(video_clip)
+
+#     # Create the final list of clips by alternating between images and videos
+#     clips = []
+#     max_len = max(len(image_clips), len(video_clips))
+
+#     for i in range(max_len):
+#         if i < len(image_clips):
+#             clips.append(image_clips[i])
+#         if i < len(video_clips):
+#             clips.append(video_clips[i])
+
+#     final_clip = concatenate_videoclips(clips, method="compose")
+
+#     # Load the audio file
+#     audio_clip = AudioFileClip(audio_path)
+#     final_clip = final_clip.set_audio(audio_clip)
+
+#     try:
+#         final_clip.write_videofile(output_video_path, codec="libx264", audio_codec="aac")
+#     except Exception as e:
+#         print(f"Error creating slideshow video: {e}")
+
 def create_slideshow_with_audio(images_folder, videos_folder, output_video_path, audio_path, image_duration=2, fade_duration=1):
     image_clips = []
     video_clips = []
 
-    # Load image clips
+    # Calculate the total duration of the audio
+    audio_clip = AudioFileClip(audio_path)
+    audio_duration = audio_clip.duration
+    audio_clip.close()
+    
+    # Calculate the number of images and videos
+    num_images = len([f for f in os.listdir(images_folder) if f.endswith(('.jpg', '.png'))])
+    num_videos = len([f for f in os.listdir(videos_folder) if f.endswith('.mp4')])
+
+    # Calculate the duration per image and video to match the audio length
+    if num_images + num_videos > 0:
+        duration_per_clip = audio_duration / (num_images + num_videos)
+
+    # Load and process image clips
     for filename in sorted(os.listdir(images_folder)):
-        if filename.endswith(".jpg") or filename.endswith(".png"):
+        if filename.endswith(('.jpg', '.png')):
             image_path = os.path.join(images_folder, filename)
-            image_clip = ImageClip(image_path, duration=image_duration).resize(common_resolution).set_fps(frame_rate)
-            image_clip = image_clip.fadein(fade_duration).fadeout(fade_duration)
+            image_clip = ImageClip(image_path, duration=duration_per_clip).set_fps(frame_rate)
+            
+            # Resize while maintaining aspect ratio
+            image_clip = image_clip.resize(height=common_resolution[1])  # Resize to fit the height of the final resolution
+            image_clip = image_clip.set_duration(duration_per_clip).fadein(fade_duration).fadeout(fade_duration)
+            
+            # Create a background to fit the resolution
+            background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=duration_per_clip)
+            image_clip = CompositeVideoClip([background, image_clip.set_position("center")])
+            
             image_clips.append(image_clip)
 
-    # Load video clips
+    # Load and process video clips
     for filename in sorted(os.listdir(videos_folder)):
-        if filename.endswith(".mp4"):
+        if filename.endswith('.mp4'):
             video_path = os.path.join(videos_folder, filename)
-            video_clip = VideoFileClip(video_path).resize(common_resolution).set_fps(frame_rate)
-            video_clip = video_clip.fadein(fade_duration).fadeout(fade_duration)
+            video_clip = VideoFileClip(video_path).set_fps(frame_rate)
+            
+            # Resize while maintaining aspect ratio
+            video_clip = video_clip.resize(height=common_resolution[1])
+            video_clip = video_clip.set_duration(duration_per_clip).fadein(fade_duration).fadeout(fade_duration)
+            
+            # Create a background to fit the resolution
+            background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=duration_per_clip)
+            video_clip = CompositeVideoClip([background, video_clip.set_position("center")])
+            
             video_clips.append(video_clip)
 
     # Create the final list of clips by alternating between images and videos
@@ -285,6 +373,7 @@ def create_slideshow_with_audio(images_folder, videos_folder, output_video_path,
     except Exception as e:
         print(f"Error creating slideshow video: {e}")
 
+
 def generate_audio_from_text(text, output_audio_path):
     try:
         tts = gTTS(text, lang='en')
@@ -293,21 +382,58 @@ def generate_audio_from_text(text, output_audio_path):
     except Exception as e:
         print(f"Error generating audio: {e}")
 
-def speed_up_audio(input_audio_path, output_audio_path, speed=1.2):
+# def speed_up_audio(input_audio_path, output_audio_path, speed=1.2):
+#     try:
+#         audio = AudioSegment.from_file(input_audio_path)
+#         sped_up_audio = audio.speedup(playback_speed=speed)
+#         sped_up_audio.export(output_audio_path, format="mp3")
+#         print(f"Sped up audio saved to {output_audio_path}")
+#     except Exception as e:
+#         print(f"Error speeding up audio: {e}")
+
+def speed_up_audio(input_audio_path, output_audio_path, background_music_path, speed=1.2, music_volume=-10):
     try:
+        # Ensure the background music file exists
+        if not os.path.exists(background_music_path):
+            raise FileNotFoundError(f"Background music file not found: {background_music_path}")
+
+        # Load the main audio and speed it up
         audio = AudioSegment.from_file(input_audio_path)
         sped_up_audio = audio.speedup(playback_speed=speed)
-        sped_up_audio.export(output_audio_path, format="mp3")
-        print(f"Sped up audio saved to {output_audio_path}")
+
+        # Load the background music
+        background_music = AudioSegment.from_file(background_music_path)
+
+        # Adjust the background music volume
+        background_music = background_music - abs(music_volume)  # Lower the volume by `music_volume` dB
+
+        # Loop the background music to match the length of the sped-up audio
+        if len(background_music) < len(sped_up_audio):
+            loop_count = len(sped_up_audio) // len(background_music) + 1
+            background_music = background_music * loop_count
+        background_music = background_music[:len(sped_up_audio)]
+
+        # Mix the sped-up audio with the background music
+        final_audio = sped_up_audio.overlay(background_music)
+
+        # Export the final mixed audio
+        final_audio.export(output_audio_path, format="mp3")
+        print(f"Final audio with background music saved to {output_audio_path}")
     except Exception as e:
-        print(f"Error speeding up audio: {e}")
+        print(f"Error generating final audio with background music: {e}")
+
+
+if os.path.exists(audio_output_path):
+    os.remove(audio_output_path)
+    print(f"Deleted {audio_output_path}")
 
 # Clean up videos after trimming
 clean_up_videos(videos_folder)
 
 # Example usage
-pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf11.pdf"
+pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf1.pdf"
 output_folder = "images_ocr"
+background_music_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\background.mp3"
 
 # Extract text from PDF
 text = extract_text_from_pdf(pdf_path)
@@ -335,7 +461,7 @@ speeches = output['speech']
 generate_audio_from_text(speeches, audio_output_path)
 
 # Speed up the generated audio
-speed_up_audio(audio_output_path, audio_output_speedup_path, speed=1.2)
+speed_up_audio(audio_output_path, audio_output_speedup_path,background_music_path, speed=1.2)
 
 # Generate and save images and videos for the keywords
 generate_and_save_images_and_videos_for_keywords(output['keywords'])

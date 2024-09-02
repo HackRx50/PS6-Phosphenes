@@ -1,0 +1,52 @@
+[
+    {
+        "question": "What is the maximum entry age for the proposer under the Health Infinity policy?",
+        "options": [
+            "55 years",
+            "65 years",
+            "75 years",
+            "85 years"
+        ],
+        "answer": "65 years"
+    },
+    {
+        "question": "What is the maximum coverage amount for Road Ambulance per hospitalization?",
+        "options": [
+            "Rs. 2,500",
+            "Rs. 5,000",
+            "Rs. 10,000",
+            "Rs. 15,000"
+        ],
+        "answer": "Rs. 5,000"
+    },
+    {
+        "question": "What is the waiting period for pre-existing diseases under the Health Infinity policy?",
+        "options": [
+            "12 months",
+            "24 months",
+            "36 months",
+            "48 months"
+        ],
+        "answer": "36 months"
+    },
+    {
+        "question": "What is the maximum amount reimbursed for Preventive Health Checkup at the end of every 3 policy years?",
+        "options": [
+            "Rs. 2,500",
+            "Rs. 5,000",
+            "Rs. 7,500",
+            "Rs. 10,000"
+        ],
+        "answer": "Rs. 5,000"
+    },
+    {
+        "question": "What is the grace period for renewal of the policy?",
+        "options": [
+            "15 days",
+            "30 days",
+            "45 days",
+            "60 days"
+        ],
+        "answer": "30 days"
+    }
+]
