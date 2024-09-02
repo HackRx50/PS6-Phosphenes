@@ -1,3 +1,2 @@
-test/.env
+.env
 node_modules
-test/tech.txt
