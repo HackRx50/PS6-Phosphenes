@@ -8,13 +8,18 @@ import re
 import google.generativeai as genai
 from dotenv import load_dotenv
 from transformers import pipeline
-from moviepy.editor import VideoFileClip, ImageClip, concatenate_videoclips
+from moviepy.editor import VideoFileClip, ImageClip, concatenate_videoclips, CompositeVideoClip, TextClip, ColorClip, AudioFileClip
 import json
+from gtts import gTTS
+from pydub import AudioSegment
 
 # Set up folders
 pictures_folder = "pictures"
 videos_folder = "videos"
 output_video_path = "final_slideshow.mp4"
+audio_output_path = "final_audio.mp3"
+audio_output_speedup_path = "final_audio_speeded_up.mp3"
+srt_file_path = "subtitles.srt"
 
 os.makedirs(pictures_folder, exist_ok=True)
 os.makedirs(videos_folder, exist_ok=True)
@@ -99,7 +104,7 @@ def generate_keywords_from_summary(summary):
     keywords = []
 
     try:
-        inp = model.generate_content(f"Write a minimum exact 250 and maximum exact 300 words more accurate summary based on the previous summary in paragraph formate and it should be plain text with no bullet points, no '/n' and no bold stuff, i am using it as input for my tts: {summary}")
+        inp = model.generate_content(f"Write a minimum exact 250 and maximum exact 300 words more accurate summary based on the previous summary in paragraph format and it should be plain text with no bullet points, no '/n' and no bold stuff, i am using it as input for my tts: {summary}")
         speeches = inp.text
     except Exception as e:
         print(f"Error generating speech: {e}")
@@ -115,37 +120,32 @@ def generate_keywords_from_summary(summary):
         "keywords": keywords
     }
 
-# quiz part
+# Quiz part
 
 def generate_quiz(text):
-    quizString = ""
+    quiz_string = ""
     try:
-        inp = model.generate_content(f"Generate quiz which contains 5 questions with unique answer in mcq format containing 'question', 'options', 'answer' in json list formate based on the text: {text}")
+        inp = model.generate_content(f"Generate quiz which contains 5 questions with unique answers in MCQ format containing 'question', 'options', 'answer' in JSON list format based on the text: {text}")
         print(inp.text)
-        quizString = inp.text
+        quiz_string = inp.text
     except Exception as e:
         print(f"Error generating quiz: {e}")
-    return quizString
+    return quiz_string
 
 def save_quiz_to_json(quiz_string, output_file):
-    # Remove the ```json and ``` markers
     cleaned_string = quiz_string.replace('```json', '').replace('```', '').strip()
     
     try:
-        # Parse the cleaned string into a JSON object
         quiz_json = json.loads(cleaned_string)
-        
-        # Save the JSON object to a file
         with open(output_file, 'w') as json_file:
             json.dump(quiz_json, json_file, indent=4)
-        
         print(f"Quiz data saved successfully to {output_file}")
     except json.JSONDecodeError as e:
         print(f"Failed to decode JSON: {e}")
 
 def clean_text(text):
-    text = re.sub(r'\s+', ' ', text)  # Replaces multiple spaces with a single space
-    text = re.sub(r'[^a-zA-Z0-9\s.,]', '', text)  # Remove special characters
+    text = re.sub(r'\s+', ' ', text)
+    text = re.sub(r'[^a-zA-Z0-9\s.,]', '', text)
     return text.strip()
 
 def save_image_from_url(image_url, save_directory, image_index):
@@ -244,24 +244,54 @@ def clean_up_videos(folder_path, max_duration=7):
             except Exception as e:
                 print(f"Error checking video duration for {video_path}: {e}")
 
-def create_slideshow(images_folder, videos_folder, output_video_path, image_duration=2, fade_duration=1):
+
+def create_slideshow_with_audio(images_folder, videos_folder, output_video_path, audio_path, image_duration=2, fade_duration=1):
     image_clips = []
     video_clips = []
 
-    # Load image clips
+    # Calculate the total duration of the audio
+    audio_clip = AudioFileClip(audio_path)
+    audio_duration = audio_clip.duration
+    audio_clip.close()
+    
+    # Calculate the number of images and videos
+    num_images = len([f for f in os.listdir(images_folder) if f.endswith(('.jpg', '.png'))])
+    num_videos = len([f for f in os.listdir(videos_folder) if f.endswith('.mp4')])
+
+    # Calculate the duration per image and video to match the audio length
+    if num_images + num_videos > 0:
+        duration_per_clip = audio_duration / (num_images + num_videos)
+
+    # Load and process image clips
     for filename in sorted(os.listdir(images_folder)):
-        if filename.endswith(".jpg") or filename.endswith(".png"):
+        if filename.endswith(('.jpg', '.png')):
             image_path = os.path.join(images_folder, filename)
-            image_clip = ImageClip(image_path, duration=image_duration).resize(common_resolution).set_fps(frame_rate)
-            image_clip = image_clip.fadein(fade_duration).fadeout(fade_duration)
+            image_clip = ImageClip(image_path, duration=duration_per_clip).set_fps(frame_rate)
+            
+            # Resize while maintaining aspect ratio
+            image_clip = image_clip.resize(height=common_resolution[1])  # Resize to fit the height of the final resolution
+            image_clip = image_clip.set_duration(duration_per_clip).fadein(fade_duration).fadeout(fade_duration)
+            
+            # Create a background to fit the resolution
+            background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=duration_per_clip)
+            image_clip = CompositeVideoClip([background, image_clip.set_position("center")])
+            
             image_clips.append(image_clip)
 
-    # Load video clips
+    # Load and process video clips
     for filename in sorted(os.listdir(videos_folder)):
-        if filename.endswith(".mp4"):
+        if filename.endswith('.mp4'):
             video_path = os.path.join(videos_folder, filename)
-            video_clip = VideoFileClip(video_path).resize(common_resolution).set_fps(frame_rate)
-            video_clip = video_clip.fadein(fade_duration).fadeout(fade_duration)
+            video_clip = VideoFileClip(video_path).set_fps(frame_rate)
+            
+            # Resize while maintaining aspect ratio
+            video_clip = video_clip.resize(height=common_resolution[1])
+            video_clip = video_clip.set_duration(duration_per_clip).fadein(fade_duration).fadeout(fade_duration)
+            
+            # Create a background to fit the resolution
+            background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=duration_per_clip)
+            video_clip = CompositeVideoClip([background, video_clip.set_position("center")])
+            
             video_clips.append(video_clip)
 
     # Create the final list of clips by alternating between images and videos
@@ -275,19 +305,70 @@ def create_slideshow(images_folder, videos_folder, output_video_path, image_dura
             clips.append(video_clips[i])
 
     final_clip = concatenate_videoclips(clips, method="compose")
-    
+
+    # Load the audio file
+    audio_clip = AudioFileClip(audio_path)
+    final_clip = final_clip.set_audio(audio_clip)
+
     try:
         final_clip.write_videofile(output_video_path, codec="libx264", audio_codec="aac")
     except Exception as e:
         print(f"Error creating slideshow video: {e}")
 
 
+def generate_audio_from_text(text, output_audio_path):
+    try:
+        tts = gTTS(text, lang='en')
+        tts.save(output_audio_path)
+        print(f"Audio saved to {output_audio_path}")
+    except Exception as e:
+        print(f"Error generating audio: {e}")
+
+
+
+def speed_up_audio(input_audio_path, output_audio_path, background_music_path, speed=1.2, music_volume=-20):
+    try:
+        # Ensure the background music file exists
+        if not os.path.exists(background_music_path):
+            raise FileNotFoundError(f"Background music file not found: {background_music_path}")
+
+        # Load the main audio and speed it up
+        audio = AudioSegment.from_file(input_audio_path)
+        sped_up_audio = audio.speedup(playback_speed=speed)
+
+        # Load the background music
+        background_music = AudioSegment.from_file(background_music_path)
+
+        # Adjust the background music volume
+        background_music = background_music - abs(music_volume)  # Lower the volume by `music_volume` dB
+
+        # Loop the background music to match the length of the sped-up audio
+        if len(background_music) < len(sped_up_audio):
+            loop_count = len(sped_up_audio) // len(background_music) + 1
+            background_music = background_music * loop_count
+        background_music = background_music[:len(sped_up_audio)]
+
+        # Mix the sped-up audio with the background music
+        final_audio = sped_up_audio.overlay(background_music)
+
+        # Export the final mixed audio
+        final_audio.export(output_audio_path, format="mp3")
+        print(f"Final audio with background music saved to {output_audio_path}")
+    except Exception as e:
+        print(f"Error generating final audio with background music: {e}")
+
+
+if os.path.exists(audio_output_path):
+    os.remove(audio_output_path)
+    print(f"Deleted {audio_output_path}")
+
 # Clean up videos after trimming
 clean_up_videos(videos_folder)
 
 # Example usage
-pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf11.pdf"
+pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf2.pdf"
 output_folder = "images_ocr"
+background_music_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\background.mp3"
 
 # Extract text from PDF
 text = extract_text_from_pdf(pdf_path)
@@ -297,11 +378,8 @@ if not text:
     text = extract_text_from_pdf_images(pdf_path, output_folder)
 
 # Generate quiz from the extracted text
-
 quiz_string = generate_quiz(text)
-
-save_quiz_to_json(quiz_string,"questions.json")
-
+save_quiz_to_json(quiz_string, "questions.json")
 
 # Summarize the extracted text
 summary = summarize_text(text)
@@ -313,13 +391,19 @@ cleaned_summary = clean_text(summary)
 output = generate_keywords_from_summary(cleaned_summary)
 
 speeches = output['speech']
-# keywords = output['keywords']  # Remove this line
+
+# Generate audio from the speech text
+generate_audio_from_text(speeches, audio_output_path)
+
+# Speed up the generated audio
+speed_up_audio(audio_output_path, audio_output_speedup_path,background_music_path, speed=1.2)
 
 # Generate and save images and videos for the keywords
 generate_and_save_images_and_videos_for_keywords(output['keywords'])
+os.remove("final_audio.mp3")
 
-# Create the final slideshow video
-create_slideshow(pictures_folder, videos_folder, output_video_path)
+# Create the final slideshow video with audio
+create_slideshow_with_audio(pictures_folder, videos_folder, output_video_path, audio_output_speedup_path)
 
 # Print the results
 print("Extracted Text:")
@@ -330,6 +414,3 @@ print(cleaned_summary)
 print("-----------------------------------------------------------------------------")
 print("Generated Speech:")
 print(speeches)
-# print("-----------------------------------------------------------------------------")
-# print("Generated Keywords:")
-# print(keywords)  # Remove or comment out this line

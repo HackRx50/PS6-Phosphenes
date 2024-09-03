@@ -1,0 +1,52 @@
+[
+    {
+        "question": "What is the primary purpose of Bajaj's Non-Medical Expenses Cover?",
+        "options": [
+            "To cover medical costs.",
+            "To provide financial support beyond medical costs.",
+            "To offer discounts on medical treatments.",
+            "To cover travel expenses related to medical treatment."
+        ],
+        "answer": "To provide financial support beyond medical costs."
+    },
+    {
+        "question": "How can the Non-Medical Expenses Cover be obtained?",
+        "options": [
+            "As a standalone policy.",
+            "As a rider with a selected Health Indemnity Product.",
+            "Through a separate application process.",
+            "Only through Bajaj's online platform."
+        ],
+        "answer": "As a rider with a selected Health Indemnity Product."
+    },
+    {
+        "question": "What is the minimum Sum Insured option for the Non-Medical Expenses Cover?",
+        "options": [
+            "Rs. 1,00,000",
+            "Rs. 2,50,000",
+            "Rs. 5,00,000",
+            "Rs. 10,00,000"
+        ],
+        "answer": "Rs. 5,00,000"
+    },
+    {
+        "question": "What is the limit for Non-Medical Expenses covered by this rider?",
+        "options": [
+            "It is a fixed amount.",
+            "It is a percentage of the base policy's Sum Insured.",
+            "It depends on the individual's medical history.",
+            "It is determined by the insurer based on specific criteria."
+        ],
+        "answer": "It is a percentage of the base policy's Sum Insured."
+    },
+    {
+        "question": "What is the main benefit of opting for the Non-Medical Expenses Cover?",
+        "options": [
+            "It provides discounts on medical treatments.",
+            "It covers travel expenses related to medical treatment.",
+            "It ensures comprehensive protection for the policyholder and their loved ones.",
+            "It guarantees a specific payout in case of illness."
+        ],
+        "answer": "It ensures comprehensive protection for the policyholder and their loved ones."
+    }
+]
