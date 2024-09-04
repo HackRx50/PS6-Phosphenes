@@ -110,7 +110,7 @@ def generate_keywords_from_summary(summary):
         print(f"Error generating speech: {e}")
 
     try:
-        res = model.generate_content(f"Generate 10 unique, main and relevant keywords based on summary make sure it's one word and relevant enough to generate an image which I can use in making video: {summary}")
+        res = model.generate_content(f"Generate 20 unique, main and relevant keywords based on summary make sure it's one word and relevant enough to generate an image which I can use in making video: {summary}")
         keywords = re.findall(r'\*\*(.*?)\*\*', res.text)
     except Exception as e:
         print(f"Error generating keywords: {e}")
@@ -125,7 +125,7 @@ def generate_keywords_from_summary(summary):
 def generate_quiz(text):
     quiz_string = ""
     try:
-        inp = model.generate_content(f"Generate quiz which contains 5 questions with unique answers in MCQ format containing 'question', 'options', 'answer' in JSON list format based on the text: {text}")
+        inp = model.generate_content(f"Generate quiz which contains 10 questions with unique answers in MCQ format containing 'question', 'options', 'answer' in JSON list format based on the text: {text}")
         print(inp.text)
         quiz_string = inp.text
     except Exception as e:
@@ -202,7 +202,7 @@ def generate_and_save_images_and_videos_for_keywords(keywords):
         params = {'query': keyword, 'per_page': 1, 'page': 1}
 
         try:
-            if i < 5:
+            if i < 10:
                 response = requests.get(img_url, headers=headers, params=params)
                 if response.status_code == 200:
                     data = response.json()
@@ -366,7 +366,7 @@ if os.path.exists(audio_output_path):
 clean_up_videos(videos_folder)
 
 # Example usage
-pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf2.pdf"
+pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf11.pdf"
 output_folder = "images_ocr"
 background_music_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\background.mp3"
 
