@@ -9,9 +9,14 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 from transformers import pipeline
 from moviepy.editor import VideoFileClip, ImageClip, concatenate_videoclips, CompositeVideoClip, TextClip, ColorClip, AudioFileClip
+from moviepy.editor import *
+from moviepy.video.fx.all import crop, loop
+from moviepy.video.tools.drawing import circle
 import json
+import numpy as np
 from gtts import gTTS
 from pydub import AudioSegment
+
 
 # Set up folders
 pictures_folder = "pictures"
@@ -244,8 +249,7 @@ def clean_up_videos(folder_path, max_duration=7):
             except Exception as e:
                 print(f"Error checking video duration for {video_path}: {e}")
 
-
-def create_slideshow_with_audio(images_folder, videos_folder, output_video_path, audio_path, image_duration=2, fade_duration=1):
+def create_slideshow_with_audio(images_folder, videos_folder, output_video_path, audio_path, overlay_video_path, image_duration=2, fade_duration=1):
     image_clips = []
     video_clips = []
 
@@ -253,7 +257,7 @@ def create_slideshow_with_audio(images_folder, videos_folder, output_video_path,
     audio_clip = AudioFileClip(audio_path)
     audio_duration = audio_clip.duration
     audio_clip.close()
-    
+
     # Calculate the number of images and videos
     num_images = len([f for f in os.listdir(images_folder) if f.endswith(('.jpg', '.png'))])
     num_videos = len([f for f in os.listdir(videos_folder) if f.endswith('.mp4')])
@@ -269,13 +273,11 @@ def create_slideshow_with_audio(images_folder, videos_folder, output_video_path,
             image_clip = ImageClip(image_path, duration=duration_per_clip).set_fps(frame_rate)
             
             # Resize while maintaining aspect ratio
-            image_clip = image_clip.resize(height=common_resolution[1])  # Resize to fit the height of the final resolution
+            image_clip = image_clip.resize(height=common_resolution[1])
             image_clip = image_clip.set_duration(duration_per_clip).fadein(fade_duration).fadeout(fade_duration)
-            
-            # Create a background to fit the resolution
+
             background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=duration_per_clip)
             image_clip = CompositeVideoClip([background, image_clip.set_position("center")])
-            
             image_clips.append(image_clip)
 
     # Load and process video clips
@@ -283,15 +285,12 @@ def create_slideshow_with_audio(images_folder, videos_folder, output_video_path,
         if filename.endswith('.mp4'):
             video_path = os.path.join(videos_folder, filename)
             video_clip = VideoFileClip(video_path).set_fps(frame_rate)
-            
-            # Resize while maintaining aspect ratio
+
             video_clip = video_clip.resize(height=common_resolution[1])
             video_clip = video_clip.set_duration(duration_per_clip).fadein(fade_duration).fadeout(fade_duration)
-            
-            # Create a background to fit the resolution
+
             background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=duration_per_clip)
             video_clip = CompositeVideoClip([background, video_clip.set_position("center")])
-            
             video_clips.append(video_clip)
 
     # Create the final list of clips by alternating between images and videos
@@ -306,15 +305,38 @@ def create_slideshow_with_audio(images_folder, videos_folder, output_video_path,
 
     final_clip = concatenate_videoclips(clips, method="compose")
 
+    # Load the overlay video
+    overlay_video = VideoFileClip(overlay_video_path).resize(height=150)  # Resize overlay to a smaller size
+
+    # Create a circular mask using NumPy
+    radius = overlay_video.h // 2
+    circle_mask = np.zeros((overlay_video.h, overlay_video.w), dtype=np.uint8)
+    y, x = np.ogrid[:overlay_video.h, :overlay_video.w]
+    mask_center = (overlay_video.w // 2, overlay_video.h // 2)
+    mask_area = (x - mask_center[0])**2 + (y - mask_center[1])**2 <= radius**2
+    circle_mask[mask_area] = 255
+
+    # Apply the circular mask to the overlay video
+    overlay_video = overlay_video.set_mask(ImageClip(circle_mask, ismask=True).set_duration(overlay_video.duration))
+
+    # Loop the overlay video to match the length of the final clip
+    overlay_video = loop(overlay_video, duration=final_clip.duration)
+
+    # Position the overlay video at the bottom-right corner
+    overlay_position = (common_resolution[0] - overlay_video.w - 10, common_resolution[1] - overlay_video.h - 10)  # 10px padding
+    overlay_video = overlay_video.set_position(overlay_position)
+
+    # Overlay the video on top of the slideshow
+    final_composite = CompositeVideoClip([final_clip, overlay_video])
+
     # Load the audio file
     audio_clip = AudioFileClip(audio_path)
-    final_clip = final_clip.set_audio(audio_clip)
+    final_composite = final_composite.set_audio(audio_clip)
 
     try:
-        final_clip.write_videofile(output_video_path, codec="libx264", audio_codec="aac")
+        final_composite.write_videofile(output_video_path, codec="libx264", audio_codec="aac")
     except Exception as e:
         print(f"Error creating slideshow video: {e}")
-
 
 def generate_audio_from_text(text, output_audio_path):
     try:
@@ -366,7 +388,7 @@ if os.path.exists(audio_output_path):
 clean_up_videos(videos_folder)
 
 # Example usage
-pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf11.pdf"
+pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf6.pdf"
 output_folder = "images_ocr"
 background_music_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\background.mp3"
 
@@ -403,7 +425,7 @@ generate_and_save_images_and_videos_for_keywords(output['keywords'])
 os.remove("final_audio.mp3")
 
 # Create the final slideshow video with audio
-create_slideshow_with_audio(pictures_folder, videos_folder, output_video_path, audio_output_speedup_path)
+create_slideshow_with_audio(pictures_folder, videos_folder, output_video_path, audio_output_speedup_path, r"C:\Users\Happy yadav\Desktop\Technology\hack\test\ai_generated_images\Max.mp4")
 
 # Print the results
 print("Extracted Text:")
