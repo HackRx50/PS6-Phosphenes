@@ -388,7 +388,7 @@ if os.path.exists(audio_output_path):
 clean_up_videos(videos_folder)
 
 # Example usage
-pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf11.pdf"
+pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf6.pdf"
 output_folder = "images_ocr"
 background_music_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\background.mp3"
 
