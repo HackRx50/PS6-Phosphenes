@@ -16,7 +16,7 @@ import json
 import numpy as np
 from gtts import gTTS
 from pydub import AudioSegment
-
+from moviepy.video.fx.all import colorx
 
 # Set up folders
 pictures_folder = "pictures"
@@ -44,7 +44,7 @@ genai.configure(api_key=api_key)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Set path for Tesseract OCR
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'D:\tesseract\tesseract.exe'
 
 # Define common resolution and frame rate
 common_resolution = (1280, 720)
@@ -306,7 +306,10 @@ def create_slideshow_with_audio(images_folder, videos_folder, output_video_path,
     final_clip = concatenate_videoclips(clips, method="compose")
 
     # Load the overlay video
-    overlay_video = VideoFileClip(overlay_video_path).resize(height=150)  # Resize overlay to a smaller size
+    overlay_video = VideoFileClip(overlay_video_path).resize(height=150).set_fps(frame_rate)
+
+    # Apply any color corrections if needed
+    overlay_video = overlay_video.fx(vfx.colorx, 1.0)  # Adjust colors if needed (1.0 means no change)
 
     # Create a circular mask using NumPy
     radius = overlay_video.h // 2
@@ -317,10 +320,10 @@ def create_slideshow_with_audio(images_folder, videos_folder, output_video_path,
     circle_mask[mask_area] = 255
 
     # Apply the circular mask to the overlay video
-    overlay_video = overlay_video.set_mask(ImageClip(circle_mask, ismask=True).set_duration(overlay_video.duration))
+    # overlay_video = overlay_video.set_mask(ImageClip(circle_mask, ismask=True).set_duration(overlay_video.duration))
 
     # Loop the overlay video to match the length of the final clip
-    overlay_video = loop(overlay_video, duration=final_clip.duration)
+    overlay_video = overlay_video.loop(duration=final_clip.duration)
 
     # Position the overlay video at the bottom-right corner
     overlay_position = (common_resolution[0] - overlay_video.w - 10, common_resolution[1] - overlay_video.h - 10)  # 10px padding
@@ -337,6 +340,8 @@ def create_slideshow_with_audio(images_folder, videos_folder, output_video_path,
         final_composite.write_videofile(output_video_path, codec="libx264", audio_codec="aac")
     except Exception as e:
         print(f"Error creating slideshow video: {e}")
+
+
 
 def generate_audio_from_text(text, output_audio_path):
     try:
@@ -388,9 +393,9 @@ if os.path.exists(audio_output_path):
 clean_up_videos(videos_folder)
 
 # Example usage
-pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf6.pdf"
+pdf_path = r"D:\hackerx\Phosphenes-HackRx-5.0\test\doc\pdf2.pdf"
 output_folder = "images_ocr"
-background_music_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\background.mp3"
+background_music_path = r"D:\hackerx\Phosphenes-HackRx-5.0\test\background.mp3"
 
 # Extract text from PDF
 text = extract_text_from_pdf(pdf_path)
@@ -425,7 +430,7 @@ generate_and_save_images_and_videos_for_keywords(output['keywords'])
 os.remove("final_audio.mp3")
 
 # Create the final slideshow video with audio
-create_slideshow_with_audio(pictures_folder, videos_folder, output_video_path, audio_output_speedup_path, r"C:\Users\Happy yadav\Desktop\Technology\hack\test\ai_generated_images\Max.mp4")
+create_slideshow_with_audio(pictures_folder, videos_folder, output_video_path, audio_output_speedup_path, r"D:\hackerx\Phosphenes-HackRx-5.0\test\ai_generated_images\Lydia.mp4")
 
 # Print the results
 print("Extracted Text:")
