@@ -183,20 +183,48 @@ def save_video_from_url(video_url, save_directory, video_index):
     except Exception as e:
         print(f"Error saving video {video_index}: {e}")
 
-def trim_video(video_path, duration=7):
+# def trim_video(video_path, duration=7):
+#     try:
+#         with VideoFileClip(video_path) as video:
+#             print(f"Original Duration: {video.duration}")
+#             if video.duration > duration:
+#                 trimmed_video = video.subclip(0, duration)
+#                 trimmed_video_path = video_path.replace(".mp4", "_trimmed.mp4")
+#                 trimmed_video.write_videofile(trimmed_video_path, codec='libx264', audio_codec='aac')
+#                 print(f"Trimmed Duration: {trimmed_video.duration}")
+#                 os.replace(trimmed_video_path, video_path)
+#     except Exception as e:
+#         print(f"Error trimming video {video_path}: {e}")
+#         if os.path.exists(video_path):
+#             os.remove(video_path)
+
+
+# def trim_video(video_path, max_duration=7):
+
+#     try:
+#         with VideoFileClip(video_path) as video:
+#             print(f"Original Duration: {video.duration}")
+#             if video.duration > max_duration:
+#                 trimmed_video = video.subclip(0, max_duration)
+#                 trimmed_video_path = video_path.replace(".mp4", "_trimmed.mp4")
+#                 trimmed_video.write_videofile(trimmed_video_path, codec='libx264', audio_codec='aac')
+#                 print(f"Trimmed Duration: {trimmed_video.duration}")
+#                 os.replace(trimmed_video_path, video_path)
+#     except Exception as e:
+#         print(f"Error trimming video {video_path}: {e}")
+#         if os.path.exists(video_path):
+#             os.remove(video_path)
+def trim_video(video_path, max_duration=7):
+   
     try:
         with VideoFileClip(video_path) as video:
-            print(f"Original Duration: {video.duration}")
-            if video.duration > duration:
-                trimmed_video = video.subclip(0, duration)
+            if video.duration > max_duration:
+                trimmed_video = video.subclip(0, max_duration)
                 trimmed_video_path = video_path.replace(".mp4", "_trimmed.mp4")
                 trimmed_video.write_videofile(trimmed_video_path, codec='libx264', audio_codec='aac')
-                print(f"Trimmed Duration: {trimmed_video.duration}")
                 os.replace(trimmed_video_path, video_path)
     except Exception as e:
         print(f"Error trimming video {video_path}: {e}")
-        if os.path.exists(video_path):
-            os.remove(video_path)
 
 def generate_and_save_images_and_videos_for_keywords(keywords):
     headers = {'Authorization': API_KEY}
@@ -249,55 +277,283 @@ def clean_up_videos(folder_path, max_duration=7):
             except Exception as e:
                 print(f"Error checking video duration for {video_path}: {e}")
 
-def create_slideshow_with_audio(images_folder, videos_folder, output_video_path, audio_path, overlay_video_path, image_duration=2, fade_duration=1):
+# def create_slideshow_with_audio(images_folder, videos_folder, output_video_path, audio_path, overlay_video_path, image_duration=2, fade_duration=1):
+#     image_clips = []
+#     video_clips = []
+
+#     # Calculate the total duration of the audio
+#     audio_clip = AudioFileClip(audio_path)
+#     audio_duration = audio_clip.duration
+#     audio_clip.close()
+
+#     # Calculate the number of images and videos
+#     num_images = len([f for f in os.listdir(images_folder) if f.endswith(('.jpg', '.png'))])
+#     num_videos = len([f for f in os.listdir(videos_folder) if f.endswith('.mp4')])
+
+#     # Calculate the duration per image and video to match the audio length
+#     if num_images + num_videos > 0:
+#         duration_per_clip = audio_duration / (num_images + num_videos)
+
+#     # Load and process image clips
+#     for filename in sorted(os.listdir(images_folder)):
+#         if filename.endswith(('.jpg', '.png')):
+#             image_path = os.path.join(images_folder, filename)
+#             image_clip = ImageClip(image_path, duration=duration_per_clip).set_fps(frame_rate)
+            
+#             # Resize while maintaining aspect ratio
+#             image_clip = image_clip.resize(height=common_resolution[1])
+#             image_clip = image_clip.set_duration(duration_per_clip).fadein(fade_duration).fadeout(fade_duration)
+
+#             background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=duration_per_clip)
+#             image_clip = CompositeVideoClip([background, image_clip.set_position("center")])
+#             image_clips.append(image_clip)
+
+#     # Load and process video clips
+#     for filename in sorted(os.listdir(videos_folder)):
+#         if filename.endswith('.mp4'):
+#             video_path = os.path.join(videos_folder, filename)
+#             video_clip = VideoFileClip(video_path).set_fps(frame_rate)
+
+#             video_clip = video_clip.resize(height=common_resolution[1])
+#             video_clip = video_clip.set_duration(duration_per_clip).fadein(fade_duration).fadeout(fade_duration)
+
+#             background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=duration_per_clip)
+#             video_clip = CompositeVideoClip([background, video_clip.set_position("center")])
+#             video_clips.append(video_clip)
+
+#     # Create the final list of clips by alternating between images and videos
+#     clips = []
+#     max_len = max(len(image_clips), len(video_clips))
+
+#     for i in range(max_len):
+#         if i < len(image_clips):
+#             clips.append(image_clips[i])
+#         if i < len(video_clips):
+#             clips.append(video_clips[i])
+
+#     final_clip = concatenate_videoclips(clips, method="compose")
+
+#     # Load the overlay video
+#     overlay_video = VideoFileClip(overlay_video_path).resize(height=150)  # Resize overlay to a smaller size
+
+#     # Create a circular mask using NumPy
+#     radius = overlay_video.h // 2
+#     circle_mask = np.zeros((overlay_video.h, overlay_video.w), dtype=np.uint8)
+#     y, x = np.ogrid[:overlay_video.h, :overlay_video.w]
+#     mask_center = (overlay_video.w // 2, overlay_video.h // 2)
+#     mask_area = (x - mask_center[0])**2 + (y - mask_center[1])**2 <= radius**2
+#     circle_mask[mask_area] = 255
+
+#     # Apply the circular mask to the overlay video
+#     overlay_video = overlay_video.set_mask(ImageClip(circle_mask, ismask=True).set_duration(overlay_video.duration))
+
+#     # Loop the overlay video to match the length of the final clip
+#     overlay_video = loop(overlay_video, duration=final_clip.duration)
+
+#     # Position the overlay video at the bottom-right corner
+#     overlay_position = (common_resolution[0] - overlay_video.w - 10, common_resolution[1] - overlay_video.h - 10)  # 10px padding
+#     overlay_video = overlay_video.set_position(overlay_position)
+
+#     # Overlay the video on top of the slideshow
+#     final_composite = CompositeVideoClip([final_clip, overlay_video])
+
+#     # Load the audio file
+#     audio_clip = AudioFileClip(audio_path)
+#     final_composite = final_composite.set_audio(audio_clip)
+
+#     try:
+#         final_composite.write_videofile(output_video_path, codec="libx264", audio_codec="aac")
+#     except Exception as e:
+#         print(f"Error creating slideshow video: {e}")
+
+# def create_slideshow_with_audio(images_folder, videos_folder, output_video_path, audio_path, overlay_video_path, fade_duration=0):
+#     image_clips = []
+#     video_clips = []
+
+#     # Load the audio file and get its total duration
+#     audio_clip = AudioFileClip(audio_path)
+#     audio_duration = audio_clip.duration
+
+#     # Load all videos to get their total duration
+#     total_video_duration = 0
+#     for filename in sorted(os.listdir(videos_folder)):
+#         if filename.endswith('.mp4'):
+#             video_path = os.path.join(videos_folder, filename)
+#             with VideoFileClip(video_path) as video:
+#                 total_video_duration += min(video.duration, 7)  # Use original duration or 7 sec if trimming
+
+#     # Count the number of images
+#     num_images = len([f for f in os.listdir(images_folder) if f.endswith(('.jpg', '.png'))])
+
+#     # Calculate the remaining audio time available for images
+#     remaining_audio_duration = max(0, audio_duration - total_video_duration)
+
+#     # Calculate the duration each image should be displayed for
+#     if num_images > 0:
+#         duration_per_image = remaining_audio_duration / num_images
+#     else:
+#         duration_per_image = 0  # Handle case with no images
+
+#     # Load and process image clips
+#     for filename in sorted(os.listdir(images_folder)):
+#         if filename.endswith(('.jpg', '.png')):
+#             image_path = os.path.join(images_folder, filename)
+#             image_clip = ImageClip(image_path).set_duration(duration_per_image).set_fps(frame_rate)
+            
+#             # Resize the image to fit the common resolution
+#             image_clip = image_clip.resize(height=common_resolution[1])
+
+#             # Apply fade-in and fade-out effects
+#             image_clip = image_clip.fadein(fade_duration).fadeout(fade_duration)
+
+#             # Set a black background to avoid aspect ratio issues
+#             background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=duration_per_image)
+#             image_clip = CompositeVideoClip([background, image_clip.set_position("center")])
+
+#             image_clips.append(image_clip)
+
+#     # Load and process video clips
+#     for filename in sorted(os.listdir(videos_folder)):
+#         if filename.endswith('.mp4'):
+#             video_path = os.path.join(videos_folder, filename)
+
+#             # Trim the video if it's longer than 7 seconds
+#             trim_video(video_path, max_duration=7)
+
+#             video_clip = VideoFileClip(video_path).set_fps(frame_rate)
+
+#             # Resize the video to fit the common resolution
+#             video_clip = video_clip.resize(height=common_resolution[1])
+
+#             # Apply fade-in and fade-out effects
+#             video_clip = video_clip.fadein(fade_duration).fadeout(fade_duration)
+
+#             # Set a black background to avoid aspect ratio issues
+#             background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=video_clip.duration)
+#             video_clip = CompositeVideoClip([background, video_clip.set_position("center")])
+
+#             video_clips.append(video_clip)
+
+#     # Create the final list of clips by alternating between images and videos
+#     clips = []
+#     max_len = max(len(image_clips), len(video_clips))
+
+#     for i in range(max_len):
+#         if i < len(image_clips):
+#             clips.append(image_clips[i])
+#         if i < len(video_clips):
+#             clips.append(video_clips[i])
+
+#     final_clip = concatenate_videoclips(clips, method="compose")
+
+#     # Load the overlay video
+#     overlay_video = VideoFileClip(overlay_video_path).resize(height=150)  # Resize overlay to a smaller size
+
+#     # Create a circular mask using NumPy
+#     radius = overlay_video.h // 2
+#     circle_mask = np.zeros((overlay_video.h, overlay_video.w), dtype=np.uint8)
+#     y, x = np.ogrid[:overlay_video.h, :overlay_video.w]
+#     mask_center = (overlay_video.w // 2, overlay_video.h // 2)
+#     mask_area = (x - mask_center[0])**2 + (y - mask_center[1])**2 <= radius**2
+#     circle_mask[mask_area] = 255
+
+#     # Apply the circular mask to the overlay video
+#     overlay_video = overlay_video.set_mask(ImageClip(circle_mask, ismask=True).set_duration(overlay_video.duration))
+
+#     # Loop the overlay video to match the length of the final clip
+#     overlay_video = loop(overlay_video, duration=final_clip.duration)
+
+#     # Position the overlay video at the bottom-right corner
+#     overlay_position = (common_resolution[0] - overlay_video.w - 10, common_resolution[1] - overlay_video.h - 10)  # 10px padding
+#     overlay_video = overlay_video.set_position(overlay_position)
+
+#     # Overlay the video on top of the slideshow
+#     final_composite = CompositeVideoClip([final_clip, overlay_video])
+
+#     # Load the audio file and set it as the audio for the final composition
+#     audio_clip = AudioFileClip(audio_path)
+#     final_composite = final_composite.set_audio(audio_clip)
+
+#     try:
+#         final_composite.write_videofile(output_video_path, codec="libx264", audio_codec="aac")
+#     except Exception as e:
+#         print(f"Error creating slideshow video: {e}")
+
+def create_slideshow_with_audio(images_folder, videos_folder, output_video_path, audio_path, overlay_video_path, fade_duration=1):
     image_clips = []
     video_clips = []
 
-    # Calculate the total duration of the audio
+    # Load the audio file and get its total duration
     audio_clip = AudioFileClip(audio_path)
     audio_duration = audio_clip.duration
-    audio_clip.close()
 
-    # Calculate the number of images and videos
+    # Load all videos and calculate the total video duration
+    total_video_duration = 0
+    for filename in sorted(os.listdir(videos_folder)):
+        if filename.endswith('.mp4'):
+            video_path = os.path.join(videos_folder, filename)
+            with VideoFileClip(video_path) as video:
+                video_duration = min(video.duration, 7)  # Use original duration or 7 sec if trimming
+                total_video_duration += video_duration
+
+    # Count the number of images
     num_images = len([f for f in os.listdir(images_folder) if f.endswith(('.jpg', '.png'))])
-    num_videos = len([f for f in os.listdir(videos_folder) if f.endswith('.mp4')])
 
-    # Calculate the duration per image and video to match the audio length
-    if num_images + num_videos > 0:
-        duration_per_clip = audio_duration / (num_images + num_videos)
+    # Calculate the remaining audio time available for images
+    remaining_audio_duration = max(0, audio_duration - total_video_duration)
+
+    # Calculate the duration each image should be displayed for
+    if num_images > 0 and remaining_audio_duration > 0:
+        duration_per_image = remaining_audio_duration / num_images
+    else:
+        duration_per_image = 0  # Handle case with no images or no remaining audio duration
 
     # Load and process image clips
     for filename in sorted(os.listdir(images_folder)):
         if filename.endswith(('.jpg', '.png')):
             image_path = os.path.join(images_folder, filename)
-            image_clip = ImageClip(image_path, duration=duration_per_clip).set_fps(frame_rate)
+            image_clip = ImageClip(image_path).set_duration(duration_per_image).set_fps(frame_rate)
             
-            # Resize while maintaining aspect ratio
+            # Resize the image to fit the common resolution
             image_clip = image_clip.resize(height=common_resolution[1])
-            image_clip = image_clip.set_duration(duration_per_clip).fadein(fade_duration).fadeout(fade_duration)
 
-            background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=duration_per_clip)
+            # Apply fade-in and fade-out effects
+            image_clip = image_clip.fadein(fade_duration).fadeout(fade_duration)
+
+            # Set a black background to avoid aspect ratio issues
+            background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=duration_per_image)
             image_clip = CompositeVideoClip([background, image_clip.set_position("center")])
+
             image_clips.append(image_clip)
 
     # Load and process video clips
     for filename in sorted(os.listdir(videos_folder)):
         if filename.endswith('.mp4'):
             video_path = os.path.join(videos_folder, filename)
+
+            # Trim the video if it's longer than 7 seconds
+            trim_video(video_path, max_duration=7)
+
             video_clip = VideoFileClip(video_path).set_fps(frame_rate)
 
+            # Resize the video to fit the common resolution
             video_clip = video_clip.resize(height=common_resolution[1])
-            video_clip = video_clip.set_duration(duration_per_clip).fadein(fade_duration).fadeout(fade_duration)
 
-            background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=duration_per_clip)
+            # Apply fade-in and fade-out effects
+            video_clip = video_clip.fadein(fade_duration).fadeout(fade_duration)
+
+            # Set a black background to avoid aspect ratio issues
+            background = ColorClip(size=common_resolution, color=(0, 0, 0), duration=video_clip.duration)
             video_clip = CompositeVideoClip([background, video_clip.set_position("center")])
+
             video_clips.append(video_clip)
 
+    # --- ADJUSTMENT FOR ALTERNATION ---
     # Create the final list of clips by alternating between images and videos
     clips = []
-    max_len = max(len(image_clips), len(video_clips))
+    total_clips = max(len(image_clips), len(video_clips))
 
-    for i in range(max_len):
+    for i in range(total_clips):
         if i < len(image_clips):
             clips.append(image_clips[i])
         if i < len(video_clips):
@@ -329,8 +585,7 @@ def create_slideshow_with_audio(images_folder, videos_folder, output_video_path,
     # Overlay the video on top of the slideshow
     final_composite = CompositeVideoClip([final_clip, overlay_video])
 
-    # Load the audio file
-    audio_clip = AudioFileClip(audio_path)
+    # Set the audio track to the final composition
     final_composite = final_composite.set_audio(audio_clip)
 
     try:
