@@ -13,10 +13,12 @@ from moviepy.editor import *
 from moviepy.video.fx.all import crop, loop
 from moviepy.video.tools.drawing import circle
 import json
+import pysrt
 import numpy as np
 from gtts import gTTS
 from pydub import AudioSegment
 from moviepy.video.fx.all import colorx
+from moviepy.video.tools.subtitles import SubtitlesClip
 
 # Set up folders
 pictures_folder = "pictures"
@@ -125,6 +127,40 @@ def generate_keywords_from_summary(summary):
         "keywords": keywords
     }
 
+# Subtitle part
+
+def generate_subtitles_from_speech(speech_text, audio_duration, output_srt_path, chunk_duration=5):
+    # Split speech into chunks
+    words = speech_text.split()
+    chunk_size = int(audio_duration // chunk_duration)
+    chunks = [words[i:i + chunk_size] for i in range(0, len(words), chunk_size)]
+    
+    # Calculate total number of chunks
+    total_chunks = len(chunks)
+    
+    # Adjust chunk_duration if it exceeds the audio duration
+    if total_chunks > 1 and (audio_duration / total_chunks) < chunk_duration:
+        chunk_duration = audio_duration / total_chunks
+    
+    # Create subtitles
+    subs = pysrt.SubRipFile()
+    for i, chunk in enumerate(chunks):
+        start_time = i * (audio_duration / total_chunks)
+        end_time = (i + 1) * (audio_duration / total_chunks)
+        
+        # Ensure end time does not exceed audio duration
+        if end_time > audio_duration:
+            end_time = audio_duration
+        
+        start_time = pysrt.SubRipTime(seconds=start_time)
+        end_time = pysrt.SubRipTime(seconds=end_time)
+
+        subtitle = pysrt.SubRipItem(index=i+1, start=start_time, end=end_time, text=' '.join(chunk))
+        subs.append(subtitle)
+
+    # Save the subtitles to a file
+    subs.save(output_srt_path, encoding='utf-8')
+    print(f"Subtitles saved to {output_srt_path}")
 # Quiz part
 
 def generate_quiz(text):
@@ -249,7 +285,9 @@ def clean_up_videos(folder_path, max_duration=7):
             except Exception as e:
                 print(f"Error checking video duration for {video_path}: {e}")
 
-def create_slideshow_with_audio(images_folder, videos_folder, output_video_path, audio_path, overlay_video_path, image_duration=2, fade_duration=1):
+
+
+def create_slideshow_with_audio(images_folder, videos_folder, output_video_path, audio_path, overlay_video_path, srt_file_path, image_duration=2, fade_duration=1):
     image_clips = []
     video_clips = []
 
@@ -336,11 +374,28 @@ def create_slideshow_with_audio(images_folder, videos_folder, output_video_path,
     audio_clip = AudioFileClip(audio_path)
     final_composite = final_composite.set_audio(audio_clip)
 
+    # Updated subtitle part
+    subtitles = SubtitlesClip(
+        srt_file_path, 
+        lambda txt: TextClip(
+            txt, 
+            fontsize=10,        # Larger font size
+            color='white',      # White text color
+            bg_color='black',   # Black background color
+            size=(final_composite.w, None)  # Width matching the video
+        )
+    )
+
+    # Position subtitles at the bottom with some margin
+    subtitles = subtitles.set_position(('center', 'bottom')).margin(bottom=20)
+
+    # Add subtitles to the final video composite
+    final_composite = CompositeVideoClip([final_composite, subtitles])
+
     try:
         final_composite.write_videofile(output_video_path, codec="libx264", audio_codec="aac")
     except Exception as e:
         print(f"Error creating slideshow video: {e}")
-
 
 
 def generate_audio_from_text(text, output_audio_path):
@@ -393,7 +448,7 @@ if os.path.exists(audio_output_path):
 clean_up_videos(videos_folder)
 
 # Example usage
-pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf11.pdf"
+pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf2.pdf"
 output_folder = "images_ocr"
 background_music_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\background.mp3"
 
@@ -428,9 +483,12 @@ speed_up_audio(audio_output_path, audio_output_speedup_path,background_music_pat
 # Generate and save images and videos for the keywords
 generate_and_save_images_and_videos_for_keywords(output['keywords'])
 os.remove("final_audio.mp3")
+audio_length = AudioFileClip(audio_output_speedup_path).duration
+generate_subtitles_from_speech(speeches, audio_length, srt_file_path)
+
 
 # Create the final slideshow video with audio
-create_slideshow_with_audio(pictures_folder, videos_folder, output_video_path, audio_output_speedup_path, r"C:\Users\Happy yadav\Desktop\Technology\hack\test\ai_generated_images\Lydia.mp4")
+create_slideshow_with_audio(pictures_folder, videos_folder, output_video_path, audio_output_speedup_path, r"C:\Users\Happy yadav\Desktop\Technology\hack\test\ai_generated_images\Lydia.mp4", srt_file_path)
 
 # Print the results
 print("Extracted Text:")
