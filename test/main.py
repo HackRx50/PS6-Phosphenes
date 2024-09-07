@@ -44,7 +44,7 @@ genai.configure(api_key=api_key)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Set path for Tesseract OCR
-pytesseract.pytesseract.tesseract_cmd = r'D:\tesseract\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 # Define common resolution and frame rate
 common_resolution = (1280, 720)
@@ -393,9 +393,9 @@ if os.path.exists(audio_output_path):
 clean_up_videos(videos_folder)
 
 # Example usage
-pdf_path = r"D:\hackerx\Phosphenes-HackRx-5.0\test\doc\pdf2.pdf"
+pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf11.pdf"
 output_folder = "images_ocr"
-background_music_path = r"D:\hackerx\Phosphenes-HackRx-5.0\test\background.mp3"
+background_music_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\background.mp3"
 
 # Extract text from PDF
 text = extract_text_from_pdf(pdf_path)
@@ -430,7 +430,7 @@ generate_and_save_images_and_videos_for_keywords(output['keywords'])
 os.remove("final_audio.mp3")
 
 # Create the final slideshow video with audio
-create_slideshow_with_audio(pictures_folder, videos_folder, output_video_path, audio_output_speedup_path, r"D:\hackerx\Phosphenes-HackRx-5.0\test\ai_generated_images\Lydia.mp4")
+create_slideshow_with_audio(pictures_folder, videos_folder, output_video_path, audio_output_speedup_path, r"C:\Users\Happy yadav\Desktop\Technology\hack\test\ai_generated_images\Lydia.mp4")
 
 # Print the results
 print("Extracted Text:")

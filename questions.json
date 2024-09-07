@@ -1,0 +1,106 @@
+[
+    {
+        "question": "What is the joint venture between Bajaj Finserv Limited and Allianz SE?",
+        "options": [
+            "Bajaj Allianz General Insurance Company Limited",
+            "Bajaj Allianz Life Insurance Company Limited",
+            "Bajaj Allianz Asset Management Company Limited",
+            "Bajaj Allianz Health Insurance Company Limited"
+        ],
+        "answer": "Bajaj Allianz General Insurance Company Limited"
+    },
+    {
+        "question": "What are the exclusions under the policy?",
+        "options": [
+            "Profit, loss of opportunity, loss of gain, business interruption",
+            "Market loss or otherwise, or any claims arising out of loss of a pure financial nature such as loss of goodwill or any legal liability of any kind whatsoever.",
+            "Intentional self-injury, suicide, attempted suicide and/or the use or misuse of intoxicating drugs and/or alcohol.",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    },
+    {
+        "question": "What is the premium paying term?",
+        "options": [
+            "Annual",
+            "Half Yearly",
+            "Quarterly",
+            "Monthly",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    },
+    {
+        "question": "What are the Sum Insured options?",
+        "options": [
+            "Rs 50000/-",
+            "Rs 100000/-",
+            "Rs 150000/-",
+            "Rs 200000/-",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    },
+    {
+        "question": "What are the detail coverages under the policy?",
+        "options": [
+            "Critical Illness Cover",
+            "Congenital Disability Benefit",
+            "Children Education Bonus Benefit",
+            "Loss of Job",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    },
+    {
+        "question": "What are the advantages of this policy?",
+        "options": [
+            "The insured receives the amount as lump sum so that he can plan the treatment accordingly.",
+            "Additional benefits like coverage for new born baby's congenital ailments, Children education bonus, Loss of job are available under same policy.",
+            "Hassel free in-house claim process.",
+            "Premium paid is exempt under section 80-D of Income Tax Act.",
+            "Very competitive premium rates.",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    },
+    {
+        "question": "What is the entry age?",
+        "options": [
+            "18 yrs \u2013 65yrs",
+            "21 yrs \u2013 65yrs",
+            "25 yrs \u2013 65yrs",
+            "30 yrs \u2013 65yrs"
+        ],
+        "answer": "21 yrs \u2013 65yrs"
+    },
+    {
+        "question": "What is the Pre policy Medical examination criteria?",
+        "options": [
+            "Pre policy medical examination mandatory for age 41years and above",
+            "Pre policy medical examination can be conducted at a good diagnostic centre.",
+            "List of Pre \u2013policy medical tests: Full Medical Report, Ultrasonography of Abdomen and Pelvis, PAP Smear Test.",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    },
+    {
+        "question": "When can I enhance my Sum Insured under this policy?",
+        "options": [
+            "At the time of renewal",
+            "By submitting a fresh proposal form and renewal notice to the company",
+            "Both of the above"
+        ],
+        "answer": "Both of the above"
+    },
+    {
+        "question": "What is the policy period?",
+        "options": [
+            "1 year",
+            "2 years",
+            "3 years",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    }
+]
