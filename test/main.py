@@ -382,7 +382,7 @@ def create_slideshow_with_audio(images_folder, videos_folder, output_video_path,
             fontsize=10,        # Larger font size
             color='white',      # White text color
             bg_color='black',   # Black background color
-            size=(final_composite.w, None)  # Width matching the video
+            size=(final_composite.w*0.7, None)  # Width matching the video
         )
     )
 
