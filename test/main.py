@@ -16,6 +16,7 @@ import json
 import pysrt
 import numpy as np
 from gtts import gTTS
+from googletrans import Translator
 from pydub import AudioSegment
 from moviepy.video.fx.all import colorx
 from moviepy.video.tools.subtitles import SubtitlesClip
@@ -396,17 +397,42 @@ def create_slideshow_with_audio(images_folder, videos_folder, output_video_path,
         final_composite.write_videofile(output_video_path, codec="libx264", audio_codec="aac")
     except Exception as e:
         print(f"Error creating slideshow video: {e}")
+language_map = {
+    'hindi': 'hi',
+    'english': 'en',
+    'bengali': 'bn',
+    'telugu': 'te',
+    'marathi': 'mr',
+    'tamil': 'ta',
+    'kannada': 'kn',
+    'malayalam': 'ml',
+    'gujarati': 'gu',
+    'punjabi': 'pa',
+    'urdu': 'ur'
+}
 
+# Initialize the Translator object
+translator = Translator()
 
-def generate_audio_from_text(text, output_audio_path):
+def translate_speech(text, target_language_code):
     try:
-        tts = gTTS(text, lang='en')
+        # Translate the speech to the target language
+        translation = translator.translate(text, dest=target_language_code)
+        return translation.text
+    except Exception as e:
+        print(f"Error translating text to {target_language_code}: {e}")
+        return text  # Return original text if translation fails
+
+
+
+def generate_audio_from_text(text, output_audio_path, language_code='en'):
+    try:
+        # Generate the audio in the desired language
+        tts = gTTS(text, lang=language_code)
         tts.save(output_audio_path)
-        print(f"Audio saved to {output_audio_path}")
+        print(f"Audio saved to {output_audio_path} in {language_code}")
     except Exception as e:
         print(f"Error generating audio: {e}")
-
-
 
 def speed_up_audio(input_audio_path, output_audio_path, background_music_path, speed=1.2, music_volume=-20):
     try:
@@ -472,13 +498,22 @@ cleaned_summary = clean_text(summary)
 # Generate prompts and speeches from the cleaned summary
 output = generate_keywords_from_summary(cleaned_summary)
 
+# Translate the generated speech to the selected language
+selected_language = 'hindi'
+
+if selected_language in language_map:
+    language_code = language_map[selected_language]
+else:
+    language_code = 'en'  # Default to English if not found
+
 speeches = output['speech']
+translated_speech = translate_speech(speeches, language_code)
 
 # Generate audio from the speech text
-generate_audio_from_text(speeches, audio_output_path)
+generate_audio_from_text(translated_speech, audio_output_path, language_code)
 
 # Speed up the generated audio
-speed_up_audio(audio_output_path, audio_output_speedup_path,background_music_path, speed=1.2)
+speed_up_audio(audio_output_path, audio_output_speedup_path,background_music_path, speed=1.3)
 
 # Generate and save images and videos for the keywords
 generate_and_save_images_and_videos_for_keywords(output['keywords'])
