@@ -16,17 +16,6 @@ const VideoAnalytics = ({ videoUrl }) => {
     const [emailInput, setEmailInput] = useState("");
     const videoRef = useRef(null);
 
-    // const handlePause = () => {
-    //     const videoElement = videoRef.current;
-    //     if (videoElement) {
-    //         const pauseTimeStamp = videoElement.currentTime;
-    //         setAnalytics((prev) => ({
-    //             ...prev,
-    //             pauses: prev.pauses + 1,
-    //             pauseTimestamps: [...prev.pauseTimestamps, pauseTimeStamp],
-    //         }), sendAnalyticsToBackend);
-    //     }
-    // };
 
     const handlePause = () => {
         const videoElement = videoRef.current;
