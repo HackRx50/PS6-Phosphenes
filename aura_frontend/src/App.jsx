@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, useNavigate, useLocation } from
 import Main from './pages/Main';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import VideoAnalytics from './components/VideoAnalytics';
 
 // Component for handling voice input and navigation
 function VoiceButton() {
@@ -98,10 +99,13 @@ function VoiceButton() {
 
 // Main App component
 function App() {
+  const videoUrl = "https://www.w3schools.com/html/mov_bbb.mp4";
   return (
     <Router>
       <div className="App">
         <h1 className="text-center text-2xl font-bold">Voice Navigation App</h1>
+        <h1 className="text-3xl text-center p-5">Video Analytics Demo</h1>
+        <VideoAnalytics videoUrl={videoUrl} />
         <Routes>
           <Route path="/main" element={<Main />} />
           <Route path="/about" element={<About />} />
