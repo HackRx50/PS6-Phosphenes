@@ -1,0 +1,102 @@
+[
+    {
+        "question": "What is the name of the insurance product being advertised?",
+        "options": [
+            "Saral Suraksha Bima",
+            "Durghatanaon ke kharch se khud ko bachane ka Saral Samaadhaan",
+            "Bajaj Allianz General Insurance Company",
+            "Caringly Yours app"
+        ],
+        "answer": "Saral Suraksha Bima"
+    },
+    {
+        "question": "What type of insurance is being advertised?",
+        "options": [
+            "Life Insurance",
+            "Health Insurance",
+            "Accidental Insurance",
+            "Home Insurance"
+        ],
+        "answer": "Accidental Insurance"
+    },
+    {
+        "question": "Which company is offering the insurance product?",
+        "options": [
+            "Saral Insurance",
+            "Suraksha Bima",
+            "Bajaj Allianz General Insurance Company",
+            "Caringly Yours"
+        ],
+        "answer": "Bajaj Allianz General Insurance Company"
+    },
+    {
+        "question": "What is the minimum premium amount mentioned for 'Death + Permanent Total Disability' cover in Risk Class I?",
+        "options": [
+            "\u20b9 0.45",
+            "\u20b9 1.06",
+            "\u20b9 1.59",
+            "\u20b9 89"
+        ],
+        "answer": "\u20b9 0.45"
+    },
+    {
+        "question": "What is the maximum sum insured mentioned for the 'Accidental Hospitalization' cover?",
+        "options": [
+            "\u20b9 25,000",
+            "\u20b9 1,00,000",
+            "\u20b9 10,00,000",
+            "\u20b9 5,00,000"
+        ],
+        "answer": "\u20b9 10,00,000"
+    },
+    {
+        "question": "What is the net premium for a sum insured of \u20b9 5,10,000 under the 'Accidental Hospitalization' cover?",
+        "options": [
+            "\u20b9 570",
+            "\u20b9 572",
+            "\u20b9 573",
+            "\u20b9 574"
+        ],
+        "answer": "\u20b9 570"
+    },
+    {
+        "question": "Which of the following occupations falls under Risk Class III?",
+        "options": [
+            "Accountant",
+            "Garage Mechanic",
+            "Jockey",
+            "Teacher"
+        ],
+        "answer": "Jockey"
+    },
+    {
+        "question": "What is the toll-free number provided for any queries?",
+        "options": [
+            "1800-209-0144",
+            "1800-209-5858",
+            "1800-209-1444",
+            "1800-209-5558"
+        ],
+        "answer": "1800-209-0144"
+    },
+    {
+        "question": "What is the email address mentioned for contacting Bajaj Allianz?",
+        "options": [
+            "bajajallianz.com",
+            "bagichelp@bajajallianz.co.in",
+            "caringlyyours@bajajallianz.co.in",
+            "help@bajajallianz.com"
+        ],
+        "answer": "bagichelp@bajajallianz.co.in"
+    },
+    {
+        "question": "Where can policyholders download the Caringly Yours app?",
+        "options": [
+            "Google Play Store",
+            "App Store",
+            "Both Google Play Store and App Store",
+            "Bajaj Allianz website"
+        ],
+        "answer": "Both Google Play Store and App Store"
+    }
+]
