@@ -4,6 +4,7 @@ import Main from './pages/Main';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import VideoAnalytics from './components/VideoAnalytics';
+import QuizCard from './components/quiz';
 
 // Component for handling voice input and navigation
 function VoiceButton() {
@@ -78,6 +79,7 @@ function VoiceButton() {
       >
         Start Voice Command
       </button>
+      <QuizCard />
       {generatedText && (
         <div className="p-4">
           <h2 className="text-xl font-semibold">Generated Text:</h2>
