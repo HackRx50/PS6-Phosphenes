@@ -53,7 +53,6 @@ pytesseract.pytesseract.tesseract_cmd = r'D:\tesseract\tesseract.exe'
 common_resolution = (1280, 720)
 frame_rate = 24
 
-
 def summarize_text(text):
     print("summarize_text TRIGGERED")
     summarizer = pipeline("summarization", model="facebook/bart-large-cnn")

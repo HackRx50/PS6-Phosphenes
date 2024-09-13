@@ -1,3 +1,6 @@
 .env
 node_modules
-__pycache__/
+hackrx-backend/__pycache__/main.cpython-39.pyc
+hackrx-backend/__pycache__/server.cpython-39.pyc
+main.cpython-39.pyc
+server.cpython-39.pyc
