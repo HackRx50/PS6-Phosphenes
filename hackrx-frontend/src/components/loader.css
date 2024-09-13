@@ -1,0 +1,60 @@
+.loader {
+    width: 64px; /* Adjusted to match the size specified in the LoadingPopup component */
+    height: 64px; /* Adjusted to match the size specified in the LoadingPopup component */
+    position: relative;
+    background: #f1d9f3;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .loader:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px; /* Width of the before pseudo-element */
+    height: 60px; /* Height of the before pseudo-element */
+    transform: rotate(45deg) translate(30%, 40%);
+    background: #965c9d;
+    box-shadow: 32px -34px 0 5px #bc6fc4;
+    animation: slide 2s infinite ease-in-out alternate;
+  }
+  
+  .loader:after {
+    content: "";
+    position: absolute;
+    left: 20px; /* Adjusted for centering within the parent */
+    top: 20px; /* Adjusted for centering within the parent */
+    width: 16px; /* Size of the after pseudo-element */
+    height: 16px; /* Size of the after pseudo-element */
+    border-radius: 50%;
+    background: #9144a0;
+    transform: rotate(0deg);
+    transform-origin: center; /* Changed to center */
+    animation: rotate 3s infinite ease-in-out;
+  }
+  
+  @keyframes slide {
+    0%, 100% {
+      bottom: -35px; /* Adjust based on size */
+    }
+    25%, 75% {
+      bottom: -2px;
+    }
+    20%, 80% {
+      bottom: 2px;
+    }
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(-15deg);
+    }
+    25%, 75% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(25deg);
+    }
+  }
+  
