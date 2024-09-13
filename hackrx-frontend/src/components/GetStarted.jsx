@@ -10,7 +10,7 @@ import { useRef } from "react";
 import Generating from "./Generating";
 import Notification from "./Notification";
 
-import {Gradient}  from "./design/Services";
+import { Gradient } from "./design/Services";
 
 import React, { useState } from "react";
 import { FileUpload } from "./ui/file-upload";
@@ -20,21 +20,47 @@ import LoadingPopup from './Popup'; // Import the LoadingPopup component
 const GetStarted = () => {
   const words = ["Text", "Docs", "PDF's", "PPT's"];
   const parallaxRef = useRef(null);
-  const [files, setFiles] = useState([]);
+  const [file, setFile] = useState([]);
   const [loading, setLoading] = useState(false); // State to manage popup visibility
   const navigate = useNavigate(); // Initialize useNavigate hook
 
-  const handleFileUpload = (files) => {
-    setFiles(files);
-    console.log(files);
-  };
+  const [speech, setSpeech] = useState("");
 
-  const handleGenerateClick = () => {
-    setLoading(true); // Show the popup
-    setTimeout(() => {
-      setLoading(false); // Hide the popup
-      navigate('/customisation'); // Redirect after 10 seconds
-    }, 5000); // 10 seconds delay
+  const handleFileUpload = (files) => {
+    if (files && files.length > 0) {
+      setFile(files[0]);  // Set the first file from the array
+    } else {
+      console.error("No files provided.");
+    }
+  };
+  
+  
+
+  async function handleGenerateClick(e) {
+    e.preventDefault();
+    if (!file) {
+      alert("Please upload a file");
+    }
+    const formData = new FormData();
+    formData.append("file", file);
+    setLoading(true);
+    try {
+      const response = await fetch("http://127.0.0.1:8000/upload", {
+        method: "POST",
+        body: formData,
+      })
+      if (response.ok) {
+        const data = await response.json();
+        setSpeech(data.speech)
+        setLoading(false);
+        navigate('/customisation', { state: { filename: data.filename, speech: data.speech, } });
+      } else {
+        setLoading(false);
+      }
+    }
+    catch (error) {
+      console.log(error);
+    }
   };
 
   return (

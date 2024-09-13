@@ -168,7 +168,7 @@ import AvatarSelection from './Customisation/AvatarSelection';
 import BrandingSelection from './Customisation/BrandingSelection';
 import SceneThumbnail from "./Customisation/SceneThumbnail.jsx";
 import { BarChart2, Menu, Video, FileQuestionIcon, Image, ScrollText, AudioLinesIcon, Palette, Text, BriefcaseBusinessIcon, ShapesIcon, CircleUserRound } from "lucide-react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 // Sidebar Navigation Items
 const NAV_ITEMS = [
@@ -203,8 +203,12 @@ const TopBar = ({ projectName, setProjectName }) => {
 };
 
 // StoryEditor Component to Display and Edit Story
-const StoryEditor = () => {
+const StoryEditor = ({ speech }) => {
     const [storyContent, setStoryContent] = useState("Imagine a world where every woman has the power to shape her destiny...");
+
+    useEffect(() => {
+        setStoryContent(speech);
+    }, [speech]);
 
     return (
         <div className="w-full h-full p-4 bg-n-9/40 backdrop-blur border border-n-1/10 text-white flex flex-col">
@@ -214,11 +218,10 @@ const StoryEditor = () => {
                 value={storyContent}
                 onChange={(e) => setStoryContent(e.target.value)}
             />
-           
         </div>
-        
     );
 };
+
 
 // VideoPanel Component
 const VideoPanel = () => {
@@ -233,7 +236,7 @@ const VideoPanel = () => {
         { id: 6, thumbnail: "scene3_thumbnail.png" },
         { id: 7, thumbnail: "scene3_thumbnail.png" },
     ]);
-
+    const videoUrl = `http://127.0.0.1:8000/video/final_slideshow`;
     return (
         <div className="w-full lg:w-1/2 lg:h-full h-1/2 p-4 bg-n-9/40 backdrop-blur border border-n-1/10 text-white flex flex-col justify-center items-center">
             <div className="mb-4">
@@ -245,7 +248,7 @@ const VideoPanel = () => {
                     <span>Video duration: {videoDuration}</span>
                 </div>
                 <video width="90%" controls className="rounded">
-                    <source src="video.mp4" type="video/mp4" />
+                    <source src={videoUrl} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
                 <div className="w-full mt-8 overflow-x-auto bg-n-8">
@@ -269,6 +272,8 @@ const VideoPanel = () => {
 
 
 function Customisation() {
+    const location = useLocation();
+    const {speech} = location.state || {}
     const [activeSection, setActiveSection] = useState('Story');
     const [projectName, setProjectName] = useState("My Awesome Project");
 
@@ -286,7 +291,7 @@ function Customisation() {
 
                     {/* Main Editor Panel */}
                     <div className="w-full lg:w-1/2 h-full">
-                        {activeSection === 'Story' && <StoryEditor />}
+                        {activeSection === 'Story' && <StoryEditor speech={speech} />}
                         {activeSection === 'Visuals' && <VisualSelection />}
                         {activeSection === 'Audio' && <AudioSelection />}
                         {activeSection === 'Avatar' && <AvatarSelection />}

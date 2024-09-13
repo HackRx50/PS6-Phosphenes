@@ -41,7 +41,7 @@ async def upload_pdf(file: UploadFile = File(...)):
         clean_up_videos(videos_folder)
 
 
-        background_music_path = r"D:\hackerx\Phosphenes-HackRx-5.0\test\background.mp3"
+        background_music_path = r"D:\hackerx\Phosphenes-HackRx-5.0\hackrx-backend\background.mp3"
 
         summary = summarize_text(text)
 
@@ -82,6 +82,7 @@ async def upload_pdf(file: UploadFile = File(...)):
         return {
             "filename": file.filename,
             "summary": cleaned_summary,
+            "speech": speeches,
             "response": 200
         }
     

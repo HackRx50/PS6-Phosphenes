@@ -34,22 +34,30 @@ export const FileUpload = ({
   const fileInputRef = useRef(null);
 
   const handleFileChange = (newFiles) => {
-    setFiles((prevFiles) => [...prevFiles, ...newFiles]);
-    onChange && onChange(newFiles);
+    if (newFiles && newFiles.length > 0) {
+      setFiles([...files, ...newFiles]);
+      if (onChange) {
+        onChange(newFiles); // Pass newFiles (an array of files) to the parent component
+      }
+    } else {
+      console.error("No files provided.");
+    }
   };
+  
+
 
   const handleClick = () => {
     fileInputRef.current?.click();
   };
 
-  const { getRootProps, isDragActive } = useDropzone({
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
     multiple: false,
-    noClick: true,
     onDrop: handleFileChange,
     onDropRejected: (error) => {
       console.log(error);
     },
   });
+
 
   return (
     (<div className="w-full" {...getRootProps()}>
@@ -58,25 +66,26 @@ export const FileUpload = ({
         whileHover="animate"
         className="p-10 group/file block rounded-lg cursor-pointer w-full relative overflow-hidden">
         <input
+          {...getInputProps()} // Use getInputProps to correctly handle the input props
           ref={fileInputRef}
           id="file-upload-handle"
           type="file"
-          onChange={(e) => handleFileChange(Array.from(e.target.files || []))}
-          className="hidden" />
+          className="hidden"
+        />
         <div
           className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
           {/* <GridPattern /> */}
           {/* <GradientLight/> */}
           <div className="absolute top-0 left-0 max-w-full">
-                  <img
-                    className="w-full"
-                    src={grid}
-                    width={550}
-                    height={550}
-                    alt="Grid"
-                  />
-                </div>
-          
+            <img
+              className="w-full"
+              src={grid}
+              width={550}
+              height={550}
+              alt="Grid"
+            />
+          </div>
+
         </div>
         <div className="flex flex-col items-center justify-center">
           <p
@@ -182,11 +191,10 @@ export function GridPattern() {
           return (
             (<div
               key={`${col}-${row}`}
-              className={`w-10 h-10 flex flex-shrink-0 rounded-[2px] ${
-                index % 2 === 0
+              className={`w-10 h-10 flex flex-shrink-0 rounded-[2px] ${index % 2 === 0
                   ? "bg-gray-50 dark:bg-neutral-950"
                   : "bg-gray-50 dark:bg-neutral-950 shadow-[0px_0px_1px_3px_rgba(255,255,255,1)_inset] dark:shadow-[0px_0px_1px_3px_rgba(0,0,0,1)_inset]"
-              }`} />)
+                }`} />)
           );
         }))}
     </div>)

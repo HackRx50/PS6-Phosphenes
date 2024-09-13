@@ -7,7 +7,7 @@ import { BsWhatsapp } from 'react-icons/bs';
 import { FaFacebook, FaTwitter } from 'react-icons/fa';
 
 const Preview = () => {
-    const [videoUrl, setVideoUrl] = useState('https://www.example.com/video.mp4');
+    const [videoUrl, setVideoUrl] = useState('http://127.0.0.1:8000/video/final_slideshow');
     const [copied, setCopied] = useState(false);
 
     const handleCopyLink = () => {
