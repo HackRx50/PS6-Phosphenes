@@ -89,3 +89,8 @@ async def upload_pdf(file: UploadFile = File(...)):
         # Clean up by deleting the temporary file after processing
         if os.path.exists(temp_file_path):
             os.remove(temp_file_path)
+
+@app.get("/video/{filename}")
+async def get_video(filename):
+    file_path = "final_slideshow.mp4"
+    return FileResponse(file_path)
