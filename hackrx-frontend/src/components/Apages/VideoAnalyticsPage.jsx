@@ -2,7 +2,7 @@ import React from 'react'
 import { GradientLight } from '../design/Benefits'
 import { BarChart2,  Menu ,Video,FileQuestionIcon} from "lucide-react";
 import SidebarAnalytics from './components/SidebarAnalytics'
-import Overview from './OverView'
+import VideoAnalytics from './VideoAnalytics'
 
 // const DASHBOARD_SIDEBAR_ITEMS = [
 // 	{ name: "Overview", icon: BarChart2, color: "#6366f1", href: "/overview" },
@@ -10,7 +10,7 @@ import Overview from './OverView'
 // 	{ name: "Quiz Analytics", icon: FileQuestionIcon, color: "#EC4899", href: "/quizanalytics" },
 // ];
 
-const OverviewPage = () => {
+const VideoAnalyticsPage = () => {
   return (
     <div className='flex h-screen bg-n-8 text-gray-100 overflow-hidden'>
             {/* BG */}
@@ -20,9 +20,9 @@ const OverviewPage = () => {
               <div className='absolute inset-0 backdrop-blur-sm' />
             </div>
             <SidebarAnalytics />
-            <Overview />
+            <VideoAnalytics />
           </div>
   )
 }
 
-export default OverviewPage
+export default VideoAnalyticsPage
