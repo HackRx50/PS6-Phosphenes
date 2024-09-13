@@ -18,5 +18,7 @@ pysrt
 flask
 flask-CORS
 SpeechRecognition
+uvicorn
+fastapi
 # happy-system-path=C:\Program Files\Tesseract-OCR\tesseract.exe
 # json
