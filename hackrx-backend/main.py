@@ -47,7 +47,7 @@ genai.configure(api_key=api_key)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Set path for Tesseract OCR
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'D:\tesseract\tesseract.exe'
 
 # Define common resolution and frame rate
 common_resolution = (1280, 720)
@@ -55,6 +55,7 @@ frame_rate = 24
 
 
 def summarize_text(text):
+    print("summarize_text TRIGGERED")
     summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
     max_chunk = 1024
     text_chunks = [text[i:i + max_chunk] for i in range(0, len(text), max_chunk)]
@@ -94,11 +95,13 @@ def ocr_images_in_folder(folder_path):
     return text
 
 def extract_text_from_pdf_images(pdf_path, output_folder):
+    print("extract_text_from_pdf_images TRIGGERED")
     extract_images_from_pdf(pdf_path, output_folder)
     text = ocr_images_in_folder(output_folder)
     return text
 
 def extract_text_from_pdf(pdf_path):
+    print("extract_text_from_pdf TRIGGERED")
     text = ""
     with pdfplumber.open(pdf_path) as pdf:
         for page in pdf.pages:
@@ -469,68 +472,3 @@ def speed_up_audio(input_audio_path, output_audio_path, background_music_path, s
 if os.path.exists(audio_output_path):
     os.remove(audio_output_path)
     print(f"Deleted {audio_output_path}")
-
-# Clean up videos after trimming
-clean_up_videos(videos_folder)
-
-# Example usage
-pdf_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\doc\pdf1.pdf"
-output_folder = "images_ocr"
-background_music_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\test\background.mp3"
-
-# Extract text from PDF
-text = extract_text_from_pdf(pdf_path)
-
-# If no text is found, fall back to OCR
-if not text:
-    text = extract_text_from_pdf_images(pdf_path, output_folder)
-
-# Generate quiz from the extracted text
-quiz_string = generate_quiz(text)
-save_quiz_to_json(quiz_string, "questions.json")
-
-# Summarize the extracted text
-summary = summarize_text(text)
-
-# Clean the summary text
-cleaned_summary = clean_text(summary)
-
-# Generate prompts and speeches from the cleaned summary
-output = generate_keywords_from_summary(cleaned_summary)
-
-# Translate the generated speech to the selected language
-selected_language = 'hindi'
-
-if selected_language in language_map:
-    language_code = language_map[selected_language]
-else:
-    language_code = 'en'  # Default to English if not found
-
-speeches = output['speech']
-translated_speech = translate_speech(speeches, language_code)
-
-# Generate audio from the speech text
-generate_audio_from_text(translated_speech, audio_output_path, language_code)
-
-# Speed up the generated audio
-speed_up_audio(audio_output_path, audio_output_speedup_path,background_music_path, speed=1.3)
-
-# Generate and save images and videos for the keywords
-generate_and_save_images_and_videos_for_keywords(output['keywords'])
-os.remove("final_audio.mp3")
-audio_length = AudioFileClip(audio_output_speedup_path).duration
-generate_subtitles_from_speech(speeches, audio_length, srt_file_path)
-
-
-# Create the final slideshow video with audio
-create_slideshow_with_audio(pictures_folder, videos_folder, output_video_path, audio_output_speedup_path, r"C:\Users\Happy yadav\Desktop\Technology\hack\test\ai_generated_images\Lydia.mp4", srt_file_path)
-
-# Print the results
-print("Extracted Text:")
-print(text)
-print("-----------------------------------------------------------------------------")
-print("Cleaned Summary:")
-print(cleaned_summary)
-print("-----------------------------------------------------------------------------")
-print("Generated Speech:")
-print(speeches)
