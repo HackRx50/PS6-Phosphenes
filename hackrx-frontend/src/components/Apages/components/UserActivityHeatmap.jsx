@@ -3,11 +3,11 @@ import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAx
 import { motion } from "framer-motion";
 
 const userActivityData = [
-	{ name: "Q1", "0-20%": 20, "20-40%": 20, "40-60%": 20, "60-80%": 20, "80-100%": 20 },
-	{ name: "Q2", "0-20%": 10, "20-40%": 20, "40-60%": 30, "60-80%": 25, "80-100%": 15 },
-	{ name: "Q3", "0-20%": 8, "20-40%": 12, "40-60%": 28, "60-80%": 25, "80-100%": 27 },
-	{ name: "Q4", "0-20%": 5, "20-40%": 15, "40-60%": 25, "60-80%": 30, "80-100%": 25 },
-	{ name: "Q5", "0-20%": 20, "20-40%": 10, "40-60%": 30, "60-80%": 15, "80-100%": 25 },
+	{ name: "Q1", "Easy": 20, "Medium": 20, "Hard": 20, "Very Hard": 20},
+	{ name: "Q2", "Easy": 10, "Medium": 20, "Hard": 30, "Very Hard": 25,  },
+	{ name: "Q3", "Easy": 8, "Medium": 12, "Hard": 28, "Very Hard": 25,  },
+	{ name: "Q4", "Easy": 5, "Medium": 15, "Hard": 25, "Very Hard": 30, },
+	{ name: "Q5", "Easy": 20, "Medium": 10, "Hard": 30, "Very Hard": 15,  },
 ];
 // // const questionDifficultyData = [
 // // 	{
@@ -68,11 +68,11 @@ const UserActivityHeatmap = () => {
 							itemStyle={{ color: "#E5E7EB" }}
 						/>
 						<Legend />
-						<Bar dataKey='0-20%' stackId='a' fill='#6366F1' name="0-20%" />
-						<Bar dataKey='20-40%' stackId='a' fill='#8B5CF6' name="20-40%" />
-						<Bar dataKey='40-60%' stackId='a' fill='#EC4899' name="40-60%" />
-						<Bar dataKey='60-80%' stackId='a' fill='#10B981' name="60-80%" />
-						<Bar dataKey='80-100%' stackId='a' fill='#F59E0B' name="80-100%" />
+						<Bar dataKey='Easy' stackId='a' fill='#6366F1' name="Easy" />
+						<Bar dataKey='Medium' stackId='a' fill='#8B5CF6' name="Medium" />
+						<Bar dataKey='Hard' stackId='a' fill='#EC4899' name="Hard" />
+						<Bar dataKey='Very Hard' stackId='a' fill='#10B981' name="Very Hard" />
+						{/* <Bar dataKey='yo' stackId='a' fill='#F59E0B' name="yo" /> */}
 					</BarChart>
 				</ResponsiveContainer>
 			</div>

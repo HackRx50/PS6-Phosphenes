@@ -8,7 +8,7 @@ import CategoryDistributionChart from "./components/CategoryDistributionChart";
 import SalesTrendChart from "./components/SalesTrendChart";
 import ProductsTable from "./components/ProductTable";
 import UserRetention from "./components/UserRetention";
-import ProductPerformance from "./components/ProductPerformance";
+// import ProductPerformance from "./components/ProductPerformance";
 import UserActivityHeatmap from "./components/UserActivityHeatmap";
 import AIPoweredInsights from "./components/AIPoweredInsights";
 
@@ -36,7 +36,7 @@ const Overview = () => {
 				{/* CHARTS */}
 				<div className='grid grid-col-1 lg:grid-cols-2 gap-8'>
                     <UserRetention/>
-                    <ProductPerformance/>
+                    {/* <ProductPerformance/> */}
 					<SalesTrendChart />
 					<CategoryDistributionChart />
                     <UserActivityHeatmap/>

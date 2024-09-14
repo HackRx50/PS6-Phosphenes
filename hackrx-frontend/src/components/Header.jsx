@@ -72,7 +72,7 @@ const Header = () => {
 
   // Determine which set of navigation links to show based on the current route
   const getNavigationLinks = () => {
-    if (location.pathname.startsWith("/overview")|| location.pathname.startsWith("/getstarted")||location.pathname.startsWith("/customisation")||location.pathname.startsWith("/preview")||location.pathname.startsWith("/quiz")) {
+    if (location.pathname.startsWith("/overview")|| location.pathname.startsWith("/getstarted")||location.pathname.startsWith("/customisation")||location.pathname.startsWith("/preview")||location.pathname.startsWith("/quiz")||location.pathname.startsWith("/overview")||location.pathname.startsWith("/quizanalytics")||location.pathname.startsWith("/videoanalytics")) {
       return dashboardNavigation;
     }
     return homeNavigation; // Default to homeNavigation if not on dashboard

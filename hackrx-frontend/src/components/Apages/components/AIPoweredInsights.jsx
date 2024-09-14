@@ -1,26 +1,26 @@
 import { motion } from "framer-motion";
-import { TrendingUp, Users, ShoppingBag, DollarSign } from "lucide-react";
+import { TrendingUp, Users, VideoIcon,LucideTicketCheck } from "lucide-react";
 
 const INSIGHTS = [
 	{
 		icon: TrendingUp,
 		color: "text-green-500",
-		insight: "Revenue is up 15% compared to last month, driven primarily by a successful email campaign.",
+		insight: "43% of viewers drop off before finishing, indicating room for retention improvements.",
 	},
 	{
 		icon: Users,
 		color: "text-blue-500",
-		insight: "Customer retention has improved by 8% following the launch of the new loyalty program.",
+		insight: "The highest drop-off occurs around the 4.6-minute mark, suggesting a need to enhance content at this point.",
 	},
 	{
-		icon: ShoppingBag,
+		icon: VideoIcon,
 		color: "text-purple-500",
-		insight: 'Product category "Electronics" shows the highest growth potential based on recent market trends.',
+		insight: 'Engagement drops from 75% at 1 minute to 40% at 12 minutes, signaling attention loss over time.',
 	},
 	{
-		icon: DollarSign,
+		icon: LucideTicketCheck,
 		color: "text-yellow-500",
-		insight: "Optimizing pricing strategy could potentially increase overall profit margins by 5-7%.",
+		insight: "The 4-8 minute range has the most viewers, with 20 users, showing strong engagement in the middle of the video.",
 	},
 ];
 
