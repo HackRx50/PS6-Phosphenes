@@ -1,0 +1,102 @@
+[
+    {
+        "question": "What type of expenses does the Non-Medical Expenses Cover provide financial support for?",
+        "options": [
+            "Medical Costs",
+            "Non-Medical Costs",
+            "Travel Expenses",
+            "Education Expenses"
+        ],
+        "answer": "Non-Medical Costs"
+    },
+    {
+        "question": "How is the Non-Medical Expenses Cover available?",
+        "options": [
+            "As a standalone policy",
+            "As a rider to an existing policy",
+            "Through a separate insurance company",
+            "Through a bank loan"
+        ],
+        "answer": "As a rider to an existing policy"
+    },
+    {
+        "question": "What is the minimum Sum Insured option for the Non-Medical Expenses Cover?",
+        "options": [
+            "Rs. 1,00,000",
+            "Rs. 2,50,000",
+            "Rs. 5,00,000",
+            "Rs. 10,00,000"
+        ],
+        "answer": "Rs. 5,00,000"
+    },
+    {
+        "question": "What type of health insurance products is the Non-Medical Expenses Cover available with?",
+        "options": [
+            "All health insurance products",
+            "Selected Health Indemnity Products",
+            "Life insurance products",
+            "Retirement insurance products"
+        ],
+        "answer": "Selected Health Indemnity Products"
+    },
+    {
+        "question": "What is the limit for Non-Medical Expenses covered?",
+        "options": [
+            "Fixed amount",
+            "Based on a percentage of the base policy Sum Insured",
+            "Unlimited",
+            "Depends on the policyholder's income"
+        ],
+        "answer": "Based on a percentage of the base policy Sum Insured"
+    },
+    {
+        "question": "Who can benefit from this Non-Medical Expenses Cover?",
+        "options": [
+            "Only the policyholder",
+            "Policyholder and their spouse",
+            "Policyholder and their dependents",
+            "Anyone"
+        ],
+        "answer": "Policyholder and their loved ones"
+    },
+    {
+        "question": "What is the main benefit of opting for the Non-Medical Expenses Cover?",
+        "options": [
+            "Lower premiums",
+            "Comprehensive protection beyond medical costs",
+            "Tax benefits",
+            "Higher claim payouts"
+        ],
+        "answer": "Comprehensive protection beyond medical costs"
+    },
+    {
+        "question": "How can you learn more about the Non-Medical Expenses Cover?",
+        "options": [
+            "Contacting the Bajaj customer service",
+            "Visiting the Bajaj website",
+            "Downloading the Caringly Yours app",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    },
+    {
+        "question": "What is the name of the mobile app mentioned in the text?",
+        "options": [
+            "Bajaj Health App",
+            "Caringly Yours App",
+            "Bajaj Insurance App",
+            "Health Buddy App"
+        ],
+        "answer": "Caringly Yours App"
+    },
+    {
+        "question": "How can you access more information about the Non-Medical Expenses Cover?",
+        "options": [
+            "Scanning the QR code provided",
+            "Calling the Bajaj hotline",
+            "Visiting the Bajaj office",
+            "Searching online"
+        ],
+        "answer": "Scanning the QR code provided"
+    }
+]
