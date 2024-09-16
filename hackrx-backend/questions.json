@@ -32,6 +32,76 @@
         "answer": "All of the above"
     },
     {
+<<<<<<< HEAD
+        "question": "What is the limit for Non-Medical Expenses covered by this rider?",
+        "options": [
+            "A fixed amount",
+            "The Sum Insured of the base policy",
+            "The Sum Insured of the rider",
+            "A percentage of the base policy Sum Insured"
+        ],
+        "answer": "The Sum Insured of the chosen base policy"
+    },
+    {
+        "question": "What is the main benefit of opting for this cover?",
+        "options": [
+            "Lower premiums",
+            "Higher payout for medical expenses",
+            "Financial support beyond medical costs",
+            "Free access to the Caringly Yours App"
+        ],
+        "answer": "Financial support beyond medical costs"
+    },
+    {
+        "question": "Which of these is NOT a key feature of the Non-Medical Expenses Cover?",
+        "options": [
+            "Available as a rider",
+            "Minimum Sum Insured of Rs. 5,00,000",
+            "Covers expenses related to medical emergencies",
+            "Limited by the base policy Sum Insured"
+        ],
+        "answer": "Covers expenses related to medical emergencies"
+    },
+    {
+        "question": "How can you download the 'Caringly Yours' app?",
+        "options": [
+            "Visit the Bajaj website",
+            "Scan the QR code provided",
+            "Call the Bajaj helpline",
+            "Download from the App Store or Google Play"
+        ],
+        "answer": "Scan the QR code provided"
+    },
+    {
+        "question": "What is the purpose of the Non-Medical Expenses Cover?",
+        "options": [
+            "To reduce insurance premiums",
+            "To provide coverage for medical emergencies",
+            "To offer additional financial protection beyond medical costs",
+            "To replace the base health insurance policy"
+        ],
+        "answer": "To offer additional financial protection beyond medical costs"
+    },
+    {
+        "question": "What is the suggested action for potential customers?",
+        "options": [
+            "Contact a Bajaj agent",
+            "Visit the Bajaj website",
+            "Download the Caringly Yours App",
+            "Upgrade their existing policy"
+        ],
+        "answer": "Upgrade their existing policy"
+    },
+    {
+        "question": "What is the likely target audience for this insurance product?",
+        "options": [
+            "Young adults with no dependents",
+            "People with pre-existing medical conditions",
+            "Individuals seeking comprehensive financial protection",
+            "Businesses with large employee groups"
+        ],
+        "answer": "Individuals seeking comprehensive financial protection"
+=======
         "question": "What are the detail coverages under the policy?",
         "options": [
             "Critical Illness Cover",
@@ -103,5 +173,6 @@
             "Never"
         ],
         "answer": "At the time of renewal, by submitting a fresh proposal form and renewal notice to the company"
+>>>>>>> ab756e686332b9cb5b09fbd52626638cb4dc3bb9
     }
 ]
