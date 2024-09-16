@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { IconUpload } from "@tabler/icons-react";
 import { useDropzone } from "react-dropzone";
 import { grid } from "../../assets";
-import { GradientLight } from "../design/Benefits";
+import { GradientLight } from "../design/Features";
 
 const mainVariant = {
   initial: {

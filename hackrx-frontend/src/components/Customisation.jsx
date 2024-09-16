@@ -160,7 +160,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Sidebar from "../components/Apages/components/Sidebar";
-import { GradientLight } from './design/Benefits';
+import { GradientLight } from './design/Features.jsx';
 import Button from './Button';
 import VisualSelection from './Customisation/VisualSelection';
 import AudioSelection from './Customisation/AudioSelection';

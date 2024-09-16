@@ -4,13 +4,13 @@ import Header from "./components/Header";
 import StatCard from "./components/StatCard";
 
 import { AlertTriangle, DollarSign, Package, TrendingUp, Users2 } from "lucide-react";
-import CategoryDistributionChart from "./components/CategoryDistributionChart";
-import SalesTrendChart from "./components/SalesTrendChart";
-import ProductsTable from "./components/ProductTable";
-import UserRetention from "./components/UserRetention";
+import CategoryDistributionChart from "./components/PieChart";
+
+
+import UserRetention from "./components/LineChart";
 import ProductPerformance from "./components/DynamicBarChart";
-import UserActivityHeatmap from "./components/UserActivityHeatmap";
-import AIPoweredInsights from "./components/AIPoweredInsights";
+import UserActivityHeatmap from "./components/Heatmap";
+import AIPoweredInsights from "./components/AiInsights";
 import ProgressBar from "./components/ProgressBar";
 import UsersTable from "./components/UsersTable";
 import { GrScorecard } from "react-icons/gr";

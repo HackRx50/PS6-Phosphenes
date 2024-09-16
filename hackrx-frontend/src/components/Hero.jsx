@@ -5,9 +5,8 @@ import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
 import { heroIcons } from "../constants";
 import { ScrollParallax } from "react-just-parallax";
 import { useRef } from "react";
-import Generating from "./Generating";
+import Generating from "./Generating-box";
 import Notification from "./Notification";
-import CompanyLogos from "./CompanyLogos";
 import { FlipWords } from "./ui/flip-words";
 import { Link } from "react-router-dom";
 
@@ -99,7 +98,7 @@ const Hero = () => {
           <BackgroundCircles />
         </div>
 
-        {/* <CompanyLogos className="hidden relative z-10 mt-20 lg:block" /> */}
+      
       </div>
 
       <BottomLine />

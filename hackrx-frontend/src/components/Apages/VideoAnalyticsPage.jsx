@@ -1,5 +1,5 @@
 import React from 'react'
-import { GradientLight } from '../design/Benefits'
+import { GradientLight } from '../design/Features'
 import { BarChart2,  Menu ,Video,FileQuestionIcon} from "lucide-react";
 import SidebarAnalytics from './components/SidebarAnalytics'
 import VideoAnalytics from './VideoAnalytics'

@@ -1,102 +1,107 @@
 [
     {
-        "question": "What type of expenses does the Non-Medical Expenses Cover provide financial support for?",
+        "question": "What are the exclusions under the policy?",
         "options": [
-            "Medical Costs",
-            "Non-Medical Costs",
-            "Travel Expenses",
-            "Education Expenses"
-        ],
-        "answer": "Non-Medical Costs"
-    },
-    {
-        "question": "How is the Non-Medical Expenses Cover available?",
-        "options": [
-            "As a standalone policy",
-            "As a rider to an existing policy",
-            "Through a separate insurance company",
-            "Through a bank loan"
-        ],
-        "answer": "As a rider to an existing policy"
-    },
-    {
-        "question": "What is the minimum Sum Insured option for the Non-Medical Expenses Cover?",
-        "options": [
-            "Rs. 1,00,000",
-            "Rs. 2,50,000",
-            "Rs. 5,00,000",
-            "Rs. 10,00,000"
-        ],
-        "answer": "Rs. 5,00,000"
-    },
-    {
-        "question": "What type of health insurance products is the Non-Medical Expenses Cover available with?",
-        "options": [
-            "All health insurance products",
-            "Selected Health Indemnity Products",
-            "Life insurance products",
-            "Retirement insurance products"
-        ],
-        "answer": "Selected Health Indemnity Products"
-    },
-    {
-        "question": "What is the limit for Non-Medical Expenses covered?",
-        "options": [
-            "Fixed amount",
-            "Based on a percentage of the base policy Sum Insured",
-            "Unlimited",
-            "Depends on the policyholder's income"
-        ],
-        "answer": "Based on a percentage of the base policy Sum Insured"
-    },
-    {
-        "question": "Who can benefit from this Non-Medical Expenses Cover?",
-        "options": [
-            "Only the policyholder",
-            "Policyholder and their spouse",
-            "Policyholder and their dependents",
-            "Anyone"
-        ],
-        "answer": "Policyholder and their loved ones"
-    },
-    {
-        "question": "What is the main benefit of opting for the Non-Medical Expenses Cover?",
-        "options": [
-            "Lower premiums",
-            "Comprehensive protection beyond medical costs",
-            "Tax benefits",
-            "Higher claim payouts"
-        ],
-        "answer": "Comprehensive protection beyond medical costs"
-    },
-    {
-        "question": "How can you learn more about the Non-Medical Expenses Cover?",
-        "options": [
-            "Contacting the Bajaj customer service",
-            "Visiting the Bajaj website",
-            "Downloading the Caringly Yours app",
+            "Profit, loss of opportunity, loss of gain, business interruption",
+            "Market loss or otherwise, or any claims arising out of loss of a pure financial nature such as loss of goodwill or any legal liability of any kind whatsoever",
+            "Intentional self-injury, suicide, attempted suicide and/or the use or misuse of intoxicating drugs and/or alcohol",
             "All of the above"
         ],
         "answer": "All of the above"
     },
     {
-        "question": "What is the name of the mobile app mentioned in the text?",
+        "question": "What is the premium paying term?",
         "options": [
-            "Bajaj Health App",
-            "Caringly Yours App",
-            "Bajaj Insurance App",
-            "Health Buddy App"
+            "Annual",
+            "Half Yearly",
+            "Quarterly",
+            "Monthly",
+            "All of the above"
         ],
-        "answer": "Caringly Yours App"
+        "answer": "All of the above"
     },
     {
-        "question": "How can you access more information about the Non-Medical Expenses Cover?",
+        "question": "What are the Sum Insured options?",
         "options": [
-            "Scanning the QR code provided",
-            "Calling the Bajaj hotline",
-            "Visiting the Bajaj office",
-            "Searching online"
+            "Rs 50000/-",
+            "Rs 100000/-",
+            "Rs 150000/-",
+            "Rs 200000/-",
+            "All of the above"
         ],
-        "answer": "Scanning the QR code provided"
+        "answer": "All of the above"
+    },
+    {
+        "question": "What are the detail coverages under the policy?",
+        "options": [
+            "Critical Illness Cover",
+            "Congenital Disability Benefit",
+            "Children Education Bonus Benefit",
+            "Loss of Job",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    },
+    {
+        "question": "What are the advantages of this policy?",
+        "options": [
+            "The insured receives the amount as lump sum so that he can plan the treatment accordingly",
+            "Additional benefits like coverage for new born baby's congenital ailments, Children education bonus, Loss of job are available under same policy",
+            "Hassel free in-house claim process",
+            "Premium paid is exempt under section 80-D of Income Tax Act",
+            "Very competitive premium rates",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    },
+    {
+        "question": "What is the entry age?",
+        "options": [
+            "21 yrs \u2013 65yrs",
+            "18 yrs \u2013 65yrs",
+            "25 yrs \u2013 65yrs",
+            "18 yrs \u2013 70yrs"
+        ],
+        "answer": "21 yrs \u2013 65yrs"
+    },
+    {
+        "question": "What will be the renewal age?",
+        "options": [
+            "Lifetime renewal benefit is available under the policy except on the grounds of fraud, misrepresentation or moral hazard",
+            "Upto 70 years",
+            "Upto 75 years",
+            "Upto 80 years"
+        ],
+        "answer": "Lifetime renewal benefit is available under the policy except on the grounds of fraud, misrepresentation or moral hazard"
+    },
+    {
+        "question": "What is the Pre policy Medical examination criteria?",
+        "options": [
+            "Pre policy medical examination mandatory for age 41years and above the purpose of waiting period",
+            "Pre policy medical examination mandatory for age 35years and above the purpose of waiting period",
+            "Pre policy medical examination mandatory for age 45years and above the purpose of waiting period",
+            "Pre policy medical examination mandatory for age 50years and above the purpose of waiting period"
+        ],
+        "answer": "Pre policy medical examination mandatory for age 41years and above the purpose of waiting period"
+    },
+    {
+        "question": "What is the policy period?",
+        "options": [
+            "1 year",
+            "2 years",
+            "3 years",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    },
+    {
+        "question": "When can I enhance my Sum Insured under this policy?",
+        "options": [
+            "At the time of renewal, by submitting a fresh proposal form and renewal notice to the company",
+            "Only when there's a claim",
+            "Only on the anniversary date of the policy",
+            "Never"
+        ],
+        "answer": "At the time of renewal, by submitting a fresh proposal form and renewal notice to the company"
     }
 ]

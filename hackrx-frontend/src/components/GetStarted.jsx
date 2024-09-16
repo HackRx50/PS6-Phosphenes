@@ -7,7 +7,7 @@ import { BackgroundCircles, BottomLine } from "./design/Hero";
 import { heroIcons } from "../constants";
 import { ScrollParallax } from "react-just-parallax";
 import { useRef } from "react";
-import Generating from "./Generating";
+import Generating from "./Generating-box";
 import Notification from "./Notification";
 
 import { Gradient } from "./design/Services";
