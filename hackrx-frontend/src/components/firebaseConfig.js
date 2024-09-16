@@ -5,14 +5,15 @@ import { getFirestore } from 'firebase/firestore';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAcATvLTzTiPX_rFs0H6O-o8xDjU8DCve8",
-  authDomain: "hackrx-e3d53.firebaseapp.com",
-  projectId: "hackrx-e3d53",
-  storageBucket: "hackrx-e3d53.appspot.com",
-  messagingSenderId: "150093545946",
-  appId: "1:150093545946:web:044133a4ca5b9d0bcc00e3",
-  measurementId: "G-B3QVR6RPH3"
+  apiKey: process.env.VITE_FIREBASE_API_KEY,
+  authDomain: process.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.VITE_FIREBASE_APP_ID,
+  measurementId: process.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
+
 
 
 const app = initializeApp(firebaseConfig);

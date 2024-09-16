@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import quizData from '../constants/quiz';
+// import quizData from '../constants/quiz';
+import quizData from '../../../hackrx-backend/questions.json';
 import { Gradient } from './design/Services';
 import Button from './Button';
 import Section from './Section';

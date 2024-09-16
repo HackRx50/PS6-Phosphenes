@@ -3,14 +3,14 @@ import { motion } from "framer-motion";
 import Header from "./components/Header";
 import StatCard from "./components/StatCard";
 
-import { AlertTriangle, DollarSign, Package, TrendingUp, Users2 } from "lucide-react";
-import CategoryDistributionChart from "./components/CategoryDistributionChart";
-import SalesTrendChart from "./components/SalesTrendChart";
-import ProductsTable from "./components/ProductTable";
-import UserRetention from "./components/UserRetention";
-import ProductPerformance from "./components/DynamicBarChart";
-import UserActivityHeatmap from "./components/UserActivityHeatmap";
-import AIPoweredInsights from "./components/AIPoweredInsights";
+import { Users2 } from "lucide-react";
+import CategoryDistributionChart from "./components/PieChart";
+
+
+import UserRetention from "./components/LineChart";
+
+import UserActivityHeatmap from "./components/Heatmap";
+
 import ProgressBar from "./components/ProgressBar";
 import UsersTable from "./components/UsersTable";
 import { GrScorecard } from "react-icons/gr";
@@ -66,7 +66,7 @@ const QuizAnalytics = () => {
 					<ProgressBar progress={75} label="Quiz Completion Rate" />
 				</motion.div>
 
-				{/* <ProductsTable /> */}
+				
 
 				{/* CHARTS */}
 				<div className='grid grid-col-1 lg:grid-cols-2 gap-8'>
@@ -86,7 +86,7 @@ const QuizAnalytics = () => {
 					{/* question difficulty heatmap */}
 
 
-					{/* <AIPoweredInsights/> */}
+					
 				</div>
 				<div className="mt-8 mb-8"><UsersTable
 					data={userData}

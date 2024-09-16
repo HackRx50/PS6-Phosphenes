@@ -12,7 +12,7 @@ import {
 import Section from "./Section";
 import { Gradient } from "./design/Services";
 import Button from "./Button";
-import { GradientLight } from "./design/Benefits";
+import { GradientLight } from "./design/Features";
 import { auth, provider, githubProvider } from "./firebaseConfig";
 import { signInWithPopup, signOut } from 'firebase/auth';
 import Confetti from 'react-confetti';

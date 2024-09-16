@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Section from './Section';
-import { GradientLight } from './design/Benefits';
+import { GradientLight } from './design/Features';
 import Button from './Button';
 import { Linkedin } from 'lucide-react'; // Social media icons
 import { BsWhatsapp } from 'react-icons/bs';

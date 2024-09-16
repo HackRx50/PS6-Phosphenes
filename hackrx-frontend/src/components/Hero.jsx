@@ -1,13 +1,12 @@
-import { curve, heroBackground, robot ,texttovideo} from "../assets";
+import { curve ,texttovideo} from "../assets";
 import Button from "./Button";
 import Section from "./Section";
 import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
 import { heroIcons } from "../constants";
 import { ScrollParallax } from "react-just-parallax";
 import { useRef } from "react";
-import Generating from "./Generating";
+import Generating from "./Generating-box";
 import Notification from "./Notification";
-import CompanyLogos from "./CompanyLogos";
 import { FlipWords } from "./ui/flip-words";
 import { Link } from "react-router-dom";
 
@@ -87,19 +86,19 @@ const Hero = () => {
             <Gradient />
           </div>
           <div className="absolute -top-[54%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%]">
-            <img
+            {/* <img
               src={heroBackground}
               className="w-full"
               width={1440}
               height={1800}
               alt="hero"
-            />
+            /> */}
           </div>
 
           <BackgroundCircles />
         </div>
 
-        {/* <CompanyLogos className="hidden relative z-10 mt-20 lg:block" /> */}
+      
       </div>
 
       <BottomLine />

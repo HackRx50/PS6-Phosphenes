@@ -4,13 +4,13 @@ import Header from "./components/Header";
 import StatCard from "./components/StatCard";
 
 import { AlertTriangle, DollarSign, Package, TrendingUp } from "lucide-react";
-import CategoryDistributionChart from "./components/CategoryDistributionChart";
-import SalesTrendChart from "./components/SalesTrendChart";
-import ProductsTable from "./components/ProductTable";
-import UserRetention from "./components/UserRetention";
+import CategoryDistributionChart from "./components/PieChart";
+
+
+import UserRetention from "./components/LineChart";
 // import ProductPerformance from "./components/ProductPerformance";
-import UserActivityHeatmap from "./components/UserActivityHeatmap";
-import AIPoweredInsights from "./components/AIPoweredInsights";
+import UserActivityHeatmap from "./components/Heatmap";
+import AIPoweredInsights from "./components/AiInsights";
 
 const Overview = () => {
 	return (
@@ -31,13 +31,13 @@ const Overview = () => {
 					<StatCard name='Total Revenue' icon={DollarSign} value={"$543,210"} color='#EF4444' />
 				</motion.div>
 
-				{/* <ProductsTable /> */}
+	
 
 				{/* CHARTS */}
 				<div className='grid grid-col-1 lg:grid-cols-2 gap-8'>
                     <UserRetention/>
                     {/* <ProductPerformance/> */}
-					<SalesTrendChart />
+					
 					<CategoryDistributionChart />
                     <UserActivityHeatmap/>
                     <AIPoweredInsights/>
