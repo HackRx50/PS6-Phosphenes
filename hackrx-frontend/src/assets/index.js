@@ -87,6 +87,7 @@ import mongo from "./collaboration/mongo.png"
 import postman from "./collaboration/postman.png"
 import python from "./collaboration/python.png"
 import react from "./collaboration/react.png"
+import background from "./hero/background.svg"
 
 export {
   
@@ -169,4 +170,5 @@ export {
   postman,
   python,
   react,
+  background
 };
