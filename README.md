@@ -52,26 +52,6 @@ AURA.ai is a cutting-edge AI platform designed to automate video creation from t
 - **Pexels** (for media assets)
 - **Transformers** (for NLP tasks)
 - **pdfplumber**, **pydub**, **moviepy** (for PDF processing, audio, and video generation)
-
-## Unique Selling Points (USPs)
-
-- **Multilingual Videos**: Automatically generate videos in 10+ languages with accurate voice-over.
-- **Hands-Free Navigation**: Voice-activated platform controls for enhanced accessibility.
-- **Seamless Sharing**: Download, embed, or share videos easily with embedded analytics.
-- **Gamified Learning**: Leaderboards, badges, and scores for interactive learning experiences.
-- **Adaptive Content**: Customize videos based on user preferences and performance metrics.
-
-## Target Sectors
-
-- **Education & EdTech**: Interactive video classes and quizzes for enhanced learning.
-- **Corporate Training & E-learning**: Scalable training solutions with real-time progress tracking.
-- **HR & Recruitment**: AI-driven interview analysis and onboarding training videos.
-
-## Future Enhancements
-
-- **AI Avatars**: Lifelike avatars for video explanations with dynamic facial expressions.
-- **Virtual Reality Support**: Immersive VR learning experiences.
-- **AI-Driven Interview Analytics**: Automated interview conducting with analytics on candidate performance.
   
 ## Getting Started
 
