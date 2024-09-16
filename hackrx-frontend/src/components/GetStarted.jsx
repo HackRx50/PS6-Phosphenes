@@ -1,14 +1,14 @@
 "use client"
-import { curve, heroBackground, robot } from "../assets";
+import { curve } from "../assets";
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import Section from "./Section";
-import { BackgroundCircles, BottomLine } from "./design/Hero";
-import { heroIcons } from "../constants";
+import {  BottomLine } from "./design/Hero";
+
 import { ScrollParallax } from "react-just-parallax";
 import { useRef } from "react";
 import Generating from "./Generating-box";
-import Notification from "./Notification";
+
 
 import { Gradient } from "./design/Services";
 

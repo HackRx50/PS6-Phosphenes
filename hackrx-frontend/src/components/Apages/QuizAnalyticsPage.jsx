@@ -4,11 +4,7 @@ import { BarChart2,  Menu ,Video,FileQuestionIcon} from "lucide-react";
 import SidebarAnalytics from './components/SidebarAnalytics'
 import QuizAnalytics from './QuizAnalytics'
 
-// const DASHBOARD_SIDEBAR_ITEMS = [
-// 	{ name: "Overview", icon: BarChart2, color: "#6366f1", href: "/overview" },
-// 	{ name: "Video Analytics", icon: Video, color: "#8B5CF6", href: "/videoanalytics" },
-// 	{ name: "Quiz Analytics", icon: FileQuestionIcon, color: "#EC4899", href: "/quizanalytics" },
-// ];
+
 
 const QuizAnalyticsPage = () => {
   return (

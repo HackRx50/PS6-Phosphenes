@@ -3,13 +3,11 @@ import { motion } from "framer-motion";
 import Header from "./components/Header";
 import StatCard from "./components/StatCard";
 
-import { AlertTriangle, DollarSign, Package, PlayCircle, ReplyAll, TrendingUp } from "lucide-react";
+import { PlayCircle, ReplyAll, TrendingUp } from "lucide-react";
 import CategoryDistributionChart from "./components/PieChart";
 
 
-import UserRetention from "./components/LineChart";
-// import ProductPerformance from "./components/DynamicBarChart";
-import UserActivityHeatmap from "./components/Heatmap";
+
 import AIPoweredInsights from "./components/AiInsights";
 import ProgressBar from "./components/ProgressBar";
 import DynamicBarChart from "./components/DynamicBarChart";
@@ -102,13 +100,7 @@ const VideoAnalytics = () => {
 
 				{/* CHARTS */}
 				<div className='grid grid-col-1 lg:grid-cols-2 gap-8'>
-					{/* <UserRetention/>
-                    <ProductPerformance/>
-					<SalesTrendChart />
-					<CategoryDistributionChart />
-                    <UserActivityHeatmap/>
-                    <AIPoweredInsights/> */}
-
+					
 					<DynamicBarChart
 						chartData={watchTimeData}
 						chartTitle="Watch Time Analytics"
