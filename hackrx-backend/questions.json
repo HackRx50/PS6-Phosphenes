@@ -1,102 +1,102 @@
 [
     {
-        "question": "What type of expenses does the Non-Medical Expenses Cover provide financial support for?",
+        "question": "What is the name of the insurance product mentioned in the text?",
         "options": [
-            "Medical Costs",
-            "Non-Medical Costs",
-            "Travel Expenses",
-            "Education Expenses"
+            "Non-Medical Expenses Cover",
+            "Health Indemnity Products",
+            "Caringly Yours App",
+            "Sum Insured"
         ],
-        "answer": "Non-Medical Costs"
+        "answer": "Non-Medical Expenses Cover"
     },
     {
-        "question": "How is the Non-Medical Expenses Cover available?",
+        "question": "What type of insurance product is this cover designed to be added to?",
         "options": [
-            "As a standalone policy",
-            "As a rider to an existing policy",
-            "Through a separate insurance company",
-            "Through a bank loan"
+            "Life Insurance",
+            "Home Insurance",
+            "Health Insurance",
+            "Travel Insurance"
         ],
-        "answer": "As a rider to an existing policy"
+        "answer": "Health Insurance"
     },
     {
-        "question": "What is the minimum Sum Insured option for the Non-Medical Expenses Cover?",
+        "question": "What is the minimum Sum Insured option available for the Non-Medical Expenses Cover?",
         "options": [
-            "Rs. 1,00,000",
-            "Rs. 2,50,000",
             "Rs. 5,00,000",
-            "Rs. 10,00,000"
+            "Rs. 10,00,000",
+            "Rs. 25,00,000",
+            "Rs. 50,00,000"
         ],
         "answer": "Rs. 5,00,000"
     },
     {
-        "question": "What type of health insurance products is the Non-Medical Expenses Cover available with?",
+        "question": "What is the limit for Non-Medical Expenses covered by this rider?",
         "options": [
-            "All health insurance products",
-            "Selected Health Indemnity Products",
-            "Life insurance products",
-            "Retirement insurance products"
+            "A fixed amount",
+            "The Sum Insured of the base policy",
+            "The Sum Insured of the rider",
+            "A percentage of the base policy Sum Insured"
         ],
-        "answer": "Selected Health Indemnity Products"
+        "answer": "The Sum Insured of the chosen base policy"
     },
     {
-        "question": "What is the limit for Non-Medical Expenses covered?",
-        "options": [
-            "Fixed amount",
-            "Based on a percentage of the base policy Sum Insured",
-            "Unlimited",
-            "Depends on the policyholder's income"
-        ],
-        "answer": "Based on a percentage of the base policy Sum Insured"
-    },
-    {
-        "question": "Who can benefit from this Non-Medical Expenses Cover?",
-        "options": [
-            "Only the policyholder",
-            "Policyholder and their spouse",
-            "Policyholder and their dependents",
-            "Anyone"
-        ],
-        "answer": "Policyholder and their loved ones"
-    },
-    {
-        "question": "What is the main benefit of opting for the Non-Medical Expenses Cover?",
+        "question": "What is the main benefit of opting for this cover?",
         "options": [
             "Lower premiums",
-            "Comprehensive protection beyond medical costs",
-            "Tax benefits",
-            "Higher claim payouts"
+            "Higher payout for medical expenses",
+            "Financial support beyond medical costs",
+            "Free access to the Caringly Yours App"
         ],
-        "answer": "Comprehensive protection beyond medical costs"
+        "answer": "Financial support beyond medical costs"
     },
     {
-        "question": "How can you learn more about the Non-Medical Expenses Cover?",
+        "question": "Which of these is NOT a key feature of the Non-Medical Expenses Cover?",
         "options": [
-            "Contacting the Bajaj customer service",
-            "Visiting the Bajaj website",
-            "Downloading the Caringly Yours app",
-            "All of the above"
+            "Available as a rider",
+            "Minimum Sum Insured of Rs. 5,00,000",
+            "Covers expenses related to medical emergencies",
+            "Limited by the base policy Sum Insured"
         ],
-        "answer": "All of the above"
+        "answer": "Covers expenses related to medical emergencies"
     },
     {
-        "question": "What is the name of the mobile app mentioned in the text?",
+        "question": "How can you download the 'Caringly Yours' app?",
         "options": [
-            "Bajaj Health App",
-            "Caringly Yours App",
-            "Bajaj Insurance App",
-            "Health Buddy App"
+            "Visit the Bajaj website",
+            "Scan the QR code provided",
+            "Call the Bajaj helpline",
+            "Download from the App Store or Google Play"
         ],
-        "answer": "Caringly Yours App"
+        "answer": "Scan the QR code provided"
     },
     {
-        "question": "How can you access more information about the Non-Medical Expenses Cover?",
+        "question": "What is the purpose of the Non-Medical Expenses Cover?",
         "options": [
-            "Scanning the QR code provided",
-            "Calling the Bajaj hotline",
-            "Visiting the Bajaj office",
-            "Searching online"
+            "To reduce insurance premiums",
+            "To provide coverage for medical emergencies",
+            "To offer additional financial protection beyond medical costs",
+            "To replace the base health insurance policy"
         ],
-        "answer": "Scanning the QR code provided"
+        "answer": "To offer additional financial protection beyond medical costs"
+    },
+    {
+        "question": "What is the suggested action for potential customers?",
+        "options": [
+            "Contact a Bajaj agent",
+            "Visit the Bajaj website",
+            "Download the Caringly Yours App",
+            "Upgrade their existing policy"
+        ],
+        "answer": "Upgrade their existing policy"
+    },
+    {
+        "question": "What is the likely target audience for this insurance product?",
+        "options": [
+            "Young adults with no dependents",
+            "People with pre-existing medical conditions",
+            "Individuals seeking comprehensive financial protection",
+            "Businesses with large employee groups"
+        ],
+        "answer": "Individuals seeking comprehensive financial protection"
     }
 ]
