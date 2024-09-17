@@ -33,7 +33,7 @@ AURA.ai is a cutting-edge AI platform designed to **automate video creation** fr
 ## **Technologies Used**
 
 ### **Frontend:**
-- **React.js**
+- **React.Js**
 - **Recharts**  
 - **Tailwind CSS**
 
