@@ -73,17 +73,18 @@ const QuizAnalytics = () => {
 					<UserRetention />
 					{/* avg time taken per ques line graph */}
 
-					<DynamicBarChart
-						chartData={scoreDistributionData} chartTitle="Score Distribution"
-						xAxisKey="ScoreRange"
-						yAxisKey="Users" />
-
+					
 					{/* <SalesTrendChart /> */}
 					<CategoryDistributionChart />
 					{/* Accuracy rate per question */}
 
 					<UserActivityHeatmap />
 					{/* question difficulty heatmap */}
+					<DynamicBarChart
+						chartData={scoreDistributionData} chartTitle="Score Distribution"
+						xAxisKey="ScoreRange"
+						yAxisKey="Users" />
+
 
 
 					

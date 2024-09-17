@@ -117,7 +117,7 @@ const VideoAnalytics = () => {
 						xAxisKey="time"
 						yAxisKey="engagementRate"
 					/>
-					 <AIPoweredInsights/>
+					<AIPoweredInsights/>
 				</div>
 				<div className="mt-8 mb-8"><VideoAnalyticsUsersTable
 					data={videoAnalyticsData}

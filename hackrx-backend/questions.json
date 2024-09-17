@@ -1,104 +1,102 @@
 [
     {
-        "question": "What is Bajaj Allianz General Insurance Company Limited?",
+        "question": "What is the primary purpose of Bajaj's Non-Medical Expenses Cover?",
         "options": [
-            "A private limited company",
-            "A joint venture between Bajaj Finserv Limited and Allianz SE",
-            "A subsidiary of Bajaj Auto Limited",
-            "A public sector undertaking"
+            "To cover medical costs",
+            "To provide financial support beyond medical costs",
+            "To cover expenses related to travel",
+            "To provide life insurance"
         ],
-        "answer": "A joint venture between Bajaj Finserv Limited and Allianz SE"
+        "answer": "To provide financial support beyond medical costs"
     },
     {
-        "question": "What are the exclusions under the policy?",
+        "question": "How is the Non-Medical Expenses Cover available?",
         "options": [
-            "Critical illnesses diagnosed within the first 90 days of the policy",
-            "Intentional self-injury, suicide, attempted suicide",
-            "Treatment arising from or traceable to pregnancy, childbirth, postpartum complications",
+            "As a standalone policy",
+            "As a rider with selected Health Indemnity Products",
+            "Through a separate insurance company",
+            "Only for specific medical conditions"
+        ],
+        "answer": "As a rider with selected Health Indemnity Products"
+    },
+    {
+        "question": "What is the starting Sum Insured option for the Non-Medical Expenses Cover?",
+        "options": [
+            "Rs. 1,00,000",
+            "Rs. 2,50,000",
+            "Rs. 5,00,000",
+            "Rs. 10,00,000"
+        ],
+        "answer": "Rs. 5,00,000"
+    },
+    {
+        "question": "What is the limit for Non-Medical Expenses covered?",
+        "options": [
+            "A fixed amount",
+            "A percentage of the base policy's Sum Insured",
+            "The total amount spent on medical costs",
+            "There is no limit"
+        ],
+        "answer": "A percentage of the base policy's Sum Insured"
+    },
+    {
+        "question": "What is the benefit of opting for the Non-Medical Expenses Cover?",
+        "options": [
+            "Lower premiums",
+            "Guaranteed claim approval",
+            "Comprehensive protection for yourself and your loved ones",
+            "Access to exclusive medical services"
+        ],
+        "answer": "Comprehensive protection for yourself and your loved ones"
+    },
+    {
+        "question": "How can you download the Bajaj Caringly Yours App?",
+        "options": [
+            "From the App Store or Google Play",
+            "By contacting Bajaj customer service",
+            "Through a dedicated website",
+            "By scanning a QR code"
+        ],
+        "answer": "By scanning a QR code"
+    },
+    {
+        "question": "What is the purpose of the QR code mentioned in the text?",
+        "options": [
+            "To access the Non-Medical Expenses Cover brochure",
+            "To download the Bajaj Caringly Yours App",
+            "To contact Bajaj customer service",
+            "To submit a claim"
+        ],
+        "answer": "To download the Bajaj Caringly Yours App"
+    },
+    {
+        "question": "What is the key benefit of having the Non-Medical Expenses Cover?",
+        "options": [
+            "It covers all medical expenses",
+            "It provides financial support for non-medical needs",
+            "It offers discounts on medical treatments",
+            "It guarantees claim approval"
+        ],
+        "answer": "It provides financial support for non-medical needs"
+    },
+    {
+        "question": "How can you upgrade your policy to include the Non-Medical Expenses Cover?",
+        "options": [
+            "By contacting Bajaj customer service",
+            "Through the Bajaj Caringly Yours App",
+            "By visiting a Bajaj branch",
             "All of the above"
         ],
         "answer": "All of the above"
     },
     {
-        "question": "What is the premium paying term?",
+        "question": "What is the target audience for Bajaj's Non-Medical Expenses Cover?",
         "options": [
-            "Annual",
-            "Half Yearly",
-            "Quarterly",
-            "Monthly"
+            "People with pre-existing medical conditions",
+            "People looking for comprehensive financial protection",
+            "People with high medical expenses",
+            "People who are not covered by any other insurance"
         ],
-        "answer": "All of the above"
-    },
-    {
-        "question": "What are the Sum Insured options?",
-        "options": [
-            "Rs 50000/-",
-            "Rs 100000/-",
-            "Rs 150000/-",
-            "Rs 200000/-",
-            "All of the above"
-        ],
-        "answer": "All of the above"
-    },
-    {
-        "question": "What are the detail coverages under the policy?",
-        "options": [
-            "Critical Illness Cover",
-            "Congenital Disability Benefit",
-            "Children Education Bonus Benefit",
-            "Loss of Job",
-            "All of the above"
-        ],
-        "answer": "All of the above"
-    },
-    {
-        "question": "What are the advantages of this policy?",
-        "options": [
-            "The insured receives the amount as a lump sum",
-            "Additional benefits like coverage for newborn baby's congenital ailments",
-            "Premium paid is exempt under section 80-D of Income Tax Act",
-            "Very competitive premium rates",
-            "All of the above"
-        ],
-        "answer": "All of the above"
-    },
-    {
-        "question": "What is the entry age?",
-        "options": [
-            "18 years to 65 years",
-            "21 years to 65 years",
-            "25 years to 65 years",
-            "30 years to 65 years"
-        ],
-        "answer": "21 years to 65 years"
-    },
-    {
-        "question": "What is the Pre policy Medical examination criteria?",
-        "options": [
-            "Mandatory for age 41 years and above",
-            "Can be conducted at a good diagnostic centre",
-            "Includes Full Medical Report, Ultrasonography of Abdomen and Pelvis, PAP Smear Test",
-            "All of the above"
-        ],
-        "answer": "All of the above"
-    },
-    {
-        "question": "When can I enhance my Sum Insured under this policy?",
-        "options": [
-            "At the time of renewal",
-            "By submitting a fresh proposal form and renewal notice to the company",
-            "Both of the above"
-        ],
-        "answer": "Both of the above"
-    },
-    {
-        "question": "What is the policy period?",
-        "options": [
-            "1 year",
-            "2 years",
-            "3 years",
-            "All of the above"
-        ],
-        "answer": "All of the above"
+        "answer": "People looking for comprehensive financial protection"
     }
 ]

@@ -33,8 +33,8 @@ os.makedirs(pictures_folder, exist_ok=True)
 os.makedirs(videos_folder, exist_ok=True)
 
 # API URLs
-img_url = 'https://api.pexels.com/v1/search'
-vid_url = 'https://api.pexels.com/videos/search'
+img_url = 'https://pixabay.com/api/'
+vid_url = 'https://pixabay.com/api/videos/'
 
 # Load environment variables from .env file
 load_dotenv()
@@ -237,40 +237,86 @@ def trim_video(video_path, duration=7):
         if os.path.exists(video_path):
             os.remove(video_path)
 
-def generate_and_save_images_and_videos_for_keywords(keywords):
-    headers = {'Authorization': API_KEY}
+# def generate_and_save_images_and_videos_for_keywords(keywords):
+#     headers = {'Authorization': 'sNEbEPG6RN3SlhKrNMIZnyfUXMoAtriZoMBrT9jwXaDitGjMwT741ETO'}
 
+#     for i, keyword in enumerate(keywords):
+#         print(f"Processing keyword {i + 1}: {keyword}")
+
+#         params = {'query': keyword, 'per_page': 1, 'page': 1}
+
+#         try:
+#             if i < 10:
+#                 response = requests.get(img_url, headers=headers, params=params)
+#                 if response.status_code == 200:
+#                     data = response.json()
+#                     images = data.get('photos', [])
+#                     if images:
+#                         image_url = images[0]['src']['original']
+#                         save_image_from_url(image_url, pictures_folder, i + 1)
+#                     else:
+#                         print(f"No images found for keyword {keyword}")
+#                 else:
+#                     print(f"Failed to fetch images for keyword {i + 1}. Status code: {response.status_code}")
+
+#             else:
+#                 response = requests.get(vid_url, headers=headers, params=params)
+#                 if response.status_code == 200:
+#                     data = response.json()
+#                     videos = data.get('videos', [])
+#                     if videos:
+#                         video_url = videos[0]['video_files'][0]['link']
+#                         save_video_from_url(video_url, videos_folder, i + 1)
+#                         video_path = os.path.join(videos_folder, f'video_{i + 1}.mp4')
+#                         trim_video(video_path)
+#                     else:
+#                         print(f"No videos found for keyword {keyword}")
+#                 else:
+#                     print(f"Failed to fetch videos for keyword {i + 1}. Status code: {response.status_code}")
+#         except Exception as e:
+#             print(f"Error processing keyword {keyword}: {e}")
+
+#pixaby code 
+
+def generate_and_save_images_and_videos_for_keywords(keywords):
+    # Ensure the headers are set up correctly
+    headers = {'Authorization': f'Bearer {API_KEY}'}
+    
+    # Loop through keywords to fetch images and videos
     for i, keyword in enumerate(keywords):
         print(f"Processing keyword {i + 1}: {keyword}")
 
-        params = {'query': keyword, 'per_page': 1, 'page': 1}
+        params = {
+            'key': API_KEY,
+            'q': keyword,
+            'image_type': 'photo',    # For images
+            'per_page': 3             # Number of results per page
+        }
 
         try:
-            if i < 10:
-                response = requests.get(img_url, headers=headers, params=params)
+            if i < 10:  # Fetch images
+                response = requests.get(img_url, params=params)
                 if response.status_code == 200:
                     data = response.json()
-                    images = data.get('photos', [])
-                    if images:
-                        image_url = images[0]['src']['original']
-                        save_image_from_url(image_url, pictures_folder, i + 1)
-                    else:
-                        print(f"No images found for keyword {keyword}")
+                    images = data.get('hits', [])
+                    for idx, image in enumerate(images):
+                        image_url = image.get('largeImageURL', '')
+                        if image_url:
+                            save_image_from_url(image_url, pictures_folder, i + 1 + idx)
                 else:
                     print(f"Failed to fetch images for keyword {i + 1}. Status code: {response.status_code}")
 
-            else:
-                response = requests.get(vid_url, headers=headers, params=params)
+            else:  # Fetch videos
+                response = requests.get(vid_url, params=params)
                 if response.status_code == 200:
                     data = response.json()
-                    videos = data.get('videos', [])
-                    if videos:
-                        video_url = videos[0]['video_files'][0]['link']
-                        save_video_from_url(video_url, videos_folder, i + 1)
-                        video_path = os.path.join(videos_folder, f'video_{i + 1}.mp4')
-                        trim_video(video_path)
-                    else:
-                        print(f"No videos found for keyword {keyword}")
+                    videos = data.get('hits', [])
+                    for idx, video in enumerate(videos):
+                        video_url = video.get('videos', {}).get('medium', {}).get('url', '')
+                        if video_url:
+                            save_video_from_url(video_url, videos_folder, i + 1 + idx)
+                            video_path = os.path.join(videos_folder, f'video_{i + 1 + idx}.mp4')
+                            trim_video(video_path)
                 else:
                     print(f"Failed to fetch videos for keyword {i + 1}. Status code: {response.status_code}")
         except Exception as e:

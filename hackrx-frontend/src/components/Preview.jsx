@@ -5,9 +5,11 @@ import Button from './Button';
 import { Linkedin } from 'lucide-react'; // Social media icons
 import { BsWhatsapp } from 'react-icons/bs';
 import { FaFacebook, FaTwitter } from 'react-icons/fa';
+import DemVideo from "../assets/final_slideshow.mp4"
 
 const Preview = () => {
     const [videoUrl, setVideoUrl] = useState('http://127.0.0.1:8000/video/final_slideshow');
+    // const videoUrl = DemVideo;
     const [copied, setCopied] = useState(false);
 
     const handleCopyLink = () => {
