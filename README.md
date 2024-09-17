@@ -33,15 +33,15 @@ AURA.ai is a cutting-edge AI platform designed to **automate video creation** fr
 ## **Technologies Used**
 
 ### **Frontend:**
-- **React.js**
+- **React.Js**
 - **Recharts**  
 - **Tailwind CSS**
 
 ### **Backend:**
 - **Python**  
 - **FastAPI**  
-- **Node.js**  
-- **Express.js**
+- **Node.Js**  
+- **Express.Js**
 
 ### **Cloud Service Providers:**
 - **Firebase** - (real-time database and authentication)  
@@ -91,7 +91,7 @@ cd hackrx-backend
 Create a `.env` file in the root directory and add your API keys.
 ```env
 GEMINI_API_KEY=your_gemini_api_key
-IMG_API=your_video_pexels_api
+IMG_API=your_api
 ```
 
 ### **4. Set up Firebase:**
