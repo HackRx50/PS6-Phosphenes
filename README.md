@@ -40,8 +40,8 @@ AURA.ai is a cutting-edge AI platform designed to **automate video creation** fr
 ### **Backend:**
 - **Python**  
 - **FastAPI**  
-- **Node.js**  
-- **Express.js**
+- **Node.Js**  
+- **Express.Js**
 
 ### **Cloud Service Providers:**
 - **Firebase** - (real-time database and authentication)  
