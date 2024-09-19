@@ -68,7 +68,7 @@ const Services = () => {
               <div className="absolute inset-0 flex flex-col justify-end items-center p-2 bg-gradient-to-b from-n-8/0 to-n-8/90 ">
                 <h4 className="h5 mb-1">Happy Yadav</h4>
                 <p className="body-2 mb-[1rem] text-n-3">
-                  Team Leader
+                 Lead Backend Developer
                 </p>
               </div>
 
@@ -89,7 +89,7 @@ const Services = () => {
               <div className="absolute inset-0 flex flex-col justify-end items-center p-2 bg-gradient-to-b from-n-8/0 to-n-8/90 ">
                 <h4 className="h5 mb-1">Vedansh Sharma</h4>
                 <p className="body-2 mb-[1rem] text-n-3">
-                 Team Member
+                 Lead Python Developer
                 </p>
               </div>
 
@@ -111,7 +111,7 @@ const Services = () => {
               <div className="absolute inset-0 flex flex-col justify-end items-center p-2 bg-gradient-to-b from-n-8/0 to-n-8/90 ">
                 <h4 className="h5 mb-1">Hishita Gupta</h4>
                 <p className="body-2 mb-[1rem] text-n-3">
-                  Team Member
+                  Lead Frontend Developer
                 </p>
               </div>
 
@@ -132,7 +132,7 @@ const Services = () => {
               <div className="absolute inset-0 flex flex-col justify-end items-center p-2 bg-gradient-to-b from-n-8/0 to-n-8/90 ">
                 <h4 className="h5 mb-1">Ansh Chahal</h4>
                 <p className="body-2 mb-[1rem] text-n-3">
-                  Team Member
+                  UI/UX Designer
                 </p>
               </div>
 
