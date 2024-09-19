@@ -69,7 +69,7 @@ AURA.ai is a cutting-edge AI platform designed to **automate video creation** fr
 - **Git/GitHub** - (Version control)  
 - **Kaggle** - (Datasets & model training)  
 - **CI/CD Pipelines** - (For automated deployments)  
-- **Pexels** - (For media assets)  
+- **Pixaby** - (For media assets)  
 - **Transformers** - (For NLP tasks)  
 - **pdfplumber**, **pydub**, **moviepy** - (For PDF processing, audio, and video generation)
 
