@@ -77,6 +77,8 @@ export default {
       },
       backgroundImage: {
         "radial-gradient": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-text": "linear-gradient(180deg, #FFFFFF 34.17%, #B372CF 100%)",
+        'gradient-text-new': 'linear-gradient(90deg, #FF9FA8 0%, #FFCCA3 51%, #FEFAF3 100%)',
         "conic-gradient":
           "conic-gradient(from 225deg, #FFC876, #79FFF7, #9F53FF, #FF98E2, #FFC876)",
       },

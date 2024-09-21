@@ -90,9 +90,9 @@ const Header = () => {
       <div className="flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
         <Link className="flex w-[12rem] xl:mr-8" to="/">
           <img src={logo} width={35} height={35} alt="Aura AI" />
-          <p className="ml-3 mt-3 text-2xl">AURA.ai</p>
+          <p className="ml-3 mt-3 text-2xl bg-gradient-text text-transparent bg-clip-text">AURA.ai</p>
         </Link>
-       
+      
 
         <nav
           className={`${
