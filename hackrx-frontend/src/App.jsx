@@ -19,6 +19,8 @@ import { GradientLight } from './components/design/Features';
 import Header from './components/Header';
 import Confetti from 'react-confetti';
 import VideoAnalyticsPage from './components/Apages/VideoAnalyticsPage';
+import Pricing from "./components/Pricing-Plan";
+import HowItWorks from './components/HowItWorks';
 
 const App = () => {
   const location = useLocation();
@@ -45,8 +47,9 @@ const App = () => {
               <Hero />
               <Benefits />
               {/* <Collaboration /> */}
+              <HowItWorks/>
               <Roadmap />
-              {/* <Pricing /> */}
+              <Pricing />
               <Services />
             </>
           } />
