@@ -44,8 +44,11 @@ import {
     postman,
     python,
     react,
-    gradient
+    gradient,
+    
 } from "../assets";
+
+import purplegradient from '../assets/purplegradient.png'
 
 export const navigation = [
     {
@@ -259,17 +262,17 @@ export const pricing = [
             "Ability to explore the app and its features without any cost",
         ],
     },
-    {
-        id: "3",
-        title: "Enterprise",
-        description: "Custom AI chatbot, advanced analytics, dedicated account",
-        price: null,
-        features: [
-            "An AI chatbot that can understand your queries",
-            "Personalized recommendations based on your preferences",
-            "Ability to explore the app and its features without any cost",
-        ],
-    },
+    // {
+    //     id: "3",
+    //     title: "Enterprise",
+    //     description: "Custom AI chatbot, advanced analytics, dedicated account",
+    //     price: null,
+    //     features: [
+    //         "An AI chatbot that can understand your queries",
+    //         "Personalized recommendations based on your preferences",
+    //         "Ability to explore the app and its features without any cost",
+    //     ],
+    // },
 ];
 
 export const benefits = [
@@ -279,7 +282,7 @@ export const benefits = [
         text: "Create videos in multiple languages, broadening your reach to a global audience with seamless translation and narration capabilities",
         backgroundUrl: "./src/assets/benefits/card-1.svg",
         iconUrl: benefitIcon1,
-        imageUrl: gradient,
+        imageUrl: purplegradient,
     },
     {
         id: "1",
@@ -287,7 +290,7 @@ export const benefits = [
         text: "Automatically convert any text—brochures, PDFs, or documents—into engaging, visually compelling videos.",
         backgroundUrl: "./src/assets/benefits/card-2.svg",
         iconUrl: benefitIcon2,
-        imageUrl: gradient,
+        imageUrl: purplegradient,
         light: true,
     },
     {
@@ -296,7 +299,7 @@ export const benefits = [
         text: "Enhance engagement by generating quizzes based on the video content, perfect for educational or training purposes.",
         backgroundUrl: "./src/assets/benefits/card-3.svg",
         iconUrl: benefitIcon3,
-        imageUrl: gradient,
+        imageUrl: purplegradient,
     },
     {
         id: "3",
@@ -304,7 +307,7 @@ export const benefits = [
         text: "Track user interaction with detailed metrics on video engagement, quiz performance, and audience retention.",
         backgroundUrl: "./src/assets/benefits/card-4.svg",
         iconUrl: benefitIcon4,
-        imageUrl: gradient,
+        imageUrl: purplegradient,
         light: true,
     },
    
@@ -314,7 +317,7 @@ export const benefits = [
         text: "Team collaboration with real-time editing, feedback, and shared project management for enhanced productivity.",
         backgroundUrl: "./src/assets/benefits/card-6.svg",
         iconUrl: benefitIcon5,
-        imageUrl: gradient,
+        imageUrl: purplegradient,
     },
     {
         id: "5",
@@ -322,7 +325,7 @@ export const benefits = [
         text: "Vast customization features enabling users to tailor visuals, audio, and interactive elements to craft videos.",
         backgroundUrl: "./src/assets/benefits/card-5.svg",
         iconUrl: benefitIcon6,
-        imageUrl: gradient,
+        imageUrl:purplegradient,
     },
 ];
 
