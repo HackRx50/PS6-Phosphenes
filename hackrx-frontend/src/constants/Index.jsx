@@ -3,6 +3,8 @@ import {
     benefitIcon2,
     benefitIcon3,
     benefitIcon4,
+    benefitIcon5,
+    benefitIcon6,
     benefitImage2,
     chromecast,
     disc02,
@@ -41,7 +43,8 @@ import {
     mongo,
     postman,
     python,
-    react
+    react,
+    gradient
 } from "../assets";
 
 export const navigation = [
@@ -276,7 +279,7 @@ export const benefits = [
         text: "Create videos in multiple languages, broadening your reach to a global audience with seamless translation and narration capabilities",
         backgroundUrl: "./src/assets/benefits/card-1.svg",
         iconUrl: benefitIcon1,
-        imageUrl: benefitImage2,
+        imageUrl: gradient,
     },
     {
         id: "1",
@@ -284,7 +287,7 @@ export const benefits = [
         text: "Automatically convert any text—brochures, PDFs, or documents—into engaging, visually compelling videos.",
         backgroundUrl: "./src/assets/benefits/card-2.svg",
         iconUrl: benefitIcon2,
-        imageUrl: benefitImage2,
+        imageUrl: gradient,
         light: true,
     },
     {
@@ -293,7 +296,7 @@ export const benefits = [
         text: "Enhance engagement by generating quizzes based on the video content, perfect for educational or training purposes.",
         backgroundUrl: "./src/assets/benefits/card-3.svg",
         iconUrl: benefitIcon3,
-        imageUrl: benefitImage2,
+        imageUrl: gradient,
     },
     {
         id: "3",
@@ -301,7 +304,7 @@ export const benefits = [
         text: "Track user interaction with detailed metrics on video engagement, quiz performance, and audience retention.",
         backgroundUrl: "./src/assets/benefits/card-4.svg",
         iconUrl: benefitIcon4,
-        imageUrl: benefitImage2,
+        imageUrl: gradient,
         light: true,
     },
    
@@ -310,16 +313,16 @@ export const benefits = [
         title: "Team Collaboration Tools",
         text: "Team collaboration with real-time editing, feedback, and shared project management for enhanced productivity.",
         backgroundUrl: "./src/assets/benefits/card-6.svg",
-        iconUrl: benefitIcon2,
-        imageUrl: benefitImage2,
+        iconUrl: benefitIcon5,
+        imageUrl: gradient,
     },
     {
         id: "5",
         title: "Massive Customization Options",
-        text: "Vast customization features enabling users to tailor visuals, audio, language, and interactive elements to craft videos.",
+        text: "Vast customization features enabling users to tailor visuals, audio, and interactive elements to craft videos.",
         backgroundUrl: "./src/assets/benefits/card-5.svg",
-        iconUrl: benefitIcon1,
-        imageUrl: benefitImage2,
+        iconUrl: benefitIcon6,
+        imageUrl: gradient,
     },
 ];
 
