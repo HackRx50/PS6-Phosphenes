@@ -1,102 +1,102 @@
 [
     {
-        "question": "What is the maximum entry age for a proposer, spouse or dependent parents under the Health Infinity policy?",
+        "question": "What is the main purpose of Bajaj's Non-Medical Expenses Cover?",
         "options": [
-            "55 years",
-            "60 years",
-            "65 years",
-            "70 years"
+            "To cover medical costs.",
+            "To provide financial support beyond medical costs.",
+            "To offer a discount on health insurance premiums.",
+            "To provide life insurance benefits."
         ],
-        "answer": "65 years"
+        "answer": "To provide financial support beyond medical costs."
     },
     {
-        "question": "Which of the following is NOT a feature of Bajaj Allianz's Health Infinity policy?",
+        "question": "How can you get the Non-Medical Expenses Cover?",
         "options": [
-            "Lifetime renewal benefit",
-            "Pre-existing disease coverage after 36 months",
-            "No sub-limits on in-patient hospitalization treatment",
-            "Coverage for cosmetic surgery"
+            "It is a standalone policy.",
+            "It is available as a rider with selected health indemnity products.",
+            "It is only available for people with pre-existing conditions.",
+            "It is automatically included in all Bajaj health insurance policies."
         ],
-        "answer": "Coverage for cosmetic surgery"
+        "answer": "It is available as a rider with selected health indemnity products."
     },
     {
-        "question": "What is the maximum amount payable for Road Ambulance expenses per hospitalization?",
+        "question": "What is the minimum Sum Insured option for the Non-Medical Expenses Cover?",
         "options": [
-            "Rs. 2000",
-            "Rs. 3000",
-            "Rs. 4000",
-            "Rs. 5000"
+            "Rs. 1,00,000",
+            "Rs. 2,50,000",
+            "Rs. 5,00,000",
+            "Rs. 10,00,000"
         ],
-        "answer": "Rs. 5000"
+        "answer": "Rs. 5,00,000"
     },
     {
-        "question": "What is the waiting period for pre-existing diseases under the Health Infinity policy?",
+        "question": "How is the limit for Non-Medical Expenses determined?",
         "options": [
-            "12 months",
-            "24 months",
-            "36 months",
-            "48 months"
+            "It is a fixed amount.",
+            "It is based on your age.",
+            "It is based on your income.",
+            "It is covered within the In-patient Hospitalization Sum Insured of the chosen base policy."
         ],
-        "answer": "36 months"
+        "answer": "It is covered within the In-patient Hospitalization Sum Insured of the chosen base policy."
     },
     {
-        "question": "Which of the following is NOT covered under the Health Infinity policy?",
+        "question": "What is the benefit of opting for the Non-Medical Expenses Cover?",
         "options": [
-            "Treatment for obesity",
-            "Treatment for accidental bodily injury",
-            "Treatment for daycare procedures",
-            "Treatment for congenital external diseases or defects"
+            "You get a discount on your health insurance premium.",
+            "You get coverage for medical costs.",
+            "You get comprehensive protection for yourself and your loved ones.",
+            "You get a guaranteed payout in case of an accident."
         ],
-        "answer": "Treatment for congenital external diseases or defects"
+        "answer": "You get comprehensive protection for yourself and your loved ones."
     },
     {
-        "question": "What is the maximum amount payable for Preventive Health Check-up at the end of every 3 policy years?",
+        "question": "How can you download the Caringly Yours App?",
         "options": [
-            "Rs. 2000",
-            "Rs. 3000",
-            "Rs. 4000",
-            "Rs. 5000"
+            "By visiting the Bajaj website.",
+            "By calling the Bajaj customer care number.",
+            "By scanning the QR code provided.",
+            "It is automatically installed on your phone."
         ],
-        "answer": "Rs. 5000"
+        "answer": "By scanning the QR code provided."
     },
     {
-        "question": "What is the grace period for paying premium on renewal of the Health Infinity policy?",
+        "question": "What is the purpose of the Non-Medical Expenses Cover?",
         "options": [
-            "15 days",
-            "30 days",
-            "45 days",
-            "60 days"
+            "To cover medical costs.",
+            "To cover travel expenses.",
+            "To cover lost wages.",
+            "To cover expenses not related to medical treatment."
         ],
-        "answer": "30 days"
+        "answer": "To cover expenses not related to medical treatment."
     },
     {
-        "question": "What is the co-payment option available for the room rent of INR 10,000 per day?",
+        "question": "What is a rider in the context of insurance?",
         "options": [
-            "15% / 20%",
-            "15% / 20% / 25%",
-            "20% / 25%",
-            "25% / 30%"
+            "An additional coverage that can be added to a base policy.",
+            "A discount on the insurance premium.",
+            "A type of insurance policy that covers specific risks.",
+            "A document that outlines the terms of the insurance policy."
         ],
-        "answer": "15% / 20% / 25%"
+        "answer": "An additional coverage that can be added to a base policy."
     },
     {
-        "question": "What is the maximum limit of indemnity for each claim for ailments/conditions mentioned under the waiting period (A-3 & A-4)?",
+        "question": "What is the purpose of the QR code provided?",
         "options": [
-            "50 times the room rent limit",
-            "75 times the room rent limit",
-            "100 times the room rent limit",
-            "150 times the room rent limit"
+            "To access the Bajaj website.",
+            "To download the Caringly Yours App.",
+            "To pay your insurance premium.",
+            "To file a claim."
         ],
-        "answer": "100 times the room rent limit"
+        "answer": "To download the Caringly Yours App."
     },
     {
-        "question": "Which of the following is eligible for a 5% discount on renewal premium under the Wellness Discount scheme?",
+        "question": "What does the phrase \"Caringly Yours\" imply?",
         "options": [
-            "Insured with BMI of 28",
-            "Insured with Fasting Blood Sugar of 130 Mg/dl",
-            "Insured with Serum Creatinine outside normal limits",
-            "Insured with ECG showing Arrhythmia"
+            "That Bajaj is a reputable company.",
+            "That Bajaj offers a variety of insurance products.",
+            "That Bajaj is committed to providing excellent customer service.",
+            "That Bajaj is a financially stable company."
         ],
-        "answer": "Insured with BMI of 28"
+        "answer": "That Bajaj is committed to providing excellent customer service."
     }
 ]

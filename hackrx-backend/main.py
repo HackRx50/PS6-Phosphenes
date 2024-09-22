@@ -112,12 +112,15 @@ def extract_text_from_pdf(pdf_path):
 def generate_keywords_from_summary(summary):
     speeches = ""
     keywords = []
+    
 
     try:
         inp = model.generate_content(f"Write a minimum exact 250 and maximum exact 300 words more accurate summary based on the previous summary in paragraph format and it should be plain text with no bullet points, no '/n' and no bold stuff, i am using it as input for my tts: {summary}")
         speeches = inp.text
     except Exception as e:
         print(f"Error generating speech: {e}")
+
+
 
     try:
         res = model.generate_content(f"Generate 20 unique, main and relevant keywords based on summary make sure it's one word and relevant enough to generate an image which I can use in making video: {summary}")
@@ -127,7 +130,8 @@ def generate_keywords_from_summary(summary):
 
     return {
         "speech": speeches,
-        "keywords": keywords
+        "keywords": keywords,
+        
     }
 
 # Subtitle part
@@ -164,6 +168,27 @@ def generate_subtitles_from_speech(speech_text, audio_duration, output_srt_path,
     # Save the subtitles to a file
     subs.save(output_srt_path, encoding='utf-8')
     print(f"Subtitles saved to {output_srt_path}")
+
+#gen prompts from summmary
+def generate_prompts_from_summary(summary):
+    promp_string = ""
+    try:
+        inp = model.generate_content(f"Generate 10 Unique and realistic prompts containing 'description' in JSON list fromat for generating the images using AI based on the this summary: {summary} ")
+        promp_string = inp.text
+    except Exception as e:
+        print(f"Error generating prompts: {e}")
+    return promp_string
+
+def save_prompts_to_json(promp_string, output_file):
+    cleaned_string = promp_string.replace('```json', '').replace('```', '').strip()
+    
+    try:
+        prompts_json = json.loads(cleaned_string)
+        with open(output_file, 'w') as json_file:
+            json.dump(prompts_json, json_file, indent=4)
+        print(f"Prompts data saved successfully to {output_file}")
+    except json.JSONDecodeError as e:
+        print(f"Failed to decode JSON: {e}")
 # Quiz part
 
 def generate_quiz(text):

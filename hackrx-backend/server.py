@@ -53,6 +53,8 @@ async def upload_pdf(file: UploadFile = File(...)):
 
         quiz_string = generate_quiz(text)
         save_quiz_to_json(quiz_string, "questions.json")
+        promp_string = generate_prompts_from_summary(summary)
+        save_prompts_to_json(promp_string, "prompts.json")
         cleaned_summary = clean_text(summary)
         output = generate_keywords_from_summary(cleaned_summary)
         selected_language = 'english'
