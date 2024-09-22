@@ -97,6 +97,6 @@
   
   .custom-bullet-active {
     background-image:conic-gradient(from 225deg, #FFC876, #79FFF7, #9F53FF, #FF98E2, #FFC876);
-    transform: scale(1.3);
+    transform: scale(1.8);
   }
   

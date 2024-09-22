@@ -208,7 +208,7 @@ const HowItWorks = () => {
 
     return (
         <Section className="mb-5">
-            <div className='flex flex-col lg:flex-row items-center justify-center px-6 lg:px-16 gap-10 pb-10 pt-5 lg:-mb-16 lg:gap:60'>
+            <div className='flex flex-col lg:flex-row items-center justify-center px-6 lg:px-16 gap-10 pb-10 pt-5 lg:-mb-16 lg:gap-60'>
                 {/* Left Side - Image */}
                 <div className="mb-8 lg:mb-0 lg:mr-8 flex-shrink-0">
                     <div className="relative bg-gradient-to-tl from-n-1/0 via-n-1/0 to-n-1/15 rounded-3xl">
