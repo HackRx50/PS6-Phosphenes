@@ -28,8 +28,8 @@ const Pricing = () => {
         </div>
 
         <Heading
-          tag="Behind The App"
-          title="Our Team"
+          tag="Pricing Plans"
+          title="Pay once, use forever"
         />
 
         <div className="relative">
@@ -39,12 +39,12 @@ const Pricing = () => {
         </div>
 
         <div className="flex justify-center mt-10">
-          {/* <a
+          <a
             className="text-xs font-code font-bold tracking-wider uppercase border-b"
             href="/pricing"
           >
             See the full details
-          </a> */}
+          </a>
         </div>
       </div>
     </Section>
