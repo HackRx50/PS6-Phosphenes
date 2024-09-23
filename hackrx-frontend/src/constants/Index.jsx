@@ -53,6 +53,13 @@ import cost from '../assets/impact/cost.png'
 import time from '../assets/impact/time.png'
 import engagement from '../assets/impact/engagement.png'
 import retention from '../assets/impact/retention.png'
+import feedback1 from '../assets/feedback/feedback1.avif';
+import feedback2 from '../assets/feedback/feedback2.avif';
+import feedback3 from '../assets/feedback/feedback3.avif';
+import feedback4 from '../assets/feedback/feedback4.avif';
+import feedback5 from '../assets/feedback/feedback5.avif';
+import feedback6 from '../assets/feedback/feedback6.jpg';
+
 
 
 export const navigation = [
@@ -383,5 +390,57 @@ export const socials = [
         title: "Facebook",
         iconUrl: facebook,
         url: "#",
+    },
+];
+export const feedback = [
+    {
+        id: "0",
+        name: "John Doe",
+        text: "AURA.ai revolutionized our training programs with its engaging videos and interactive quizzes!",
+        backgroundUrl: "./src/assets/benefits/card-1.svg",
+        iconUrl: feedback1,
+        imageUrl: purplegradient,
+    },
+    {
+        id: "1",
+        name: "Jane Smith",
+        text: "The AI-driven content generation is a game-changer. It saves us hours of work while maintaining quality.",
+        backgroundUrl: "./src/assets/benefits/card-2.svg",
+        iconUrl: feedback2,
+        imageUrl: purplegradient,
+        light: true,
+    },
+    {
+        id: "2",
+        name: "Alice Johnson",
+        text: "I love the multilingual support. It allows us to reach a wider audience effortlessly.",
+        backgroundUrl: "./src/assets/benefits/card-3.svg",
+        iconUrl: feedback3,
+        imageUrl: purplegradient,
+    },
+    {
+        id: "3",
+        name: "Bob Lee",
+        text: "The analytics dashboard is incredibly insightful. It helps us track engagement and improve our content.",
+        backgroundUrl: "./src/assets/benefits/card-4.svg",
+        iconUrl: feedback4,
+        imageUrl: purplegradient,
+        light: true,
+    },
+    {
+        id: "4",
+        name: "Charlie Brown",
+        text: "Team collaboration tools have made project management so much easier. We're more productive than ever!",
+        backgroundUrl: "./src/assets/benefits/card-6.svg",
+        iconUrl: feedback5,
+        imageUrl: purplegradient,
+    },
+    {
+        id: "5",
+        name: "Diana Prince",
+        text: "The customization options are fantastic! We can tailor every video to fit our brand perfectly.",
+        backgroundUrl: "./src/assets/benefits/card-5.svg",
+        iconUrl: feedback6,
+        imageUrl: purplegradient,
     },
 ];
