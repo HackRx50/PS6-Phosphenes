@@ -49,6 +49,8 @@ import {
 } from "../assets";
 
 import purplegradient from '../assets/purplegradient.png'
+import cost from '../assets/impact/cost.png'
+
 
 export const navigation = [
     {
@@ -149,16 +151,20 @@ export const collabText =
 export const collabContent = [
     {
         id: "0",
-        title: "Seamless Integration",
+        title: "50-60% Cost Savings.",
         text: collabText,
     },
     {
         id: "1",
-        title: "Smart Automation",
+        title: "Up to 70% Time Reduction.",
     },
     {
         id: "2",
-        title: "Top-notch Security",
+        title: "2x more User Engagement.",
+    },
+    {
+        id: "3",
+        title: "2x more User Retention.",
     },
 ];
 
@@ -166,7 +172,7 @@ export const collabApps = [
     {
         id: "0",
         title: "Figma",
-        icon: figma,
+        icon: cost,
         width: 26,
         height: 36,
     },
