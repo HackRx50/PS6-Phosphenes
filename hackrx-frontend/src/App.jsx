@@ -22,6 +22,7 @@ import VideoAnalyticsPage from './components/Apages/VideoAnalyticsPage';
 import Pricing from "./components/Pricing-Plan";
 import HowItWorks from './components/HowItWorks';
 import UseCaseGrid from './components/UseCase';
+import Impact from './components/Impact';
 
 const App = () => {
   const location = useLocation();
@@ -51,6 +52,7 @@ const App = () => {
               <HowItWorks/>
               <UseCaseGrid/>
               {/* <Roadmap /> */}
+              <Impact/>
               <Pricing />
               <Services />
             </>

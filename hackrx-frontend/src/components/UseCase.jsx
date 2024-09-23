@@ -177,7 +177,16 @@ const UseCaseGrid = () => {
                         </div>
                     </div>
                 </div>
+               
             </div>
+            <div className="flex justify-center mt-10">
+          <a
+            className="text-xs font-code font-bold tracking-wider uppercase border-b"
+            href="/pricing"
+          >
+            And much more...
+          </a>
+        </div>
         </Section>
     );
 };

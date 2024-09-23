@@ -45,10 +45,15 @@ import {
     python,
     react,
     gradient,
-    
+
 } from "../assets";
 
 import purplegradient from '../assets/purplegradient.png'
+import cost from '../assets/impact/cost.png'
+import time from '../assets/impact/time.png'
+import engagement from '../assets/impact/engagement.png'
+import retention from '../assets/impact/retention.png'
+
 
 export const navigation = [
     {
@@ -149,76 +154,84 @@ export const collabText =
 export const collabContent = [
     {
         id: "0",
-        title: "Seamless Integration",
+        title: "50-60% Cost Savings.",
         text: collabText,
     },
     {
         id: "1",
-        title: "Smart Automation",
+        title: "Up to 70% Time Reduction.",
     },
     {
         id: "2",
-        title: "Top-notch Security",
+        title: "2x more User Engagement.",
+    },
+    {
+        id: "3",
+        title: "2x more User Retention.",
     },
 ];
 
 export const collabApps = [
     {
-        id: "0",
-        title: "Figma",
-        icon: figma,
-        width: 26,
-        height: 36,
+        id: 1,
+        icon: cost,
+        title: "50%",
+        subtitle: "Cost Savings",
+        width: 24,
+        height: 24,
     },
     {
-        id: "1",
-        title: "postman",
-        icon: postman,
-        width: 34,
-        height: 36,
+        id: 2,
+        icon: time,
+        title: "70%",
+        subtitle: "Time Reduction",
+        width: 24,
+        height: 24,
     },
     {
-        id: "2",
-        title: "Python",
-        icon: python,
-        width: 36,
-        height: 28,
+        id: 3,
+        icon: engagement,
+        title: "2x",
+        subtitle: "User Engagement",
+        width: 24,
+        height: 24,
     },
     {
-        id: "3",
-        title: "React",
-        icon: react,
-        width: 34,
-        height: 35,
+        id: 4,
+        icon: retention,
+        title: "2x",
+        subtitle: "User Retention",
+        width: 24,
+        height: 24,
     },
-    {
-        id: "4",
-        title: "expressjs",
-        icon: expressjs,
-        width: 34,
-        height: 34,
-    },
-    {
-        id: "5",
-        title: "MongoDB",
-        icon: mongo,
-        width: 34,
-        height: 34,
-    },
-    {
-        id: "6",
-        title: "amazon s3",
-        icon: amazons3,
-        width: 26,
-        height: 34,
-    },
-    {
-        id: "7",
-        title: "Firebase",
-        icon: firebase,
-        width: 38,
-        height: 32,
-    },
+    // {
+    //     id: "4",
+    //     title: "expressjs",
+    //     icon: expressjs,
+    //     width: 34,
+    //     height: 34,
+    // },
+    // {
+    //     id: "5",
+    //     title: "MongoDB",
+    //     icon: mongo,
+    //     width: 34,
+    //     height: 34,
+    // },
+    // {
+    //     id: "6",
+    //     title: "amazon s3",
+    //     icon: amazons3,
+    //     width: 26,
+    //     height: 34,
+    // },
+    // {
+    //     id: "7",
+    //     title: "Firebase",
+    //     icon: firebase,
+    //     width: 38,
+    //     height: 32,
+    // },
     // {
     //   id: "8",
     //   title: "github",
@@ -232,34 +245,45 @@ export const pricing = [
     {
         id: "0",
         title: "Basic",
-        description: "AI chatbot, personalized recommendations",
+        description: "Create engaging videos from text with basic features, ideal for individuals or small projects.",
         price: "0",
         features: [
-            "An AI chatbot that can understand your queries",
-            "Personalized recommendations based on your preferences",
-            "Ability to explore the app and its features without any cost",
+            "An easy-to-use text-to-video engine that converts simple text into high-quality videos.",
+            "Access to a limited selection of video templates for quick video creation.",
+            "Up to 1-minute video length with watermark branding.",
+            "Basic analytics to track engagement with your video",
+            "Multilingual support for up to 10 languages.",
         ],
     },
     {
         id: "1",
         title: "Premium",
-        description: "Advanced AI chatbot, priority support, analytics dashboard",
+        description: "Unlock advanced customization options and analytics for professionals looking to create compelling, longer videos.",
         price: "9.99",
         features: [
-            "An advanced AI chatbot that can understand complex queries",
-            "An analytics dashboard to track your conversations",
-            "Priority support to solve issues quickly",
-        ],
+            "An advanced text-to-video engine with support for complex inputs like brochures or detailed text",
+            "Access to premium video templates for greater design flexibility.",
+            "Up to 5-minute videos, along with watermark removal.",
+            "AI-powered voiceovers with customizable accents.",
+            "Advanced analytics dashboard with insights into video performance.",
+            // "Multilingual support for up to 64 languages.",
+            // "Watermark removal for seamless branding.",]
+        ]
+           
     },
     {
         id: "2",
         title: "Enterprise",
-        description: "Custom AI chatbot, advanced analytics, dedicated account",
+        description: "Comprehensive tools and support for businesses needing large-scale video generation and team collaboration",
         price: null,
         features: [
-            "An AI chatbot that can understand your queries",
-            "Personalized recommendations based on your preferences",
-            "Ability to explore the app and its features without any cost",
+           " Unlimited video length with no restrictions on content complexity.",
+            "Access to custom AI voices and personalized video branding.",
+            "Collaborate across teams with seamless sharing and editing features",
+            "Enterprise-level analytics with deep insights, including behavioral heatmaps and engagement tracking.",
+            // "API integration and automation for streamlined workflows.",
+           " Custom branding and white-label solutions available.",
+            // "Dedicated account manager for personalized support.",
         ],
     },
     // {
@@ -310,7 +334,7 @@ export const benefits = [
         imageUrl: purplegradient,
         light: true,
     },
-   
+
     {
         id: "4",
         title: "Team Collaboration Tools",
@@ -325,7 +349,7 @@ export const benefits = [
         text: "Vast customization features enabling users to tailor visuals, audio, and interactive elements to craft videos.",
         backgroundUrl: "./src/assets/benefits/card-5.svg",
         iconUrl: benefitIcon6,
-        imageUrl:purplegradient,
+        imageUrl: purplegradient,
     },
 ];
 
