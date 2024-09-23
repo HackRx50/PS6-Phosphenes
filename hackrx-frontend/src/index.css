@@ -99,4 +99,28 @@
     background-image:conic-gradient(from 225deg, #FFC876, #79FFF7, #9F53FF, #FF98E2, #FFC876);
     transform: scale(1.8);
   }
+  .bg-grid-pattern {
+    background-image: url('./assets/grid.png');
+    background-size: contain;
+    background-repeat: repeat;
+}
+.glow-border {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .glow-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* border-radius: 1rem; Adjust based on your border radius */
+    background: transparent; /* Ensure background is transparent */
+    border: 0.2px solid; /* Set border thickness */
+    border-image: linear-gradient(45deg,  #FFC876, #79FFF7, #9F53FF, #FF98E2, #FFC876) 1; /* Rainbow gradient border */
+    z-index: -1; /* Ensure it's behind the card content */
+  }
+  
   

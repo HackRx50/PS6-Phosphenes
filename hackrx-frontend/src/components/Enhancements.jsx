@@ -7,7 +7,10 @@ import { check2, grid, loading1 } from "../assets";
 import { Gradient } from "./design/Roadmap";
 
 const Roadmap = () => (
-  <Section className="overflow-hidden" id="enhancements">
+  <Section  id="enhancements" className="pt-[8rem] -mt-[5.25rem]"
+  crosses
+  crossesOffset="lg:translate-y-[5.25rem]"
+  customPaddings>
     <div className="container md:pb-10">
       <Heading tag="Ready to get started" title="What we’re working on" />
 

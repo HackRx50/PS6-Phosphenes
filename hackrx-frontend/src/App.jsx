@@ -21,6 +21,7 @@ import Confetti from 'react-confetti';
 import VideoAnalyticsPage from './components/Apages/VideoAnalyticsPage';
 import Pricing from "./components/Pricing-Plan";
 import HowItWorks from './components/HowItWorks';
+import UseCaseGrid from './components/UseCase';
 
 const App = () => {
   const location = useLocation();
@@ -48,7 +49,8 @@ const App = () => {
               <Benefits />
               {/* <Collaboration /> */}
               <HowItWorks/>
-              <Roadmap />
+              <UseCaseGrid/>
+              {/* <Roadmap /> */}
               <Pricing />
               <Services />
             </>

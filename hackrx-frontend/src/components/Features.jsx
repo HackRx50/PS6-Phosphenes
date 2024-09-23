@@ -88,7 +88,11 @@ import { Pagination } from 'swiper/modules';  // Add Autoplay for automatic slid
 
 const Benefits = () => {
   return (
-    <Section id="features">
+    <Section id="features"
+    className="pt-[8rem] -mt-[5.25rem] mb-10"
+            crosses
+            crossesOffset="lg:translate-y-[5.25rem]"
+            customPaddings>
       <div className="container relative z-2">
         <Heading
           className="md:max-w-md lg:max-w-2xl"
