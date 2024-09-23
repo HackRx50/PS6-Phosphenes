@@ -50,6 +50,9 @@ import {
 
 import purplegradient from '../assets/purplegradient.png'
 import cost from '../assets/impact/cost.png'
+import time from '../assets/impact/time.png'
+import engagement from '../assets/impact/engagement.png'
+import retention from '../assets/impact/retention.png'
 
 
 export const navigation = [
@@ -170,61 +173,65 @@ export const collabContent = [
 
 export const collabApps = [
     {
-        id: "0",
-        title: "Figma",
+        id: 1,
         icon: cost,
-        width: 26,
-        height: 36,
+        title: "50%",
+        subtitle: "Cost Savings",
+        width: 24,
+        height: 24,
     },
     {
-        id: "1",
-        title: "postman",
-        icon: postman,
-        width: 34,
-        height: 36,
+        id: 2,
+        icon: time,
+        title: "70%",
+        subtitle: "Time Reduction",
+        width: 24,
+        height: 24,
     },
     {
-        id: "2",
-        title: "Python",
-        icon: python,
-        width: 36,
-        height: 28,
+        id: 3,
+        icon: engagement,
+        title: "2x",
+        subtitle: "User Engagement",
+        width: 24,
+        height: 24,
     },
     {
-        id: "3",
-        title: "React",
-        icon: react,
-        width: 34,
-        height: 35,
+        id: 3,
+        icon: retention,
+        title: "2x",
+        subtitle: "User Retention",
+        width: 24,
+        height: 24,
     },
-    {
-        id: "4",
-        title: "expressjs",
-        icon: expressjs,
-        width: 34,
-        height: 34,
-    },
-    {
-        id: "5",
-        title: "MongoDB",
-        icon: mongo,
-        width: 34,
-        height: 34,
-    },
-    {
-        id: "6",
-        title: "amazon s3",
-        icon: amazons3,
-        width: 26,
-        height: 34,
-    },
-    {
-        id: "7",
-        title: "Firebase",
-        icon: firebase,
-        width: 38,
-        height: 32,
-    },
+    // {
+    //     id: "4",
+    //     title: "expressjs",
+    //     icon: expressjs,
+    //     width: 34,
+    //     height: 34,
+    // },
+    // {
+    //     id: "5",
+    //     title: "MongoDB",
+    //     icon: mongo,
+    //     width: 34,
+    //     height: 34,
+    // },
+    // {
+    //     id: "6",
+    //     title: "amazon s3",
+    //     icon: amazons3,
+    //     width: 26,
+    //     height: 34,
+    // },
+    // {
+    //     id: "7",
+    //     title: "Firebase",
+    //     icon: firebase,
+    //     width: 38,
+    //     height: 32,
+    // },
     // {
     //   id: "8",
     //   title: "github",
