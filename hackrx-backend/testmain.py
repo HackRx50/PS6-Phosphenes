@@ -50,7 +50,7 @@ genai.configure(api_key=api_key)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Set path for Tesseract OCR
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'D:\tesseract\tesseract.exe'
 
 # Define common resolution and frame rate
 common_resolution = (1280, 720)
@@ -280,11 +280,13 @@ def generate_image_from_prompt(prompt, images_folder, image_index):
         "prompt": prompt,
         "output_format": "png"
     }
+    print("data: ", data['prompt'])
 
     files = {
         'prompt': (None, prompt)  # Use None to indicate that it's not a file
     }
 
+    print("prompt: ", files['prompt'])
     try:
         print("Sending prompt:", prompt)
         response = requests.post(

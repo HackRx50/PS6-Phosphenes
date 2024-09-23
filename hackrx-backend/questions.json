@@ -1,102 +1,116 @@
 [
     {
-        "question": "What is the main purpose of Bajaj's Non-Medical Expenses Cover?",
+        "question": "What is Vedansh Sharma's primary professional role?",
         "options": [
-            "To cover medical expenses.",
-            "To provide financial support beyond medical costs.",
-            "To offer life insurance.",
-            "To provide travel insurance."
+            "AI/ML Researcher",
+            "Web Developer",
+            "Fullstack Developer",
+            "Technical Director"
         ],
-        "answer": "To provide financial support beyond medical costs."
+        "answer": "Fullstack Developer"
     },
     {
-        "question": "How is the Non-Medical Expenses Cover available?",
+        "question": "Which frontend frameworks is Vedansh proficient in?",
         "options": [
-            "As a separate policy.",
-            "As a rider with selected Health Indemnity Products.",
-            "Only through Bajaj's website.",
-            "Only through Bajaj's agents."
+            "Angular",
+            "Vue.js",
+            "React",
+            "Next.js"
         ],
-        "answer": "As a rider with selected Health Indemnity Products."
+        "answer": [
+            "React",
+            "Next.js"
+        ]
     },
     {
-        "question": "What is the minimum Sum Insured option for the Non-Medical Expenses Cover?",
+        "question": "What backend technologies does Vedansh have experience with?",
         "options": [
-            "Rs. 1,00,000",
-            "Rs. 2,50,000",
-            "Rs. 5,00,000",
-            "Rs. 10,00,000"
+            "Node.js",
+            "Java",
+            "Python",
+            "Ruby"
         ],
-        "answer": "Rs. 5,00,000"
+        "answer": [
+            "Python",
+            "Java"
+        ]
     },
     {
-        "question": "How is the limit for Non-Medical Expenses determined?",
+        "question": "Which cloud platforms has Vedansh deployed applications on?",
         "options": [
-            "It is a fixed amount for all policyholders.",
-            "It is based on the policyholder's age.",
-            "It is covered within the In-patient Hospitalization Sum Insured of the chosen base policy.",
-            "It is determined by the Bajaj agent."
+            "AWS",
+            "Google Cloud",
+            "DigitalOcean",
+            "Azure"
         ],
-        "answer": "It is covered within the In-patient Hospitalization Sum Insured of the chosen base policy."
+        "answer": [
+            "DigitalOcean",
+            "AWS"
+        ]
     },
     {
-        "question": "What is the main benefit of opting for the Non-Medical Expenses Cover?",
+        "question": "What was Vedansh's role at Coding Ninjas Chitkara University?",
         "options": [
-            "It covers all medical expenses.",
-            "It provides additional financial support beyond medical costs.",
-            "It offers a discount on the base policy.",
-            "It provides travel insurance."
+            "Technical Director",
+            "Web Developer",
+            "AI/ML Developer",
+            "Research Assistant"
         ],
-        "answer": "It provides additional financial support beyond medical costs."
+        "answer": "Technical Director"
     },
     {
-        "question": "What is the recommended way to upgrade your policy?",
+        "question": "What is the name of the e-commerce startup Vedansh launched?",
         "options": [
-            "Contact your Bajaj agent.",
-            "Call the Bajaj customer service hotline.",
-            "Visit the Bajaj website.",
-            "Download the Caringly Yours App."
+            "BookBozo",
+            "FinTrack",
+            "Better PW",
+            "CN-CUIET"
         ],
-        "answer": "Download the Caringly Yours App."
+        "answer": "BookBozo"
     },
     {
-        "question": "What is the alternative method to download the Caringly Yours App?",
+        "question": "Which technology stack was used to build BookBozo?",
         "options": [
-            "Visit the Apple App Store or Google Play Store.",
-            "Scan the QR code provided.",
-            "Call the Bajaj customer service hotline.",
-            "Contact your Bajaj agent."
+            "React.js, Node.js",
+            "Next.js, Java",
+            "Angular, Python",
+            "Vue.js, PHP"
         ],
-        "answer": "Scan the QR code provided."
+        "answer": [
+            "Next.js, Java"
+        ]
     },
     {
-        "question": "What type of insurance does the Non-Medical Expenses Cover fall under?",
+        "question": "What is the name of the finance management application mentioned in Vedansh's profile?",
         "options": [
-            "Life Insurance",
-            "Travel Insurance",
-            "Health Insurance",
-            "Home Insurance"
+            "BookBozo",
+            "FinTrack",
+            "Better PW",
+            "CN-CUIET"
         ],
-        "answer": "Health Insurance"
+        "answer": "FinTrack"
     },
     {
-        "question": "Who can benefit from the Non-Medical Expenses Cover?",
+        "question": "Which programming languages is Vedansh proficient in?",
         "options": [
-            "Only individuals.",
-            "Only families.",
-            "Both individuals and families.",
-            "Only senior citizens."
+            "HTML, CSS, JavaScript",
+            "C++, Python, Java",
+            "PHP, Ruby, Swift",
+            "Go, Kotlin, Rust"
         ],
-        "answer": "Both individuals and families."
+        "answer": [
+            "HTML, CSS, JavaScript",
+            "C++, Python"
+        ]
     },
     {
-        "question": "The Non-Medical Expenses Cover is primarily designed to provide support for:",
+        "question": "Where is Vedansh pursuing his Bachelor of Engineering?",
         "options": [
-            "Unexpected medical expenses.",
-            "Unexpected non-medical expenses.",
-            "Travel expenses.",
-            "Life insurance premiums."
+            "Chitkara University, Punjab",
+            "Coding Ninjas CUIET",
+            "PhysicsWallah",
+            "None of the above"
         ],
-        "answer": "Unexpected non-medical expenses."
+        "answer": "Chitkara University, Punjab"
     }
 ]

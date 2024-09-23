@@ -43,7 +43,7 @@ async def upload_pdf(file: UploadFile = File(...)):
         clean_up_videos(videos_folder)
 
 
-        background_music_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\hackrx-backend\background.mp3"
+        background_music_path = r"D:\hackerx\Phosphenes-HackRx-5.0\hackrx-backend\background.mp3"
 
         summary = summarize_text(text)
 
@@ -80,7 +80,7 @@ async def upload_pdf(file: UploadFile = File(...)):
         generate_subtitles_from_speech(speeches, audio_length, srt_file_path)
 
 
-        create_slideshow_with_audio(pictures_folder, videos_folder, output_video_path, audio_output_speedup_path, r"C:\Users\Happy yadav\Desktop\Technology\hack\hackrx-backend\ai_generated_images\Lydia.mp4", srt_file_path)
+        create_slideshow_with_audio(pictures_folder, videos_folder, output_video_path, audio_output_speedup_path, r"D:\hackerx\Phosphenes-HackRx-5.0\hackrx-backend\ai_generated_images\Lydia.mp4", srt_file_path)
 
         # Return the summary as part of the response
         return {
