@@ -166,7 +166,7 @@ const Collaboration = () => {
                                         <h4 className="text-2xl -mb-2 text-white">{app.title}</h4>
 
                                         {/* Subtitle */}
-                                        <p className="text-[0.50rem] text-gray-300 text-wrap text-center">{app.subtitle}</p>
+                                        <p className="text-[0.50rem] text-gray-300 text-wrap text-center font-grotesk">{app.subtitle}</p>
                                     </div>
                                 </li>
                             ))}

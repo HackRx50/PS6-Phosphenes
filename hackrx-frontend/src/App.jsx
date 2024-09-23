@@ -23,6 +23,7 @@ import Pricing from "./components/Pricing-Plan";
 import HowItWorks from './components/HowItWorks';
 import UseCaseGrid from './components/UseCase';
 import Impact from './components/Impact';
+import FeedBack from './components/FeedBack';
 
 const App = () => {
   const location = useLocation();
@@ -53,6 +54,7 @@ const App = () => {
               <UseCaseGrid/>
               {/* <Roadmap /> */}
               <Impact/>
+              <FeedBack/>
               <Pricing />
               <Services />
             </>

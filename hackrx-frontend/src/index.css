@@ -124,4 +124,32 @@
   }
   
   
- 
+  .animate-scroll {
+    animation: scroll var(--animation-duration) linear infinite;
+  }
+  
+  .scroller {
+    overflow: hidden;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%); /* Adjust accordingly */
+    }
+  }
+  .animate-scroll {
+    animation: scroll var(--animation-duration) linear infinite;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%); /* Adjust based on the number of items */
+    }
+  }
+    

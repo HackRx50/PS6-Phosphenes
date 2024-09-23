@@ -2,10 +2,11 @@
 import { fontFamily } from "tailwindcss/defaultTheme";
 import plugin from "tailwindcss/plugin";
 const colors = require("tailwindcss/colors");
+
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
-
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,ts,tsx}"],
@@ -82,10 +83,24 @@ export default {
         "conic-gradient":
           "conic-gradient(from 225deg, #FFC876, #79FFF7, #9F53FF, #FF98E2, #FFC876)",
       },
+      extend: {
+        animation: {
+          scroll:
+            "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        },
+        keyframes: {
+          scroll: {
+            to: {
+              transform: "translate(calc(-50% - 0.5rem))",
+            },
+          },
+        },
+      },
     },
   },
   plugins: [
     addVariablesForColors,
+
     plugin(function ({ addBase, addComponents, addUtilities }) {
       addBase({});
       addComponents({
@@ -153,4 +168,5 @@ function addVariablesForColors({ addBase, theme }) {
     ":root": newVars,
   });
 }
+
 
