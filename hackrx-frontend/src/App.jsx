@@ -56,7 +56,7 @@ const App = () => {
               <Impact/>
               <FeedBack/>
               <Pricing />
-              <Services />
+              {/* <Services /> */}
             </>
           } />
           <Route path="/getstarted" element={<><Header /><GetStarted /></>} />
