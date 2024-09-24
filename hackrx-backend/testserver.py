@@ -1,4 +1,5 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, HTTPException
+from pydantic import BaseModel
 import os
 from testmain import *
 from fastapi.middleware.cors import CORSMiddleware
@@ -6,6 +7,9 @@ from fastapi.responses import FileResponse
 import json
 
 app = FastAPI()
+
+class QuestionRequest(BaseModel):
+    question: str
 
 app.add_middleware(
     CORSMiddleware,
@@ -40,14 +44,16 @@ async def upload_pdf(file: UploadFile = File(...)):
             os.makedirs(image_output_folder, exist_ok=True)
             text = extract_text_from_pdf_images(temp_file_path, image_output_folder)
 
+
         # Summarize the extracted text
         clean_up_videos(videos_folder)
-        background_music_path = r"C:\Users\Happy yadav\Desktop\Technology\hack\hackrx-backend\background.mp3"
+        background_music_path = r"D:\hackerx\Phosphenes-HackRx-5.0\hackrx-backend\background.mp3"
         summary = summarize_text(text)
 
         if not summary:
             return {"error": "Could not generate a summary"}
 
+            
         quiz_string = generate_quiz(text)
         save_quiz_to_json(quiz_string, "questions.json")
         promp_string = generate_prompts_from_summary(summary)
@@ -71,6 +77,11 @@ async def upload_pdf(file: UploadFile = File(...)):
             print("Prompts data is not a list")
 
         cleaned_summary = clean_text(summary)
+        
+        # Store extracted text in a txt file
+        with open("extracted_text.txt", "w", encoding="utf-8") as text_file:
+            text_file.write(cleaned_summary)
+
         output = generate_keywords_from_summary(cleaned_summary)
         selected_language = 'english'
         if selected_language in language_map:
@@ -93,7 +104,7 @@ async def upload_pdf(file: UploadFile = File(...)):
         audio_length = AudioFileClip(audio_output_speedup_path).duration
         generate_subtitles_from_speech(speeches, audio_length, srt_file_path)
 
-        create_slideshow_with_audio(pictures_folder, videos_folder, output_video_path, audio_output_speedup_path, r"C:\Users\Happy yadav\Desktop\Technology\hack\hackrx-backend\ai_generated_images\Lydia.mp4", srt_file_path)
+        create_slideshow_with_audio(pictures_folder, videos_folder, output_video_path, audio_output_speedup_path, r"D:\hackerx\Phosphenes-HackRx-5.0\hackrx-backend\ai_generated_images\Lydia.mp4", srt_file_path)
 
         # Return the summary as part of the response
         return {
@@ -108,6 +119,18 @@ async def upload_pdf(file: UploadFile = File(...)):
         if os.path.exists(temp_file_path):
             os.remove(temp_file_path)
 
+@app.post("/ask-question")
+async def ask_question(question_request: QuestionRequest):
+    txt_file_path = "extracted_text.txt"  # Path to the extracted text file
+    
+    # Call the function to ask the question based on the text in the txt file
+    answer = ask_aura_question(question_request.question, txt_file_path)
+    
+    # Return the AI's answer or error message
+    if answer.startswith("Error"):
+        raise HTTPException(status_code=500, detail=answer)
+    
+    return {"answer": answer}
 
 
 @app.get("/video/{filename}")
