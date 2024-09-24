@@ -1,22 +1,5 @@
 [
     {
-        "prompt": "A vibrant illustration depicting Vedansh Sharma, a full-stack developer, coding in a modern workspace. He is surrounded by screens displaying code in Next.js, React, Vite, and FastAPI. In the background, logos of Chitkara University Research and Innovation Network and PhysicsWallah are visible, showcasing his past experiences.",
-        "description": "A stylized illustration of Vedansh Sharma working on a project using various technologies. The image should convey his skills and experience."
-    },
-    {
-        "prompt": "A minimalist design showing a smartphone displaying the Fintrack app. The screen should showcase a user-friendly dashboard with intuitive visualizations of income, expenses, and financial goals. The image should highlight Fintrack's features and ease of use.",
-        "description": "A simple and clear depiction of the Fintrack app interface, emphasizing its features for managing finances."
-    },
-    {
-        "prompt": "A photorealistic image of a team of students collaborating on the Coding Ninjas CUIET website project. They are working on laptops, discussing code, and using tools like React.js and Firebase. The image should convey the dynamism and collaboration of the project.",
-        "description": "A realistic portrayal of the Coding Ninjas CUIET website project development process, showcasing teamwork and technical expertise."
-    },
-    {
-        "prompt": "A dynamic illustration showcasing Vedansh Sharma presenting his skills and experience at a tech conference. He is surrounded by attendees, and the screen behind him displays his portfolio, highlighting his expertise in full-stack development, Next.js, React, Vite, FastAPI, and Python.",
-        "description": "A visual representation of Vedansh Sharma presenting his skills and projects at a tech conference, capturing the atmosphere of a professional event."
-    },
-    {
-        "prompt": "A 3D rendering of a modern office space with Vedansh Sharma sitting at his desk, focused on coding. The room is filled with technology, showcasing his work environment and passion for development. The image should convey a sense of productivity and innovation.",
-        "description": "A realistic depiction of Vedansh Sharma's workspace, emphasizing his commitment to coding and modern technologies."
+        "description": "A modern, minimalist illustration depicting a person holding a smartphone displaying a digital insurance policy with the words 'Non-Medical Expenses Cover' prominently featured. The background should be a gradient of blue and green, representing financial security and growth. In the corner, include a smaller graphic of a checkmark and a rupee symbol, symbolizing financial support and payment."
     }
 ]
