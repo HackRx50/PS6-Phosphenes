@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import Sidebar from "../components/Apages/components/Sidebar";
 
@@ -28,7 +26,7 @@ const TopBar = ({ projectName, setProjectName }) => {
             <div>
             <input
                 type="text"
-                className="bg-transparent border-none text-xl font-semibold outline-none"
+                className="bg-transparent border-none text-xl font outline-none"
                 value={projectName}
                 onChange={(e) => setProjectName(e.target.value)}
                 placeholder="Enter Project Name"
@@ -67,7 +65,7 @@ const StoryEditor = ({ speech }) => {
 
 // VideoPanel Component
 const VideoPanel = () => {
-    const [videoDuration, setVideoDuration] = useState("2m 30s");
+    const [videoDuration, setVideoDuration] = useState("1m 45s");
     const [sceneDuration, setSceneDuration] = useState("15s");
     const [scenes, setScenes] = useState([
         { id: 1, thumbnail: "scene1_thumbnail.png" },
@@ -117,7 +115,7 @@ function Customisation() {
     const location = useLocation();
     const {speech} = location.state || {}
     const [activeSection, setActiveSection] = useState('Story');
-    const [projectName, setProjectName] = useState("My Awesome Project");
+    const [projectName, setProjectName] = useState("Enter Project Name");
 
     return (
 

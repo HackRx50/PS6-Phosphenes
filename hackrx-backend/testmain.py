@@ -50,7 +50,7 @@ genai.configure(api_key=api_key)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Set path for Tesseract OCR
-pytesseract.pytesseract.tesseract_cmd = r'D:\tesseract\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 # Define common resolution and frame rate
 common_resolution = (1280, 720)
@@ -176,7 +176,7 @@ def generate_subtitles_from_speech(speech_text, audio_duration, output_srt_path,
 def generate_prompts_from_summary(summary):
     promp_string = ""
     try:
-        inp = model.generate_content(f"Generate 1 Unique and realistic prompt containing 'description' in JSON list fromat for generating the images using AI based on the this summary: {summary} ")
+        inp = model.generate_content(f"Generate 5 Unique and realistic prompt containing 'description' in JSON list fromat for generating the images using AI based on the this summary: {summary} ")
         promp_string = inp.text.strip("\n")
         print(promp_string)
     except Exception as e:

@@ -1,118 +1,102 @@
 [
     {
-        "question": "What is Vedansh Sharma's primary professional role?",
+        "question": "What type of insurance product is being advertised?",
         "options": [
-            "AI/ML Researcher",
-            "Web Developer",
-            "Technical Director",
-            "Fullstack Developer"
+            "Medical Insurance",
+            "Life Insurance",
+            "Travel Insurance",
+            "Non-Medical Expenses Cover"
         ],
-        "answer": "Fullstack Developer"
+        "answer": "Non-Medical Expenses Cover"
     },
     {
-        "question": "Which frontend frameworks is Vedansh proficient in?",
+        "question": "What is the purpose of this insurance product?",
         "options": [
-            "React.js",
-            "Angular.js",
-            "Vue.js",
-            "Next.js"
+            "To cover medical expenses",
+            "To provide financial support beyond medical costs",
+            "To protect against accidents",
+            "To cover travel expenses"
         ],
-        "answer": [
-            "React.js",
-            "Next.js"
-        ]
+        "answer": "To provide financial support beyond medical costs"
     },
     {
-        "question": "Which backend technologies does Vedansh have experience with?",
+        "question": "How is this insurance product available?",
         "options": [
-            "Node.js",
-            "Ruby on Rails",
-            "FastAPI",
-            "Django"
+            "As a standalone policy",
+            "As a rider with a health insurance policy",
+            "As an add-on to a life insurance policy",
+            "As a separate policy for non-medical expenses"
         ],
-        "answer": [
-            "FastAPI",
-            "Django"
-        ]
+        "answer": "As a rider with a health insurance policy"
     },
     {
-        "question": "What cloud platforms has Vedansh deployed applications on?",
+        "question": "What is the minimum Sum Insured option for Non-Medical Expenses Cover?",
         "options": [
-            "AWS",
-            "Azure",
-            "DigitalOcean",
-            "Google Cloud"
+            "Rs. 1,00,000",
+            "Rs. 2,50,000",
+            "Rs. 5,00,000",
+            "Rs. 10,00,000"
         ],
-        "answer": [
-            "AWS",
-            "DigitalOcean"
-        ]
+        "answer": "Rs. 5,00,000"
     },
     {
-        "question": "In which organization did Vedansh work as a Web Developer Intern?",
+        "question": "What is the limit for Non-Medical Expenses covered under this rider?",
         "options": [
-            "PhysicsWallah",
-            "Coding Ninjas",
-            "Chitkara University",
-            "BookBozo"
+            "It is a fixed amount",
+            "It is determined by the policyholder",
+            "It is a percentage of the Sum Insured of the base policy",
+            "It is based on the actual expenses incurred"
         ],
-        "answer": "PhysicsWallah"
+        "answer": "It is covered within the In-patient Hospitalization Sum Insured of the chosen base policy"
     },
     {
-        "question": "What is the name of the e-commerce app Vedansh developed for his startup?",
+        "question": "What is the benefit of opting for this Non-Medical Expenses Cover?",
         "options": [
-            "FinTrack",
-            "Better PW",
-            "BookBozo",
-            "CN-CUIET"
+            "It provides additional financial support for non-medical expenses",
+            "It reduces the premium cost of the base policy",
+            "It covers expenses related to travel",
+            "It provides coverage for medical expenses"
         ],
-        "answer": "BookBozo"
+        "answer": "It provides additional financial support for non-medical expenses"
     },
     {
-        "question": "Which project involved collaborating with the PhysicsWallah tech team?",
+        "question": "Who is this insurance product designed to protect?",
         "options": [
-            "FinTrack",
-            "Better PW",
-            "BookBozo",
-            "CN-CUIET"
+            "Only the policyholder",
+            "The policyholder and their family",
+            "Only the policyholder's family",
+            "Only the policyholder's dependents"
         ],
-        "answer": "Better PW"
+        "answer": "The policyholder and their loved ones"
     },
     {
-        "question": "What programming languages is Vedansh proficient in?",
+        "question": "How can you download the Caringly Yours App?",
         "options": [
-            "Python",
-            "Java",
-            "C++",
-            "JavaScript"
+            "By visiting the Bajaj website",
+            "By searching in the app store",
+            "By scanning the QR code",
+            "By contacting Bajaj customer service"
         ],
-        "answer": [
-            "Python",
-            "C++",
-            "JavaScript"
-        ]
+        "answer": "By scanning the QR code"
     },
     {
-        "question": "Which database technologies is Vedansh familiar with?",
+        "question": "What is the name of the company advertising this insurance product?",
         "options": [
-            "MongoDB",
-            "MySQL",
-            "PostgreSQL",
-            "SQLite"
+            "HDFC Life",
+            "ICICI Prudential",
+            "Bajaj Allianz",
+            "SBI Life"
         ],
-        "answer": [
-            "MongoDB",
-            "MySQL"
-        ]
+        "answer": "Bajaj Allianz"
     },
     {
-        "question": "What is Vedansh's current educational pursuit?",
+        "question": "What is the key message conveyed by the advertisement?",
         "options": [
-            "Bachelor of Engineering",
-            "Master of Science",
-            "Doctorate",
-            "Postgraduate Diploma"
+            "Non-medical expenses are covered by this policy",
+            "This insurance product provides comprehensive protection",
+            "The policyholder should opt for this rider for complete protection",
+            "Bajaj Allianz offers the best insurance products"
         ],
-        "answer": "Bachelor of Engineering"
+        "answer": "Ensure comprehensive protection for yourself and your loved ones by opting for this cover."
     }
 ]

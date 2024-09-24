@@ -6,10 +6,25 @@ import { Search } from 'lucide-react';
 const JAMENDO_API_URL = 'https://api.jamendo.com/v3.0/tracks/';
 const JAMENDO_CLIENT_ID = '3fadf1fe'; // Replace with your actual Jamendo API Client ID
 
+const Languages=[
+    'hindi',
+    'english',
+    'bengali',
+    'telugu',
+    'marathi',
+    'tamil',
+    'kannada',
+    'malayalam',
+    'gujarati',
+    'punjabi',
+    'urdu',
+]
+
 const AudioSelection = () => {
     const [query, setQuery] = useState('');
     const [audioType, setAudioType] = useState('background-music'); // Default to background music
     const [audioResults, setAudioResults] = useState([]);
+    const [category, setCategory] = useState('');
 
     // Fetch audio from Jamendo API
     const fetchAudio = async (searchQuery) => {
@@ -69,10 +84,24 @@ const AudioSelection = () => {
                     />
                     Clone Your Own Voice
                 </label>
+                
+                
             </div>
+            <label htmlFor="category" className="mr-2 ">Language:</label>
+                    <select
+                        id="category"
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
+                        className="p-2 border border-gray-300 rounded-lg"
+                    >
+                        <option value="">All</option>
+                        {Languages.map((cat) => (
+                            <option key={cat} value={cat}>{cat}</option>
+                        ))}
+                    </select>
 
             {/* Search Bar */}
-            <form onSubmit={handleSearch} className="flex items-center space-x-2 mb-6">
+            <form onSubmit={handleSearch} className="flex items-center space-x-2 mb-6 mt-3">
                 <input
                     type="text"
                     className="w-full p-2 border border-gray-300 rounded-lg"
