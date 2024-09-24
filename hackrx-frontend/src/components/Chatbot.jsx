@@ -17,8 +17,15 @@ const ChatBot = () => {
 
         // Call Gemini API
         try {
-            const response = await axios.post("/api/chat", { message });
-            const botMessage = response.data.reply; // Adjust according to your API response
+            const response = await axios.post('http://127.0.0.1:8000/ask-question', {
+                question: message,
+              }, {
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              });
+            const botMessage = response.data.answer; // Adjust according to your API response
+            console.log(botMessage)
             setMessages((prev) => [...prev, { text: botMessage, isUser: false }]);
         } catch (error) {
             console.error("Error fetching response from Gemini:", error);
