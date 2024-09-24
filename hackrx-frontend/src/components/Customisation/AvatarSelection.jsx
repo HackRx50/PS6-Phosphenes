@@ -1,20 +1,30 @@
 import React, { useState } from 'react';
-import avatar from "../../assets/avatar/avatar-1.jpg";
+// import avatar from "../../assets/avatar/avatar-1.jpg";
+import avatar2 from "../../assets/avatar/avatar-2.png";
+import avatar3 from "../../assets/avatar/avatar-3.png";
+import avatar4 from "../../assets/avatar/avatar-4.png";
+import avatar5 from "../../assets/avatar/avatar-5.png";
+import avatar6 from "../../assets/avatar/avatar-6.png";
+import avatar7 from "../../assets/avatar/avatar-7.png";
+import avatar8 from "../../assets/avatar/avatar-8.png";
+import avatar9 from "../../assets/avatar/avatar-9.png";
+import avatar10 from "../../assets/avatar/avatar-10.png";
+import avatar11 from "../../assets/avatar/avatar-11.png";
 import Button from '../Button';
 
 // Sample avatar data (replace these with your actual avatar URLs)
 const avatars = [
-    { id: 1, src: avatar },
-    { id: 2, src: avatar },
-    { id: 3, src: avatar },
-    { id: 4, src: avatar },
-    { id: 5, src: avatar },
-    { id: 6, src: avatar },
-    { id: 7, src: avatar },
-    { id: 8, src: avatar },
-    { id: 9, src: avatar },
-    { id: 10, src: avatar },
-    { id: 11, src: avatar },
+    // {  },
+    { id: 2, src: avatar2 },
+    { id: 3, src: avatar3 },
+    { id: 4, src: avatar4 },
+    { id: 5, src: avatar5 },
+    { id: 6, src: avatar6 },
+    { id: 7, src: avatar7 },
+    { id: 8, src: avatar8 },
+    { id: 9, src: avatar9 },
+    { id: 10, src: avatar10 },
+    { id: 11, src: avatar11 },
     // { id: 12, src: avatar },
 ];
 
