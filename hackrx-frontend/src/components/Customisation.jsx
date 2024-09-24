@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from "../components/Apages/components/Sidebar";
-
+import axios from "axios";
 import Button from './Button';
 import VisualSelection from './Customisation/VisualSelection';
 import AudioSelection from './Customisation/AudioSelection';
@@ -67,15 +67,30 @@ const StoryEditor = ({ speech }) => {
 const VideoPanel = () => {
     const [videoDuration, setVideoDuration] = useState("1m 45s");
     const [sceneDuration, setSceneDuration] = useState("15s");
-    const [scenes, setScenes] = useState([
-        { id: 1, thumbnail: "scene1_thumbnail.png" },
-        { id: 2, thumbnail: "scene2_thumbnail.png" },
-        { id: 3, thumbnail: "scene3_thumbnail.png" },
-        { id: 4, thumbnail: "scene3_thumbnail.png" },
-        { id: 5, thumbnail: "scene3_thumbnail.png" },
-        { id: 6, thumbnail: "scene3_thumbnail.png" },
-        { id: 7, thumbnail: "scene3_thumbnail.png" },
-    ]);
+    const [scenes, setScenes] = useState([]);
+    useEffect(() => {
+        // Fetch images
+        axios.get('http://127.0.0.1:8000/get-images')
+            .then(response => {
+                const imageThumbnails = response.data.images.map(image => ({
+                    type: 'image',
+                    thumbnail: `http://127.0.0.1:8000/get-images/${image}`
+                }));
+                setScenes(prevScenes => [...prevScenes, ...imageThumbnails]);
+            })
+            .catch(error => console.error('Error fetching images:', error));
+
+        // Fetch videos
+        // axios.get('http://127.0.0.1:8000/get-videos')
+        //     .then(response => {
+        //         const videoThumbnails = response.data.videos.map(video => ({
+        //             type: 'video',
+        //             thumbnail: `http://127.0.0.1:8000/get-videos/${video}`
+        //         }));
+        //         setScenes(prevScenes => [...prevScenes, ...videoThumbnails]);
+        //     })
+        //     .catch(error => console.error('Error fetching videos:', error));
+    }, []);
     const videoUrl = `http://127.0.0.1:8000/video/final_slideshow`;
     return (
         <div className="w-full lg:w-1/2 lg:h-full h-1/2 p-4 bg-n-9/40 backdrop-blur border border-n-1/10 text-white flex flex-col justify-center items-center">

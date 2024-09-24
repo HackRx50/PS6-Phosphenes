@@ -132,6 +132,32 @@ async def ask_question(question_request: QuestionRequest):
     
     return {"answer": answer}
 
+@app.get("/get-images")
+async def list_images():
+    try:
+        images = os.listdir("pictures")
+        return {"images": images}
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.get("/get-videos")
+async def list_videos():
+    try:
+        videos = os.listdir("videos")
+        return {"videos": videos}
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.get("/get-images/{filename}")
+async def get_image(filename: str):
+    file_path = os.path.join("pictures", filename)
+    return FileResponse(file_path)
+
+# Serve individual video files
+@app.get("/get-videos/{filename}")
+async def get_video(filename: str):
+    file_path = os.path.join("videos", filename)
+    return FileResponse(file_path)
 
 @app.get("/video/{filename}")
 async def get_video(filename):
