@@ -1,102 +1,118 @@
 [
     {
-        "question": "What is the name of the company offering the Non-Medical Expenses Cover?",
+        "question": "What is Vedansh Sharma's primary professional role?",
         "options": [
-            "HDFC Life",
-            "ICICI Prudential",
-            "Bajaj",
-            "SBI Life"
+            "AI/ML Researcher",
+            "Web Developer",
+            "Technical Director",
+            "Fullstack Developer"
         ],
-        "answer": "Bajaj"
+        "answer": "Fullstack Developer"
     },
     {
-        "question": "What kind of expenses does this cover provide financial support for?",
+        "question": "Which frontend frameworks is Vedansh proficient in?",
         "options": [
-            "Medical costs",
-            "Non-medical costs",
-            "Travel expenses",
-            "Education expenses"
+            "React.js",
+            "Angular.js",
+            "Vue.js",
+            "Next.js"
         ],
-        "answer": "Non-medical costs"
+        "answer": [
+            "React.js",
+            "Next.js"
+        ]
     },
     {
-        "question": "How is this cover available?",
+        "question": "Which backend technologies does Vedansh have experience with?",
         "options": [
-            "As a standalone policy",
-            "As a rider to other policies",
-            "As a part of a group insurance plan",
-            "All of the above"
+            "Node.js",
+            "Ruby on Rails",
+            "FastAPI",
+            "Django"
         ],
-        "answer": "As a rider to other policies"
+        "answer": [
+            "FastAPI",
+            "Django"
+        ]
     },
     {
-        "question": "What is the minimum Sum Insured option available for this cover?",
+        "question": "What cloud platforms has Vedansh deployed applications on?",
         "options": [
-            "Rs. 1,00,000",
-            "Rs. 2,50,000",
-            "Rs. 5,00,000",
-            "Rs. 10,00,000"
+            "AWS",
+            "Azure",
+            "DigitalOcean",
+            "Google Cloud"
         ],
-        "answer": "Rs. 5,00,000"
+        "answer": [
+            "AWS",
+            "DigitalOcean"
+        ]
     },
     {
-        "question": "Under which type of policies is this cover offered?",
+        "question": "In which organization did Vedansh work as a Web Developer Intern?",
         "options": [
-            "Life insurance",
-            "Motor insurance",
-            "Health insurance",
-            "Travel insurance"
+            "PhysicsWallah",
+            "Coding Ninjas",
+            "Chitkara University",
+            "BookBozo"
         ],
-        "answer": "Health insurance"
+        "answer": "PhysicsWallah"
     },
     {
-        "question": "What is the limit for Non-Medical Expenses covered?",
+        "question": "What is the name of the e-commerce app Vedansh developed for his startup?",
         "options": [
-            "It is a fixed amount",
-            "It is based on the Sum Insured of the chosen base policy",
-            "It is determined by the insurer",
-            "It is based on the individual's income"
+            "FinTrack",
+            "Better PW",
+            "BookBozo",
+            "CN-CUIET"
         ],
-        "answer": "It is based on the Sum Insured of the chosen base policy"
+        "answer": "BookBozo"
     },
     {
-        "question": "What is the primary purpose of this cover?",
+        "question": "Which project involved collaborating with the PhysicsWallah tech team?",
         "options": [
-            "To provide financial support during medical emergencies",
-            "To cover non-medical expenses related to health issues",
-            "To provide life insurance coverage",
-            "To cover travel expenses"
+            "FinTrack",
+            "Better PW",
+            "BookBozo",
+            "CN-CUIET"
         ],
-        "answer": "To cover non-medical expenses related to health issues"
+        "answer": "Better PW"
     },
     {
-        "question": "How can you upgrade your policy with this cover?",
+        "question": "What programming languages is Vedansh proficient in?",
         "options": [
-            "Contacting your insurance agent",
-            "Visiting the company website",
-            "Downloading the Caringly Yours App",
-            "All of the above"
+            "Python",
+            "Java",
+            "C++",
+            "JavaScript"
         ],
-        "answer": "All of the above"
+        "answer": [
+            "Python",
+            "C++",
+            "JavaScript"
+        ]
     },
     {
-        "question": "What is the name of the mobile app mentioned in the text?",
+        "question": "Which database technologies is Vedansh familiar with?",
         "options": [
-            "Caringly Yours",
-            "Bajaj Health",
-            "Bajaj Life",
-            "My Bajaj"
+            "MongoDB",
+            "MySQL",
+            "PostgreSQL",
+            "SQLite"
         ],
-        "answer": "Caringly Yours"
+        "answer": [
+            "MongoDB",
+            "MySQL"
+        ]
     },
     {
-        "question": "What is the primary message conveyed in the text?",
+        "question": "What is Vedansh's current educational pursuit?",
         "options": [
-            "Bajaj offers a wide range of insurance products",
-            "Bajaj is committed to providing exceptional customer service",
-            "Bajaj offers a Non-Medical Expenses Cover to enhance health insurance protection",
-            "Bajaj is a leading financial institution in India"
+            "Bachelor of Engineering",
+            "Master of Science",
+            "Doctorate",
+            "Postgraduate Diploma"
         ],
-        "answer": "Bajaj offers a Non-Medical Expenses Cover to enhance health insurance protection"
+        "answer": "Bachelor of Engineering"
     }
 ]
