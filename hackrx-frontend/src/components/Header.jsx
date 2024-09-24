@@ -6,8 +6,8 @@ import Button from "./Button";
 import MenuSvg from "../assets/svg/MenuSvg";
 import { HamburgerMenu } from "./design/Header";
 import { auth, signOut } from "./firebaseConfig";
+import SharePopup from "./SharePopUp"; // Import the SharePopup component
 
-// Define different navigation sets for different routes
 const homeNavigation = [
   { id: 1, title: "Features", url: "#features" },
   { id: 2, title: "TechStack", url: "#techstack" },
@@ -27,6 +27,7 @@ const Header = () => {
   const [openNavigation, setOpenNavigation] = useState(false);
   const [user, setUser] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [sharePopupOpen, setSharePopupOpen] = useState(false); // State to handle share popup visibility
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -70,9 +71,26 @@ const Header = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
-  // Determine which set of navigation links to show based on the current route
+  const openSharePopup = () => {
+    setSharePopupOpen(true); // Open the share popup
+  };
+
+  const closeSharePopup = () => {
+    setSharePopupOpen(false); // Close the share popup
+  };
+
   const getNavigationLinks = () => {
-    if (location.pathname.startsWith("/overview")|| location.pathname.startsWith("/getstarted")||location.pathname.startsWith("/customisation")||location.pathname.startsWith("/preview")||location.pathname.startsWith("/quiz")||location.pathname.startsWith("/overview")||location.pathname.startsWith("/quizanalytics")||location.pathname.startsWith("/videoanalytics")) {
+    if (
+      location.pathname.startsWith("/overview") ||
+      location.pathname.startsWith("/getstarted") ||
+      location.pathname.startsWith("/customisation") ||
+      location.pathname.startsWith("/preview") ||
+      location.pathname.startsWith("/quiz") ||
+      location.pathname.startsWith("/overview") ||
+      location.pathname.startsWith("/quizanalytics") ||
+      location.pathname.startsWith("/videoanalytics") ||
+      location.pathname.startsWith("/projects")
+    ) {
       return dashboardNavigation;
     }
     return homeNavigation; // Default to homeNavigation if not on dashboard
@@ -90,9 +108,10 @@ const Header = () => {
       <div className="flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
         <Link className="flex w-[12rem] xl:mr-8" to="/">
           <img src={logo} width={35} height={35} alt="Aura AI" />
-          <p className="ml-3 mt-3 text-2xl bg-gradient-text text-transparent bg-clip-text font-bold">AURA.ai</p>
+          <p className="ml-3 mt-3 text-2xl bg-gradient-text text-transparent bg-clip-text font-bold">
+            AURA.ai
+          </p>
         </Link>
-      
 
         <nav
           className={`${
@@ -120,6 +139,15 @@ const Header = () => {
 
           <HamburgerMenu />
         </nav>
+
+        {location.pathname.startsWith("/projects") && (
+          <Button
+            onClick={openSharePopup}
+            className="hidden lg:flex mr-4"
+          >
+            Share
+          </Button>
+        )}
 
         {user ? (
           <div className="flex items-center space-x-4 ml-auto">
@@ -164,6 +192,10 @@ const Header = () => {
           <MenuSvg openNavigation={openNavigation} />
         </Button>
       </div>
+
+      {sharePopupOpen && (
+        <SharePopup onClose={closeSharePopup} /> // Render the SharePopup component
+      )}
     </div>
   );
 };

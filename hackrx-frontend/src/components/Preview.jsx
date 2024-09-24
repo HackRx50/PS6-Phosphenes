@@ -6,6 +6,8 @@ import { Linkedin } from 'lucide-react'; // Social media icons
 import { BsWhatsapp } from 'react-icons/bs';
 import { FaFacebook, FaTwitter } from 'react-icons/fa';
 import DemVideo from "../assets/final_slideshow.mp4"
+import Chatbot from "./Chatbot"
+import ChatBot from './Chatbot';
 
 const Preview = () => {
     const [videoUrl, setVideoUrl] = useState('http://127.0.0.1:8000/video/final_slideshow');
@@ -78,6 +80,11 @@ const Preview = () => {
                             <button onClick={() => handleSocialShare('whatsapp')} aria-label="Share on WhatsApp">
                                 <BsWhatsapp size={20} className="hover:text-purple-500 cursor-pointer" />
                             </button>
+                            {/* <Chatbot /> */}
+                            
+                            
+                                
+                            
                         </div>
                     </div>
 
@@ -92,6 +99,9 @@ const Preview = () => {
                         <Button href="/quiz" className="flex gap-2 w-full">
                             Play Quiz
                         </Button>
+                        
+                        <ChatBot />
+                        
                     </div>
                 </div>
             </div>

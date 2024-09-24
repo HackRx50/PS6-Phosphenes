@@ -24,6 +24,7 @@ import HowItWorks from './components/HowItWorks';
 import UseCaseGrid from './components/UseCase';
 import Impact from './components/Impact';
 import FeedBack from './components/FeedBack';
+import Projects from './components/Projects';
 
 const App = () => {
   const location = useLocation();
@@ -67,6 +68,7 @@ const App = () => {
           <Route path="/overview" element={<><Header /><OverviewPage /></>} />
           <Route path="/quizanalytics" element={<><Header /><QuizAnalyticsPage /></>} />
           <Route path="/videoanalytics" element={<><Header /><VideoAnalyticsPage /></>} />
+          <Route path="/projects" element={<><Header /><Projects/></>} />
           
         </Routes>
       </Layout>
