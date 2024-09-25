@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const Sidebar = ({ navItems, setActiveSection }) => {
-	const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
 	// Function to handle section change when a nav item is clicked
 	const handleSectionClick = (sectionName) => {
