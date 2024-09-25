@@ -100,6 +100,7 @@ const UseCaseGrid = () => {
             crosses
             crossesOffset="lg:translate-y-[5.25rem]"
             customPaddings
+            id="Usecases"
             >
             <Heading
                 className="md:max-w-md lg:max-w-2xl"

@@ -102,7 +102,7 @@ import { LeftCurve, RightCurve } from "./design/TechStack.jsx";
 
 const Collaboration = () => {
     return (
-        <Section crosses>
+        <Section crosses id="impact">
             <div className="container lg:flex">
                 <div className="max-w-[35rem] -mt-12">
                     <h2 className="h2 mb-4 md:mb-8">
@@ -127,7 +127,7 @@ const Collaboration = () => {
                     <Gradient />
 
                     {/* Outer circle (stationary) */}
-                    <div className="relative left-1/2 flex w-[25rem] aspect-square border border-n-6 rounded-full -translate-x-1/2 scale:75 md:scale-100">
+                    <div className="relative left-1/2 flex w-[25rem] aspect-square border border-n-6 rounded-full -translate-x-1/2 scale:75 md:scale-100    ">
                         <div className="flex w-120 aspect-square m-auto border border-n-6 rounded-full">
                             <div className="flex w-80 aspect-square m-auto border border-n-6 rounded-full">
                                 <div className="flex w-60 aspect-square m-auto border border-n-6 rounded-full">
