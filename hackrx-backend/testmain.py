@@ -199,7 +199,7 @@ def save_prompts_to_json(promp_string, output_file):
 def generate_quiz(text):
     quiz_string = ""
     try:
-        inp = model.generate_content(f"Generate quiz which contains 10 questions with unique answers in MCQ format containing 'question', 'options', 'answer' in JSON list format based on the text: {text}")
+        inp = model.generate_content(f"Generate quiz which contains 3 questions with unique answers in MCQ format containing 'question', 'options', 'answer' in JSON list format based on the text: {text}")
         print(inp.text)
         quiz_string = inp.text
     except Exception as e:

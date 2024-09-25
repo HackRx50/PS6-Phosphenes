@@ -1,102 +1,34 @@
 [
     {
-        "question": "What type of insurance product is being advertised?",
+        "question": "What are the per day Room Rent options available under the Bajaj Allianz Health Infinity Policy?",
         "options": [
-            "Medical Insurance",
-            "Life Insurance",
-            "Travel Insurance",
-            "Non-Medical Expenses Cover"
+            "INR 3000 per day, INR 20000 per day",
+            "INR 4000 per day, INR 25000 per day",
+            "INR 5000 per day, INR 30000 per day",
+            "INR 8000 per day, INR 35000 per day",
+            "INR 10000 per day, INR 40000 per day",
+            "INR 15000 per day, INR 50000 per day"
         ],
-        "answer": "Non-Medical Expenses Cover"
+        "answer": "INR 3000 per day, INR 20000 per day, INR 4000 per day, INR 25000 per day, INR 5000 per day, INR 30000 per day, INR 8000 per day, INR 35000 per day, INR 10000 per day, INR 40000 per day, INR 15000 per day, INR 50000 per day"
     },
     {
-        "question": "What is the purpose of this insurance product?",
+        "question": "What is the maximum Entry Age for proposer/ spouse/ dependent parents under the Bajaj Allianz Health Infinity Policy?",
         "options": [
-            "To cover medical expenses",
-            "To provide financial support beyond medical costs",
-            "To protect against accidents",
-            "To cover travel expenses"
+            "60 years",
+            "65 years",
+            "70 years",
+            "75 years"
         ],
-        "answer": "To provide financial support beyond medical costs"
+        "answer": "65 years"
     },
     {
-        "question": "How is this insurance product available?",
+        "question": "What is the policy period for the Bajaj Allianz Health Infinity Policy?",
         "options": [
-            "As a standalone policy",
-            "As a rider with a health insurance policy",
-            "As an add-on to a life insurance policy",
-            "As a separate policy for non-medical expenses"
+            "1 year",
+            "2 years",
+            "3 years",
+            "All of the above"
         ],
-        "answer": "As a rider with a health insurance policy"
-    },
-    {
-        "question": "What is the minimum Sum Insured option for Non-Medical Expenses Cover?",
-        "options": [
-            "Rs. 1,00,000",
-            "Rs. 2,50,000",
-            "Rs. 5,00,000",
-            "Rs. 10,00,000"
-        ],
-        "answer": "Rs. 5,00,000"
-    },
-    {
-        "question": "What is the limit for Non-Medical Expenses covered under this rider?",
-        "options": [
-            "It is a fixed amount",
-            "It is determined by the policyholder",
-            "It is a percentage of the Sum Insured of the base policy",
-            "It is based on the actual expenses incurred"
-        ],
-        "answer": "It is covered within the In-patient Hospitalization Sum Insured of the chosen base policy"
-    },
-    {
-        "question": "What is the benefit of opting for this Non-Medical Expenses Cover?",
-        "options": [
-            "It provides additional financial support for non-medical expenses",
-            "It reduces the premium cost of the base policy",
-            "It covers expenses related to travel",
-            "It provides coverage for medical expenses"
-        ],
-        "answer": "It provides additional financial support for non-medical expenses"
-    },
-    {
-        "question": "Who is this insurance product designed to protect?",
-        "options": [
-            "Only the policyholder",
-            "The policyholder and their family",
-            "Only the policyholder's family",
-            "Only the policyholder's dependents"
-        ],
-        "answer": "The policyholder and their loved ones"
-    },
-    {
-        "question": "How can you download the Caringly Yours App?",
-        "options": [
-            "By visiting the Bajaj website",
-            "By searching in the app store",
-            "By scanning the QR code",
-            "By contacting Bajaj customer service"
-        ],
-        "answer": "By scanning the QR code"
-    },
-    {
-        "question": "What is the name of the company advertising this insurance product?",
-        "options": [
-            "HDFC Life",
-            "ICICI Prudential",
-            "Bajaj Allianz",
-            "SBI Life"
-        ],
-        "answer": "Bajaj Allianz"
-    },
-    {
-        "question": "What is the key message conveyed by the advertisement?",
-        "options": [
-            "Non-medical expenses are covered by this policy",
-            "This insurance product provides comprehensive protection",
-            "The policyholder should opt for this rider for complete protection",
-            "Bajaj Allianz offers the best insurance products"
-        ],
-        "answer": "Ensure comprehensive protection for yourself and your loved ones by opting for this cover."
+        "answer": "All of the above"
     }
 ]
