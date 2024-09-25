@@ -302,7 +302,7 @@ def trim_video(video_path, duration=7):
 
 def generate_image_from_prompt(prompt, images_folder, image_index):
     headers = {
-        'Authorization': f'Bearer sk-{STABILITY_API_KEY}',
+        'Authorization': f'Bearer sk-Xips2HbQGXa2GTbRE3Y08s933bqp7eNhSUGw4eyFW1Vu4Cep',
         
         'accept': 'image/*'
     }
