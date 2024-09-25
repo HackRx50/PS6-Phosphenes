@@ -317,13 +317,13 @@ export const benefits = [
     },
     {
         id: "1",
-        title: "AI-Driven Content Generation",
-        text: "Automatically convert any text—brochures, PDFs, or documents—into engaging, visually compelling videos.",
-        backgroundUrl: "./src/assets/benefits/card-2.svg",
-        iconUrl: benefitIcon2,
+        title: "Massive Customization Options",
+        text: "Vast customization features enabling users to tailor visuals, audio, and interactive elements to craft videos.",
+        backgroundUrl: "./src/assets/benefits/card-5.svg",
+        iconUrl: benefitIcon6,
         imageUrl: purplegradient,
-        light: true,
     },
+    
     {
         id: "2",
         title: "Interactive Quiz Creation",
@@ -352,12 +352,14 @@ export const benefits = [
     },
     {
         id: "5",
-        title: "Massive Customization Options",
-        text: "Vast customization features enabling users to tailor visuals, audio, and interactive elements to craft videos.",
-        backgroundUrl: "./src/assets/benefits/card-5.svg",
-        iconUrl: benefitIcon6,
+        title: "AI-Driven Content Generation",
+        text: "Automatically convert any text—brochures, PDFs, or documents—into engaging, visually compelling videos.",
+        backgroundUrl: "./src/assets/benefits/card-2.svg",
+        iconUrl: benefitIcon2,
         imageUrl: purplegradient,
+        light: true,
     },
+    
 ];
 
 export const socials = [

@@ -10,10 +10,11 @@ import { auth, signOut } from "./firebaseConfig";
 // Define different navigation sets for different routes
 const homeNavigation = [
   { id: 1, title: "Features", url: "#features" },
-  { id: 2, title: "TechStack", url: "#techstack" },
-  { id: 3, title: "Enhancements", url: "#enhancements" },
-  { id: 4, title: "Pricing", url: "#ourteam" },
-  { id: 5, title: "Contact", url: "#ourteam" },
+  { id: 2, title: "How It Works", url: "#howitworks" },
+  { id: 3, title: "Use Cases", url: "#Usecases" },
+  { id: 4, title: "Impact", url: "#impact" },
+  { id: 5, title: "Pricing", url: "#pricing" },
+ 
 ];
 
 const dashboardNavigation = [
