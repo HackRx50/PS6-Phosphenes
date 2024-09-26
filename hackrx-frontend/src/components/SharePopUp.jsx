@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Gradient } from "./design/Services";
+import Button from "./Button";
 
 const SharePopup = ({ onClose }) => {
     const [email, setEmail] = useState("");
@@ -23,10 +24,10 @@ const SharePopup = ({ onClose }) => {
 
     return (
         
-        <div className="fixed inset-0 z-0 flex items-center justify-center bg-black bg-opacity-50 mt-72">
-        <Gradient />
-            <div className="bg-gradient-to-r from-transparent via-neutral-300 overflow-hidden dark:via-neutral-700 to-transparent border  border-n-1/10 rounded-3xl p-6 max-w-md w-full">
-            
+        <div className="fixed inset-0 z-0 flex items-center justify-center bg-n-9 bg-opacity-100 mt-72">
+       
+            <div className="overflow-hidden border-n-1/10  max-w-md w-full mx-auto rounded-xl md:rounded-2xl p-4 md:p-8 shadow-input bg-n-8 backdrop-blur border ">
+            <Gradient />
                 <h2 className="text-xl font-bold mb-4">Share Project</h2>
                 <form onSubmit={handleSubmit}>
                 
@@ -60,16 +61,16 @@ const SharePopup = ({ onClose }) => {
                         </select>
                     </div>
                     <div className="flex justify-end space-x-4">
-                        <button
+                        <Button
                             type="button"
                             onClick={onClose}
-                            className="px-4 py-2 bg-gray-500 text-white rounded"
+                            className="px-4 py-2 "
                         >
                             Cancel
-                        </button>
-                        <button type="submit" className="px-4 py-2 bg-color-1 text-white rounded">
+                        </Button>
+                        <Button type="submit" className="px-4 py-2">
                             Share
-                        </button>
+                        </Button>
                     </div>
                 </form>
             </div>
