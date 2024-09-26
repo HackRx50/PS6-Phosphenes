@@ -446,3 +446,37 @@ export const feedback = [
         imageUrl: purplegradient,
     },
 ];
+
+export const singleBenefit = [
+    {
+    id: "1",
+    title: "My Awesome Project-1",
+    // text: "Utilize cutting-edge AI technology to create stunning videos that captivate your audience.",
+    // iconUrl: "benefitIcon1", // Replace with actual icon URL
+    backgroundUrl: "./src/assets/benefits/card-1.svg", // Replace with actual background URL
+    imageUrl: "./src/assets/texttovideo.webp", // Replace with actual image URL
+    light: true, // or false based on your requirement
+  },
+  {
+    id: "2",
+    title: "My Awesome Project-2",
+    // text: "Utilize cutting-edge AI technology to create stunning videos that captivate your audience.",
+    // iconUrl: "benefitIcon1", // Replace with actual icon URL
+    backgroundUrl: "./src/assets/benefits/card-1.svg", // Replace with actual background URL
+    imageUrl: "./src/assets/texttovideo.webp", // Replace with actual image URL
+    light: true, // or false based on your requirement
+  },
+  {
+    id: "3",
+    title: "My Awesome Project-3",
+    // text: "Utilize cutting-edge AI technology to create stunning videos that captivate your audience.",
+    // iconUrl: "benefitIcon1", // Replace with actual icon URL
+    backgroundUrl: "./src/assets/benefits/card-1.svg", // Replace with actual background URL
+    imageUrl: "./src/assets/texttovideo.webp", // Replace with actual image URL
+    light: true, // or false based on your requirement
+  },
+
+
+]
+  
+ 
