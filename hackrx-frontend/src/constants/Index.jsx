@@ -352,8 +352,8 @@ export const benefits = [
     },
     {
         id: "5",
-        title: "AI-Driven Content Generation",
-        text: "Automatically convert any text—brochures, PDFs, or documents—into engaging, visually compelling videos.",
+        title: "AURA.ai Bot",
+        text: "The bot is made to accurately solve any lingering queries the user has even after watching the video.",
         backgroundUrl: "./src/assets/benefits/card-2.svg",
         iconUrl: benefitIcon2,
         imageUrl: purplegradient,
