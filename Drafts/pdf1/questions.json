@@ -1,0 +1,34 @@
+[
+    {
+        "question": "What are the per day Room Rent options available under the Bajaj Allianz Health Infinity Policy?",
+        "options": [
+            "INR 3000 per day, INR 20000 per day",
+            "INR 4000 per day, INR 25000 per day",
+            "INR 5000 per day, INR 30000 per day",
+            "INR 8000 per day, INR 35000 per day",
+            "INR 10000 per day, INR 40000 per day",
+            "INR 15000 per day, INR 50000 per day"
+        ],
+        "answer": "INR 3000 per day, INR 20000 per day, INR 4000 per day, INR 25000 per day, INR 5000 per day, INR 30000 per day, INR 8000 per day, INR 35000 per day, INR 10000 per day, INR 40000 per day, INR 15000 per day, INR 50000 per day"
+    },
+    {
+        "question": "What is the maximum Entry Age for proposer/ spouse/ dependent parents under the Bajaj Allianz Health Infinity Policy?",
+        "options": [
+            "60 years",
+            "65 years",
+            "70 years",
+            "75 years"
+        ],
+        "answer": "65 years"
+    },
+    {
+        "question": "What is the policy period for the Bajaj Allianz Health Infinity Policy?",
+        "options": [
+            "1 year",
+            "2 years",
+            "3 years",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    }
+]
