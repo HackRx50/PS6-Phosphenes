@@ -70,8 +70,11 @@ const ChatBot = () => {
                     </div>
                     <div className="messages flex-grow mb-4 overflow-y-auto">
                         {messages.map((msg, index) => (
-                            <div key={index} className={`message ${msg.isUser ? "text-right" : "text-left"} mb-2`}>
-                                <span className={`inline-block p-2 rounded-lg ${msg.isUser ? "bg-gradient " : "bg-gradient "} whitespace-normal break-words max-w-[90%]`}>
+                            <div key={index} className={`message ${msg.isUser ? "text-right" : "text-left"} mb-2`}
+                            style={{ maxWidth: "85%", width: "300px" }} >
+                                <span className={`inline-block p-2 rounded-lg ${msg.isUser ? "bg-gray-600 " : "bg-gray-200 text-black "} whitespace-normal break-words max-w-[90%]`}
+                                style={{ wordWrap: "break-word", whiteSpace: "normal" }}
+                                >
                                     {msg.text}
                                 </span>
                             </div>
