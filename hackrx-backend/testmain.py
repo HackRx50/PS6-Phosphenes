@@ -176,7 +176,7 @@ def generate_subtitles_from_speech(speech_text, audio_duration, output_srt_path,
 def generate_prompts_from_summary(summary):
     promp_string = ""
     try:
-        inp = model.generate_content(f"Generate 5 Unique and realistic prompt containing 'description' in JSON list fromat for generating the images using AI based on the this summary: {summary} ")
+        inp = model.generate_content(f"Generate 10 Unique and realistic prompt containing 'description' in JSON list fromat for generating the images using AI based on the this summary: {summary} ")
         promp_string = inp.text.strip("\n")
         print(promp_string)
     except Exception as e:

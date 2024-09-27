@@ -1,102 +1,34 @@
 [
     {
-        "question": "What is the main purpose of a mutex in the context of threading?",
+        "question": "What are the per day Room Rent options available under the Bajaj Allianz\u2019s Health Infinity Policy?",
         "options": [
-            "To prevent race conditions by ensuring that only one thread can access a shared resource at a time.",
-            "To provide a mechanism for synchronizing threads by signaling when a resource is available.",
-            "To manage the order in which threads execute, ensuring that certain threads run before others.",
-            "To allow threads to communicate with each other by passing messages."
+            "INR 3000 per day, INR 20000 per day",
+            "INR 4000 per day, INR 25000 per day",
+            "INR 5000 per day, INR 30000 per day",
+            "INR 8000 per day, INR 35000 per day",
+            "INR 10000 per day, INR 40000 per day",
+            "INR 15000 per day, INR 50000 per day"
         ],
-        "answer": "To prevent race conditions by ensuring that only one thread can access a shared resource at a time."
+        "answer": "INR 3000 per day, INR 20000 per day, INR 4000 per day, INR 25000 per day, INR 5000 per day, INR 30000 per day, INR 8000 per day, INR 35000 per day, INR 10000 per day, INR 40000 per day, INR 15000 per day, INR 50000 per day"
     },
     {
-        "question": "Which of the following is NOT a common multithreading pattern discussed in the text?",
+        "question": "What is the minimum Entry Age for proposer/spouse/dependent parents under the Bajaj Allianz\u2019s Health Infinity Policy?",
         "options": [
-            "Boss-worker",
-            "Pipeline",
-            "Layered",
-            "Starvation"
+            "18 years",
+            "21 years",
+            "25 years",
+            "30 years"
         ],
-        "answer": "Starvation"
+        "answer": "18 years"
     },
     {
-        "question": "In the producer-consumer problem using conditional variables, what is the purpose of the 'wait(m, list_full)' statement in the consumer thread?",
+        "question": "What is the maximum Entry Age for dependent children under the Bajaj Allianz\u2019s Health Infinity Policy?",
         "options": [
-            "To wait until the mutex is unlocked.",
-            "To wait until the list is full of items.",
-            "To wait until the list is empty of items.",
-            "To signal the producer thread that the list is full."
+            "18 years",
+            "21 years",
+            "25 years",
+            "30 years"
         ],
-        "answer": "To wait until the list is full of items."
-    },
-    {
-        "question": "What is a 'spurious wakeup' in the context of threading?",
-        "options": [
-            "A situation where a thread is woken up by a signal, but the condition it was waiting for has not actually changed.",
-            "A thread that is repeatedly awakened by the same signal, even though the condition it is waiting for has not changed.",
-            "A thread that is woken up prematurely by a signal, before it is ready to be awakened.",
-            "A thread that is unable to wake up due to a deadlock condition."
-        ],
-        "answer": "A situation where a thread is woken up by a signal, but the condition it was waiting for has not actually changed."
-    },
-    {
-        "question": "Which of the following is a strategy for preventing deadlocks?",
-        "options": [
-            "Using semaphores instead of mutexes.",
-            "Using a centralized scheduler to manage thread access to resources.",
-            "Ensuring that all threads acquire resources in the same order.",
-            "Using a preemptive scheduling algorithm."
-        ],
-        "answer": "Ensuring that all threads acquire resources in the same order."
-    },
-    {
-        "question": "In the 'Boss-worker' pattern, what is the primary responsibility of the 'Boss' thread?",
-        "options": [
-            "To perform the actual work tasks.",
-            "To manage the queue of tasks and assign them to worker threads.",
-            "To synchronize the worker threads to ensure they work in a coordinated manner.",
-            "To monitor the performance of the worker threads and adjust their workload."
-        ],
-        "answer": "To manage the queue of tasks and assign them to worker threads."
-    },
-    {
-        "question": "Which of the following is NOT a benefit of the 'Pipeline' pattern?",
-        "options": [
-            "Specialization of tasks among threads.",
-            "Improved overall throughput by allowing multiple tasks to run concurrently.",
-            "Simplified synchronization between threads, as each stage only needs to communicate with its neighbors.",
-            "Ease of scalability, as new stages can be added without disrupting the existing pipeline."
-        ],
-        "answer": "Simplified synchronization between threads, as each stage only needs to communicate with its neighbors."
-    },
-    {
-        "question": "In the 'Layered' pattern, what is the primary concern regarding synchronization?",
-        "options": [
-            "Ensuring that threads in different layers do not access the same resources concurrently.",
-            "Maintaining the order in which layers process data, ensuring that each layer receives its input before processing.",
-            "Balancing the workload among threads in each layer, to ensure that no layer becomes a bottleneck.",
-            "Preventing deadlocks from occurring due to dependencies between threads in different layers."
-        ],
-        "answer": "Maintaining the order in which layers process data, ensuring that each layer receives its input before processing."
-    },
-    {
-        "question": "What is the primary role of the CPU scheduler in an operating system?",
-        "options": [
-            "To manage the memory allocation for processes.",
-            "To determine the order in which processes are executed on the CPU.",
-            "To handle system calls and interrupts.",
-            "To provide a user interface for interacting with the operating system."
-        ],
-        "answer": "To determine the order in which processes are executed on the CPU."
-    },
-    {
-        "question": "Which CPU scheduling strategy aims to minimize the average waiting time for processes?",
-        "options": [
-            "First-Come, First-Served (FCFS)",
-            "Shortest Job First (SJF)",
-            "Round Robin",
-            "Priority Scheduling"
-        ],
-        "answer": "Shortest Job First (SJF)"
+        "answer": "25 years"
     }
 ]
