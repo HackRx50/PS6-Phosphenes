@@ -25,8 +25,8 @@ AURA.ai is a cutting-edge AI platform designed to **automate video creation** fr
 - **Multilingual Support**  
    Generate videos in **over 10 languages**, making your content globally accessible.
 
-- **Collaboration Tools**  
-   Seamlessly collaborate on content creation, ideal for corporate teams and educational institutions.
+- **Collaboration Tools & AURAbot**  
+   Seamlessly collaborate on content creation, ideal for corporate teams and educational institutions , and also ask our AURAbot for the lingering queries.
 
 ---
 
