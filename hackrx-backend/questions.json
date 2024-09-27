@@ -1,34 +1,32 @@
 [
     {
-        "question": "What are the per day Room Rent options available under the Bajaj Allianz\u2019s Health Infinity Policy?",
-        "options": [
-            "INR 3000 per day, INR 20000 per day",
-            "INR 4000 per day, INR 25000 per day",
-            "INR 5000 per day, INR 30000 per day",
-            "INR 8000 per day, INR 35000 per day",
-            "INR 10000 per day, INR 40000 per day",
-            "INR 15000 per day, INR 50000 per day"
-        ],
-        "answer": "INR 3000 per day, INR 20000 per day, INR 4000 per day, INR 25000 per day, INR 5000 per day, INR 30000 per day, INR 8000 per day, INR 35000 per day, INR 10000 per day, INR 40000 per day, INR 15000 per day, INR 50000 per day"
-    },
-    {
-        "question": "What is the minimum Entry Age for proposer/spouse/dependent parents under the Bajaj Allianz\u2019s Health Infinity Policy?",
+        "question": "What is the maximum entry age for a proposer/spouse/dependent parent under this policy?",
         "options": [
             "18 years",
-            "21 years",
-            "25 years",
-            "30 years"
+            "65 years",
+            "75 years",
+            "There is no age limit"
         ],
-        "answer": "18 years"
+        "answer": "65 years"
     },
     {
-        "question": "What is the maximum Entry Age for dependent children under the Bajaj Allianz\u2019s Health Infinity Policy?",
+        "question": "What is the waiting period for any of the listed vector borne diseases diagnosed within the first 15 days of the date of commencement of the policy?",
         "options": [
-            "18 years",
-            "21 years",
-            "25 years",
-            "30 years"
+            "15 days",
+            "30 days",
+            "60 days",
+            "90 days"
         ],
-        "answer": "25 years"
+        "answer": "15 days"
+    },
+    {
+        "question": "What is the discount applicable if a customer buys the policy from the company's website?",
+        "options": [
+            "10%",
+            "15%",
+            "20%",
+            "25%"
+        ],
+        "answer": "20%"
     }
 ]

@@ -140,7 +140,7 @@ function Customisation() {
 
             <div>
                 <TopBar projectName={projectName} setProjectName={setProjectName} />
-                <div className="flex-1 h-screen flex flex-col lg:flex-row">
+                <div className="flex-1 h-screen w-full flex flex-col lg:flex-row">
                     {/* TopBar with Editable Project Name */}
 
 
