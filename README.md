@@ -7,7 +7,7 @@
 
 ---
 
-AURA.ai is a cutting-edge AI platform designed to **automate video creation** from text-based inputs such as brochures or PDFs. It seamlessly integrates **interactive quizzes** and provides detailed **analytics** to enhance user engagement. Perfect for **education, corporate training,** and **HR assessments**, AURA.ai offers **multilingual support** and real-time feedback, transforming the way content is delivered.
+AURA.ai is a cutting-edge AI driven platform designed to **automate video creation** from text-based inputs such as brochures or PDFs. It seamlessly integrates **interactive quizzes** and provides detailed **analytics** to enhance user engagement. Perfect for **education, corporate training,** and **HR assessments**, AURA.ai offers **multilingual support** and real-time feedback, transforming the way content is delivered.
 
 ---
 
