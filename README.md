@@ -114,7 +114,7 @@ cd hackrx-frontend
 
 ### **7. Install Required Dependencies & Run the Script:**
 ```bash
-npm install
+npm i
 ```
 
 ### **8. Run the Development Server:**
