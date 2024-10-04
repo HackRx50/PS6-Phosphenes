@@ -50,6 +50,7 @@ AURA.ai is a cutting-edge AI driven platform designed to **automate video creati
 ### **Hosting Platforms:**
 - **Vercel** - (Frontend deployment)  
 - **Railway** - (Backend hosting)
+- **Digital Ocean** -(Cloud Hosting)
 
 ### **Industrial Add-Ons:**
 - **Husky** - (Enforces code quality pre-commit hooks)  
