@@ -32,7 +32,7 @@ const Sidebar = ({ navItems, setActiveSection }) => {
 					{navItems.map((item) => (
 						<motion.div
 							key={item.name}
-							className="flex items-center p-4 text-sm font-medium rounded-lg hover:bg-gray-700 transition-colors mb-2 cursor-pointer"
+							className="flex items-center p-4 text-sm font-medium rounded-lg hover:bg-n-9/40 transition-colors mb-2 cursor-pointer"
 							onClick={() => handleSectionClick(item.name)} // Call the section change handler
 						>
 							<item.icon size={20} style={{ color: item.color, minWidth: "20px" }} />
