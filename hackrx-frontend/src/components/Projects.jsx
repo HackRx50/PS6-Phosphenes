@@ -12,11 +12,12 @@ const Projects = () => {
     <Section id="features">
       <div className="container relative z-2">
         <Heading
-          className="md:max-w-md lg:max-w-2xl"
+          className="md:max-w-md lg:max-w-2xl mx-auto text-center -mb-5" // Centering the heading
           title="Your Projects"
         />
 
-        <div className="flex flex-wrap gap-10 mb-10">
+        {/* Wrapping the projects in a flex container with centering properties */}
+        <div className="flex flex-wrap justify-center gap-10 mb-10">
           {singleBenefit.map((benefit) => (
             <div
               className="block relative p-0.5 bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem]"
@@ -25,7 +26,7 @@ const Projects = () => {
               }}
               key={benefit.id}
             >
-              <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem] pointer-events-none">
+              <div className="relative z-2 flex flex-col min-h-[15rem] p-[2.4rem] pointer-events-none">
                 <h5 className="h5 mb-5">{benefit.title}</h5>
                 
                 {/* Image Below Title */}
@@ -46,8 +47,8 @@ const Projects = () => {
                   {benefit.imageUrl && (
                     <img
                       src={benefit.imageUrl}
-                      width={380}
-                      height={362}
+                      width={280}
+                      height={262}
                       alt={benefit.title}
                       className="w-full h-full object-cover"
                     />

@@ -23,7 +23,7 @@ const Sidebar = ({ navItems, setActiveSection }) => {
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.9 }}
 					onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-					className="p-2 rounded-full hover:bg-gray-700 transition-colors max-w-fit"
+					className="p-2 rounded-full hover:bg-n-9/40 transition-colors max-w-fit"
 				>
 					<Menu size={24} />
 				</motion.button>
