@@ -1,7 +1,7 @@
-const express = require("express");
-const fs = require("fs");
-const path = require("path");
-const cors = require("cors");
+import express from "express"; // Importing express using ES module syntax
+import fs from "fs"; // Importing fs
+import path from "path"; // Importing path
+import cors from "cors"; // Importing cors
 
 const app = express();
 
@@ -15,19 +15,18 @@ app.use(cors());
 app.post("/api/send-analytics", (req, res) => {
     const analytics = req.body;
 
-    const { name, email, pauses, pauseTimestamps, replays, speedChanges } = analytics;
+    const { pauses, pauseTimestamps, replays, speedChanges } = analytics;
 
-    // Use __dirname to get the absolute path to the file
-    const filePath = path.join(__dirname, "analytics.json");
+    // Use import.meta.url to get the absolute path to the file
+    const filePath = path.join(new URL(".", import.meta.url).pathname, "analytics.json");
 
     // Create a new entry object
     const newEntry = {
-        name,
-        email,
         totalReplays: replays,
         totalPauses: pauses,
         pauseTimestamps,
-        totalSpeedChanges: speedChanges
+        totalSpeedChanges: speedChanges,
+        timestamp: new Date().toISOString(), // Optionally log the timestamp of the interaction
     };
 
     console.log("New Analytics Entry:", newEntry); // Log the entry to be saved
@@ -59,16 +58,8 @@ app.post("/api/send-analytics", (req, res) => {
                     console.error("Error parsing JSON:", parseError);
                 }
 
-                // Find if the user already exists
-                const userIndex = existingAnalytics.findIndex(entry => entry.name === name && entry.email === email);
-
-                if (userIndex !== -1) {
-                    // Update existing entry
-                    existingAnalytics[userIndex] = newEntry;
-                } else {
-                    // Add new entry
-                    existingAnalytics.push(newEntry);
-                }
+                // Add the new entry to the existing analytics data
+                existingAnalytics.push(newEntry);
 
                 // Write the updated data back to the file
                 fs.writeFile(filePath, JSON.stringify(existingAnalytics, null, 2), (writeErr) => {
