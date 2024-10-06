@@ -1,102 +1,102 @@
 [
     {
-        "question": "What type of insurance product is being advertised?",
+        "question": "What is Vedansh's profession?",
         "options": [
-            "Medical Insurance",
-            "Life Insurance",
-            "Travel Insurance",
-            "Non-Medical Expenses Cover"
+            "Teacher",
+            "Doctor",
+            "Software Developer",
+            "Engineer"
         ],
-        "answer": "Non-Medical Expenses Cover"
+        "answer": "Software Developer"
     },
     {
-        "question": "What is the purpose of this insurance product?",
+        "question": "Which file is Vedansh testing?",
         "options": [
-            "To cover medical expenses",
-            "To provide financial support beyond medical costs",
-            "To protect against accidents",
-            "To cover travel expenses"
+            "main.py",
+            "server.py",
+            "index.html",
+            "style.css"
         ],
-        "answer": "To provide financial support beyond medical costs"
+        "answer": "main.py"
     },
     {
-        "question": "How is this insurance product available?",
+        "question": "What is the purpose of the testing file?",
         "options": [
-            "As a standalone policy",
-            "As a rider with a health insurance policy",
-            "As an add-on to a life insurance policy",
-            "As a separate policy for non-medical expenses"
+            "To create a website",
+            "To learn Python",
+            "To test the functionality of main.py and server.py",
+            "To write a blog post"
         ],
-        "answer": "As a rider with a health insurance policy"
+        "answer": "To test the functionality of main.py and server.py"
     },
     {
-        "question": "What is the minimum Sum Insured option for Non-Medical Expenses Cover?",
+        "question": "How many times does the phrase \"hello, I am Vedansh and im a software developer\" appear in the text?",
         "options": [
-            "Rs. 1,00,000",
-            "Rs. 2,50,000",
-            "Rs. 5,00,000",
-            "Rs. 10,00,000"
+            "5",
+            "10",
+            "15",
+            "20"
         ],
-        "answer": "Rs. 5,00,000"
+        "answer": "20"
     },
     {
-        "question": "What is the limit for Non-Medical Expenses covered under this rider?",
+        "question": "What is the primary purpose of the \"server.py\" file?",
         "options": [
-            "It is a fixed amount",
-            "It is determined by the policyholder",
-            "It is a percentage of the Sum Insured of the base policy",
-            "It is based on the actual expenses incurred"
+            "To display content on a website",
+            "To process data from the user",
+            "To connect to a database",
+            "To run the main application"
         ],
-        "answer": "It is covered within the In-patient Hospitalization Sum Insured of the chosen base policy"
+        "answer": "To process data from the user"
     },
     {
-        "question": "What is the benefit of opting for this Non-Medical Expenses Cover?",
+        "question": "What is the most likely reason for the repetition of the phrase \"hello, I am Vedansh and im a software developer\"?",
         "options": [
-            "It provides additional financial support for non-medical expenses",
-            "It reduces the premium cost of the base policy",
-            "It covers expenses related to travel",
-            "It provides coverage for medical expenses"
+            "It's a stylistic choice",
+            "It's a placeholder for actual content",
+            "It's a debugging tool",
+            "It's a test for a specific function"
         ],
-        "answer": "It provides additional financial support for non-medical expenses"
+        "answer": "It's a placeholder for actual content"
     },
     {
-        "question": "Who is this insurance product designed to protect?",
+        "question": "What type of programming language is likely used in the \"main.py\" file?",
         "options": [
-            "Only the policyholder",
-            "The policyholder and their family",
-            "Only the policyholder's family",
-            "Only the policyholder's dependents"
+            "Java",
+            "C++",
+            "Python",
+            "JavaScript"
         ],
-        "answer": "The policyholder and their loved ones"
+        "answer": "Python"
     },
     {
-        "question": "How can you download the Caringly Yours App?",
+        "question": "What is the likely relationship between the \"main.py\" and \"server.py\" files?",
         "options": [
-            "By visiting the Bajaj website",
-            "By searching in the app store",
-            "By scanning the QR code",
-            "By contacting Bajaj customer service"
+            "They are completely independent",
+            "main.py calls upon server.py to process data",
+            "server.py calls upon main.py to display content",
+            "They are both used to create a website"
         ],
-        "answer": "By scanning the QR code"
+        "answer": "main.py calls upon server.py to process data"
     },
     {
-        "question": "What is the name of the company advertising this insurance product?",
+        "question": "What does the abbreviation \"im\" most likely stand for?",
         "options": [
-            "HDFC Life",
-            "ICICI Prudential",
-            "Bajaj Allianz",
-            "SBI Life"
+            "I am",
+            "I'm",
+            "It's me",
+            "In my"
         ],
-        "answer": "Bajaj Allianz"
+        "answer": "I'm"
     },
     {
-        "question": "What is the key message conveyed by the advertisement?",
+        "question": "Based on the information provided, what is the most likely outcome of Vedansh's testing?",
         "options": [
-            "Non-medical expenses are covered by this policy",
-            "This insurance product provides comprehensive protection",
-            "The policyholder should opt for this rider for complete protection",
-            "Bajaj Allianz offers the best insurance products"
+            "He will create a fully functional website",
+            "He will identify and fix bugs in his code",
+            "He will learn a new programming language",
+            "He will write a blog post about his experience"
         ],
-        "answer": "Ensure comprehensive protection for yourself and your loved ones by opting for this cover."
+        "answer": "He will identify and fix bugs in his code"
     }
 ]

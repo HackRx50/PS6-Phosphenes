@@ -1,17 +1,235 @@
 [
     {
-        "description": "A colorful infographic depicting a person with a broken arm, a hospital bill, and a smiling face. The infographic highlights the 'Non-Medical Expenses Cover' rider, explaining how it helps with additional costs beyond medical bills, such as travel expenses and lost income.  Use vibrant colors and include the text 'Rs. 5,00,000 Limit' prominently."
+        "prompt": "A close-up shot of a worn, leather-bound book with a cracked spine. The pages are yellowed and brittle, and the text is faded and difficult to read. The book is resting on a wooden table, with a single candle flickering in the background, casting long shadows on the surrounding area. The air is thick with dust and the scent of old paper.",
+        "negative_prompt": "modern, digital, perfect, bright, colorful, cartoon",
+        "style": "photorealistic",
+        "resolution": [
+            1024,
+            768
+        ],
+        "seed": 12345,
+        "num_inference_steps": 50,
+        "guidance_scale": 7.5
     },
     {
-        "description": "A realistic photo of a family enjoying a vacation. The image should convey a sense of peace and relaxation, with the caption mentioning 'Non-Medical Expenses Cover' and how it can protect them from unexpected costs during travel."
+        "prompt": "A close-up, high-resolution image of a digital placeholder file icon. The icon should be rendered in a modern, minimalist style, with a sleek, metallic gray color and a subtle gradient. The file icon is sitting on a clean, white desktop, with a soft shadow below it. The background should be a blurred, abstract pattern of glowing blue and purple lines, representing the digital environment. The image should evoke a sense of anticipation and mystery, hinting at the potential hidden within the placeholder file.",
+        "style": "Photorealistic, modern minimalist",
+        "resolution": "1024x1024",
+        "aspect_ratio": "1:1",
+        "lighting": "Soft, ambient light",
+        "color_palette": "Cool tones, metallic gray, blue and purple hues",
+        "composition": "Close-up, centered",
+        "details": [
+            "Realistic texture on the file icon",
+            "Subtle gradient on the icon",
+            "Sharp, crisp details",
+            "Soft shadow on the desktop"
+        ]
     },
     {
-        "description": "A minimalist design featuring a hand holding a medical bill, with the text 'Non-Medical Expenses Cover' overlaid on it. The background should be a clean white or light gray, with a subtle gradient to add depth. The text 'Rs. 5,00,000 Limit' should be displayed in a prominent font."
+        "prompt": "A portrait of Vedansh, a software developer, for his LinkedIn profile picture. He is in his mid-20s, with short, dark hair and a friendly smile. He's wearing a casual, stylish outfit - a blue button-down shirt and dark jeans. He's sitting in a modern, minimalist office with a laptop and a coffee cup on the desk. The background is slightly blurred to focus on Vedansh. The image should be realistic and professional, conveying Vedansh's intelligence and approachability.",
+        "style": "photorealistic",
+        "aspect_ratio": "1:1",
+        "resolution": "1024x1024"
     },
     {
-        "description": "A cartoon illustration of a person in a hospital bed, with a speech bubble saying 'I'm worried about the extra costs'. A superhero figure labeled 'Non-Medical Expenses Cover' swoops in to help, offering a shield with the text 'Rs. 5,00,000 Limit'."
+        "prompt": "A surreal landscape with a giant, luminous blue mushroom growing from the center of a crater. The mushroom has swirling patterns of light emanating from its cap, illuminating the surrounding rocky terrain. In the distance, a silhouette of a lone figure stands on a cliff edge, gazing at the mushroom with a sense of wonder and awe.",
+        "style": "Photorealistic, with a dreamy and otherworldly feel",
+        "resolution": "1024x1024",
+        "aspect_ratio": "1:1"
     },
     {
-        "description": "A realistic image of a person at their desk, working from home. They should be looking stressed and surrounded by paperwork. The image should have a text overlay explaining how the 'Non-Medical Expenses Cover' can help with lost income due to illness."
+        "prompt": "A surreal and dreamlike landscape where a disembodied hand repeatedly types the phrase 'Hello, I' on an old typewriter. The typewriter sits atop a crumbling stone archway, overlooking a misty valley. The sky is a swirling vortex of vibrant, abstract colours. Render in a style reminiscent of Salvador Dali, with melting clocks and impossible angles.",
+        "negative_prompt": "low quality, grainy, blurry, text, writing, numbers, distorted",
+        "style": "Surrealism",
+        "seed": 42,
+        "width": 1024,
+        "height": 768,
+        "steps": 50,
+        "sampler": "Euler a",
+        "cfg_scale": 7
+    },
+    {
+        "prompt": "A portrait of a young man named Vedansh. He is standing confidently in front of a modern, minimalist backdrop. He is wearing a stylish, casual outfit, perhaps a t-shirt and jeans, with a subtle, yet fashionable accessory like a watch or necklace. The lighting is soft and natural, highlighting his features and giving the image a warm, inviting feel. The background is blurred, drawing focus to Vedansh and emphasizing his youthful energy and confidence.",
+        "style": "Photorealistic",
+        "size": "1024x1024",
+        "aspect_ratio": "1:1",
+        "quality": "High",
+        "seed": 42
+    },
+    {
+        "prompt": "A young, diverse software developer, mid-20s, with a relaxed and confident expression, sitting at a minimalist desk with a laptop open in front of them. They are wearing casual but stylish clothing, with a focus on functionality and comfort. The background is a vibrant and modern office space, with large windows and natural light streaming in. The image should convey a sense of creativity, innovation, and passion for technology.",
+        "style": "Photorealistic",
+        "aspect_ratio": "16:9",
+        "resolution": "1024x768",
+        "lighting": "Natural, bright",
+        "color_palette": "Vibrant, modern",
+        "composition": "Dynamic, focused on the developer's face and hands",
+        "details": {
+            "laptop": "Macbook Pro",
+            "accessories": "Headphones, coffee mug, plant",
+            "background": "Wall with a colorful abstract painting"
+        }
+    },
+    {
+        "prompt": "A close-up photo of a dusty, old floppy disk labeled 'TEST FILE' with the label partially obscured and peeling. The disk is sitting on a vintage computer keyboard, next to a stack of faded, yellowed computer manuals. The image should have a retro, 1980s aesthetic with warm, nostalgic lighting.",
+        "style": "Photorealistic",
+        "resolution": "1024x1024",
+        "aspect_ratio": "1:1",
+        "color_scheme": "Warm tones, muted colors",
+        "lighting": "Soft, natural light",
+        "details": {
+            "keyboard": "IBM PC keyboard",
+            "manuals": "Old computer manuals with titles like 'Introduction to BASIC' and 'MS-DOS for Beginners'",
+            "background": "A blurred vintage office with a filing cabinet and a stack of old paper documents"
+        }
+    },
+    {
+        "prompt": "A surreal, dreamlike cityscape bathed in the warm glow of a setting sun. The buildings are a mishmash of styles, some crumbling and overgrown with vines, others sleek and futuristic. A lone figure, cloaked in shadows, walks through a narrow alleyway, their path illuminated by a single streetlamp. In the background, a giant, disembodied eye floats in the sky, watching the scene below. The image should be evocative and mysterious, with a sense of both beauty and unease. Use a palette of muted colors, with hints of vibrant blues and greens.",
+        "style": "Surrealism, Digital Art",
+        "aspect_ratio": "16:9",
+        "resolution": "1024x576",
+        "seed": 12345
+    },
+    {
+        "prompt": "A futuristic cityscape with towering buildings made of shimmering, iridescent glass, lit by neon lights. In the foreground, a lone figure walks along a floating walkway, gazing up at a holographic display showcasing a vast, interconnected network of data streams. The scene is both awe-inspiring and slightly unsettling, highlighting the tension between technological advancement and human connection.",
+        "style": "hyperrealistic, cinematic, cyberpunk",
+        "aspect_ratio": "16:9",
+        "resolution": "1024x576",
+        "lighting": "soft, glowing neon",
+        "color_scheme": "deep blues, purples, and greens with accents of bright neon",
+        "details": {
+            "buildings": {
+                "type": "skyscrapers",
+                "material": "glass",
+                "details": "iridescent, reflective, intricate patterns"
+            },
+            "figure": {
+                "pose": "walking, looking up",
+                "clothing": "futuristic, sleek, minimalist"
+            },
+            "holographic display": {
+                "content": "abstract data streams, connections, swirling patterns",
+                "colors": "vibrant, holographic"
+            }
+        }
+    },
+    {
+        "prompt": "A close-up shot of a technician's hands meticulously testing the functionality of a complex piece of machinery. The background should be a blur of industrial equipment and wires. The technician's face is obscured, but their focused expression can be inferred from their furrowed brow and the intensity of their gaze.",
+        "style": "photorealistic",
+        "resolution": "1024x1024",
+        "aspect_ratio": "1:1",
+        "lighting": "soft, natural",
+        "color_palette": [
+            "grey",
+            "blue",
+            "yellow"
+        ],
+        "composition": "centered"
+    },
+    {
+        "prompt": "A close-up photo of a programmer's desk with a laptop screen displaying the code of 'main.py' and 'server.py' files. The code is highlighted in a futuristic, neon-like way. The background is a dark, abstract pattern representing the complexities of code.  The scene is lit by a warm, inviting lamp. ",
+        "style": "photorealistic, digital art, cyberpunk",
+        "resolution": "1024x768",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "low quality, blurry, bad anatomy, missing limbs, disfigured, deformed, unrealistic proportions, text, words, letters",
+        "seed": -1
+    },
+    {
+        "prompt": "A young software developer, mid-20s, wearing a hoodie and jeans, hunched over his desk in a dimly lit room. He's surrounded by multiple monitors displaying complex code, and a cup of coffee rests beside him. The room is messy, with papers and empty takeout containers scattered around, but the developer's face is illuminated by the glow of his laptop, and he has a focused, determined expression.  The atmosphere should be one of quiet intensity and dedication to work. The image should have a realistic, gritty, and slightly messy aesthetic.",
+        "style": "Photorealistic, gritty",
+        "aspect_ratio": "16:9",
+        "resolution": "1024x576",
+        "lighting": "Dim lighting, with the laptop screen providing the main source of light",
+        "color_palette": "Dark blues, grays, and browns",
+        "composition": "Close-up shot focused on the developer's face and hands",
+        "details": {
+            "laptop": "Apple MacBook Pro",
+            "code editor": "VS Code",
+            "programming language": "Python",
+            "takeout containers": "Empty pizza boxes",
+            "background": "A brick wall with posters of programming quotes"
+        }
+    },
+    {
+        "prompt": "A close-up shot of a stack of dusty, yellowed files labeled 'Core Secrets' tied together with a worn leather strap. The background is a dimly lit, cluttered office with cobwebs and dust motes dancing in the air. The scene evokes a sense of mystery and intrigue.",
+        "style": "Realistic, vintage, slightly eerie",
+        "resolution": "1024x1024",
+        "aspect_ratio": "1:1",
+        "lighting": "Soft, natural light coming from a window",
+        "color_palette": [
+            "Dusty yellow",
+            "brown",
+            "grey",
+            "dark green"
+        ],
+        "details": {
+            "file_labels": "Some labels should be faded and barely legible",
+            "strap": "The strap should be worn and slightly frayed",
+            "office_details": "The office should be cluttered with books, papers, and old-fashioned office equipment",
+            "dust": "The dust should be realistically rendered and add to the sense of age and neglect"
+        }
+    },
+    {
+        "prompt": "A whimsical illustration of a computer screen displaying a flowchart of a complex application. The flowchart is made up of colorful shapes and arrows with handwritten notes in a playful font.  The screen is surrounded by swirling digital code and abstract shapes, giving a sense of energy and creativity. The overall mood should be playful and optimistic, with a vibrant color palette.",
+        "style": "digital art, whimsical, cartoonish",
+        "aspect_ratio": "16:9",
+        "resolution": "1024x576",
+        "color_palette": "bright, pastel, with a touch of neon",
+        "lighting": "soft, diffused light",
+        "composition": "focus on the screen with the flowchart, with the code and shapes surrounding it in a dynamic and engaging way",
+        "details": "include small details like a coffee cup and a pair of headphones beside the computer to add to the playful and creative atmosphere"
+    },
+    {
+        "prompt": "A futuristic, neon-lit cityscape with towering skyscrapers that pierce the clouds. In the foreground, a lone figure wearing a sleek, chrome-plated suit stands atop a building, looking out over the sprawling city. Their face is obscured by a holographic mask that displays complex data streams. The scene is bathed in vibrant, pulsing neon lights, with holographic advertisements flashing across the buildings. In the distance, a giant, shimmering holographic billboard projects a message that reads 'Future is Now.' The overall feeling should be one of awe, wonder, and a hint of dystopian grandeur.",
+        "style": "Cyberpunk",
+        "resolution": "1024x1024",
+        "aspect_ratio": "1:1",
+        "lighting": "Neon",
+        "color_palette": [
+            "blue",
+            "purple",
+            "pink",
+            "green",
+            "yellow"
+        ],
+        "details": [
+            "holographic mask",
+            "chrome-plated suit",
+            "holographic advertisements",
+            "giant holographic billboard"
+        ],
+        "mood": "awe, wonder, dystopian grandeur"
+    },
+    {
+        "prompt": "A futuristic cityscape where communication between different components, like autonomous vehicles, buildings, and drones, is visualized as a network of glowing lines and symbols. The scene should have a sense of both beauty and complexity, showcasing the seamless interaction between technology and the urban environment.",
+        "style": "cyberpunk, vibrant, detailed",
+        "aspect_ratio": "16:9",
+        "resolution": "1024x576",
+        "color_palette": [
+            "blue",
+            "purple",
+            "green",
+            "white"
+        ],
+        "lighting": "ambient, neon signs",
+        "composition": "focus on the communication network, with buildings and vehicles as background elements"
+    },
+    {
+        "prompt": "A colorful and abstract illustration representing the concept of \"commonality\" in software development. Visualize it as a network of interconnected nodes, each representing a different software component or function. Some nodes should be highlighted, symbolizing the shared elements that connect different parts of a software project.  Use vibrant colors and flowing lines to create a dynamic and visually engaging image that evokes the idea of collaboration and interconnectedness.",
+        "style": "abstract, vibrant, futuristic",
+        "resolution": "1024x1024",
+        "aspect_ratio": "1:1",
+        "color_scheme": [
+            "blue",
+            "green",
+            "orange",
+            "purple"
+        ],
+        "background_color": "#f0f0f0",
+        "number_of_nodes": 15,
+        "node_size": "medium",
+        "line_thickness": "medium",
+        "line_style": "dashed"
     }
 ]
