@@ -1,102 +1,32 @@
 [
     {
-        "question": "What is Vedansh's profession?",
+        "question": "What is the maximum entry age for a proposer/spouse/dependent parent under this policy?",
         "options": [
-            "Teacher",
-            "Doctor",
-            "Software Developer",
-            "Engineer"
+            "18 years",
+            "65 years",
+            "75 years",
+            "There is no age limit"
         ],
-        "answer": "Software Developer"
+        "answer": "65 years"
     },
     {
-        "question": "Which file is Vedansh testing?",
+        "question": "What is the waiting period for any of the listed vector borne diseases diagnosed within the first 15 days of the date of commencement of the policy?",
         "options": [
-            "main.py",
-            "server.py",
-            "index.html",
-            "style.css"
+            "15 days",
+            "30 days",
+            "60 days",
+            "90 days"
         ],
-        "answer": "main.py"
+        "answer": "15 days"
     },
     {
-        "question": "What is the purpose of the testing file?",
+        "question": "What is the discount applicable if a customer buys the policy from the company's website?",
         "options": [
-            "To create a website",
-            "To learn Python",
-            "To test the functionality of main.py and server.py",
-            "To write a blog post"
+            "10%",
+            "15%",
+            "20%",
+            "25%"
         ],
-        "answer": "To test the functionality of main.py and server.py"
-    },
-    {
-        "question": "How many times does the phrase \"hello, I am Vedansh and im a software developer\" appear in the text?",
-        "options": [
-            "5",
-            "10",
-            "15",
-            "20"
-        ],
-        "answer": "20"
-    },
-    {
-        "question": "What is the primary purpose of the \"server.py\" file?",
-        "options": [
-            "To display content on a website",
-            "To process data from the user",
-            "To connect to a database",
-            "To run the main application"
-        ],
-        "answer": "To process data from the user"
-    },
-    {
-        "question": "What is the most likely reason for the repetition of the phrase \"hello, I am Vedansh and im a software developer\"?",
-        "options": [
-            "It's a stylistic choice",
-            "It's a placeholder for actual content",
-            "It's a debugging tool",
-            "It's a test for a specific function"
-        ],
-        "answer": "It's a placeholder for actual content"
-    },
-    {
-        "question": "What type of programming language is likely used in the \"main.py\" file?",
-        "options": [
-            "Java",
-            "C++",
-            "Python",
-            "JavaScript"
-        ],
-        "answer": "Python"
-    },
-    {
-        "question": "What is the likely relationship between the \"main.py\" and \"server.py\" files?",
-        "options": [
-            "They are completely independent",
-            "main.py calls upon server.py to process data",
-            "server.py calls upon main.py to display content",
-            "They are both used to create a website"
-        ],
-        "answer": "main.py calls upon server.py to process data"
-    },
-    {
-        "question": "What does the abbreviation \"im\" most likely stand for?",
-        "options": [
-            "I am",
-            "I'm",
-            "It's me",
-            "In my"
-        ],
-        "answer": "I'm"
-    },
-    {
-        "question": "Based on the information provided, what is the most likely outcome of Vedansh's testing?",
-        "options": [
-            "He will create a fully functional website",
-            "He will identify and fix bugs in his code",
-            "He will learn a new programming language",
-            "He will write a blog post about his experience"
-        ],
-        "answer": "He will identify and fix bugs in his code"
+        "answer": "20%"
     }
 ]

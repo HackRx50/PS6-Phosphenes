@@ -7,7 +7,7 @@
 
 ---
 
-AURA.ai is a cutting-edge AI platform designed to **automate video creation** from text-based inputs such as brochures or PDFs. It seamlessly integrates **interactive quizzes** and provides detailed **analytics** to enhance user engagement. Perfect for **education, corporate training,** and **HR assessments**, AURA.ai offers **multilingual support** and real-time feedback, transforming the way content is delivered.
+AURA.ai is a cutting-edge AI driven platform designed to **automate video creation** from text-based inputs such as brochures or PDFs. It seamlessly integrates **interactive quizzes** and provides detailed **analytics** to enhance user engagement. Perfect for **education, corporate training,** and **HR assessments**, AURA.ai offers **multilingual support** and real-time feedback, transforming the way content is delivered.
 
 ---
 
@@ -25,8 +25,8 @@ AURA.ai is a cutting-edge AI platform designed to **automate video creation** fr
 - **Multilingual Support**  
    Generate videos in **over 10 languages**, making your content globally accessible.
 
-- **Collaboration Tools**  
-   Seamlessly collaborate on content creation, ideal for corporate teams and educational institutions.
+- **Collaboration Tools & AURAbot**  
+   Seamlessly collaborate on content creation, ideal for corporate teams and educational institutions , and also ask our AURAbot for the lingering queries.
 
 ---
 
@@ -50,6 +50,7 @@ AURA.ai is a cutting-edge AI platform designed to **automate video creation** fr
 ### **Hosting Platforms:**
 - **Vercel** - (Frontend deployment)  
 - **Railway** - (Backend hosting)
+- **Digital Ocean** -(Cloud Hosting)
 
 ### **Industrial Add-Ons:**
 - **Husky** - (Enforces code quality pre-commit hooks)  
@@ -114,7 +115,7 @@ cd hackrx-frontend
 
 ### **7. Install Required Dependencies & Run the Script:**
 ```bash
-npm install
+npm i
 ```
 
 ### **8. Run the Development Server:**

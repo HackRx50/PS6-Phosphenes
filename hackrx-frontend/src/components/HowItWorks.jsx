@@ -75,7 +75,7 @@ const HowItWorks = () => {
         className="pt-[8rem] -mt-[5.25rem]"
         crosses
         crossesOffset="lg:translate-y-[5.25rem]"
-        customPaddings >
+        customPaddings id="howitworks">
             <div className='flex flex-col lg:flex-row items-center justify-center px-6 lg:px-16 gap-10 pb-10 pt-5 lg:-mb-16 lg:gap-60'>
                 {/* Left Side - Image */}
                 <div className="mb-8 lg:mb-0 lg:mr-8 flex-shrink-0">

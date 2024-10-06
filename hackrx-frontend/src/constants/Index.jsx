@@ -317,13 +317,13 @@ export const benefits = [
     },
     {
         id: "1",
-        title: "AI-Driven Content Generation",
-        text: "Automatically convert any text—brochures, PDFs, or documents—into engaging, visually compelling videos.",
-        backgroundUrl: "./src/assets/benefits/card-2.svg",
-        iconUrl: benefitIcon2,
+        title: "Massive Customization Options",
+        text: "Vast customization features enabling users to tailor visuals, audio, and interactive elements to craft videos.",
+        backgroundUrl: "./src/assets/benefits/card-5.svg",
+        iconUrl: benefitIcon6,
         imageUrl: purplegradient,
-        light: true,
     },
+    
     {
         id: "2",
         title: "Interactive Quiz Creation",
@@ -352,12 +352,14 @@ export const benefits = [
     },
     {
         id: "5",
-        title: "Massive Customization Options",
-        text: "Vast customization features enabling users to tailor visuals, audio, and interactive elements to craft videos.",
-        backgroundUrl: "./src/assets/benefits/card-5.svg",
-        iconUrl: benefitIcon6,
+        title: "AURA.ai Bot",
+        text: "The bot is made to accurately solve any lingering queries the user has even after watching the video.",
+        backgroundUrl: "./src/assets/benefits/card-2.svg",
+        iconUrl: benefitIcon2,
         imageUrl: purplegradient,
+        light: true,
     },
+    
 ];
 
 export const socials = [
@@ -444,3 +446,37 @@ export const feedback = [
         imageUrl: purplegradient,
     },
 ];
+
+export const singleBenefit = [
+    {
+    id: "1",
+    title: "My Awesome Project-1",
+    // text: "Utilize cutting-edge AI technology to create stunning videos that captivate your audience.",
+    // iconUrl: "benefitIcon1", // Replace with actual icon URL
+    backgroundUrl: "./src/assets/benefits/card-1.svg", // Replace with actual background URL
+    imageUrl: "./src/assets/texttovideo.webp", // Replace with actual image URL
+    light: true, // or false based on your requirement
+  },
+  {
+    id: "2",
+    title: "My Awesome Project-2",
+    // text: "Utilize cutting-edge AI technology to create stunning videos that captivate your audience.",
+    // iconUrl: "benefitIcon1", // Replace with actual icon URL
+    backgroundUrl: "./src/assets/benefits/card-1.svg", // Replace with actual background URL
+    imageUrl: "./src/assets/texttovideo.webp", // Replace with actual image URL
+    light: true, // or false based on your requirement
+  },
+  {
+    id: "3",
+    title: "My Awesome Project-3",
+    // text: "Utilize cutting-edge AI technology to create stunning videos that captivate your audience.",
+    // iconUrl: "benefitIcon1", // Replace with actual icon URL
+    backgroundUrl: "./src/assets/benefits/card-1.svg", // Replace with actual background URL
+    imageUrl: "./src/assets/texttovideo.webp", // Replace with actual image URL
+    light: true, // or false based on your requirement
+  },
+
+
+]
+  
+ 
