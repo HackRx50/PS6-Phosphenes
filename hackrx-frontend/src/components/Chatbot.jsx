@@ -15,20 +15,32 @@ const ChatBot = () => {
         setMessages((prev) => [...prev, { text: message, isUser: true }]);
         setInputValue("");
 
-        // Call Gemini API
+        // Call backend API for response
         try {
             const response = await axios.post('http://127.0.0.1:8000/ask-question', {
                 question: message,
-              }, {
+            }, {
                 headers: {
-                  'Content-Type': 'application/json',
+                    'Content-Type': 'application/json',
                 },
-              });
-            const botMessage = response.data.answer; // Adjust according to your API response
-            console.log(botMessage)
+            });
+
+            const botMessage = response.data.answer;  // Text response from the bot
+            const audioUrl = response.data.audioUrl;  // Audio URL from the TTS
+
+            // Set the bot's text response in the messages
             setMessages((prev) => [...prev, { text: botMessage, isUser: false }]);
+
+            // Play the audio response automatically if the audio URL is available
+            if (audioUrl) {
+                const audio = new Audio(audioUrl);
+                audio.play().catch((error) => {
+                    console.error("Audio playback failed:", error);
+                });
+            }
+
         } catch (error) {
-            console.error("Error fetching response from Gemini:", error);
+            console.error("Error fetching response:", error);
             setMessages((prev) => [...prev, { text: "AuraBOT is coming soon!!", isUser: false }]);
         }
     };
@@ -61,7 +73,7 @@ const ChatBot = () => {
 
             {/* Chatbot Popup */}
             {isOpen && (
-                <div className="chatbot-container p-4 bg-black  border rounded-lg shadow-lg fixed bottom-5 right-5 w-90 max-h-[80vh] flex flex-col z-50">
+                <div className="chatbot-container p-4 bg-black border rounded-lg shadow-lg fixed bottom-5 right-5 w-90 max-h-[80vh] flex flex-col z-50">
                     <div className="flex justify-between items-center mb-2">
                         <h2 className="text-xl font ">AuraBOT</h2>
                         <button onClick={() => setIsOpen(false)} className="">
@@ -89,13 +101,13 @@ const ChatBot = () => {
                             placeholder="Type a message..."
                         />
                         <button
-                            className="bg-gradient  text-white rounded-r-lg px-4"
+                            className="bg-gradient text-white rounded-r-lg px-4"
                             onClick={() => handleSendMessage(inputValue)}
                         >
                             <Forward size={18} color="white" />
                         </button>
                         <button
-                            className="ml-2 bg-gradient  text-white rounded-lg p-2"
+                            className="ml-2 bg-gradient text-white rounded-lg p-2"
                             onClick={handleVoiceInput}
                         >
                             <Mic size={18} color="white" />

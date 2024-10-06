@@ -11,6 +11,9 @@ app = FastAPI()
 class QuestionRequest(BaseModel):
     question: str
 
+SARVAM_TTS_API_URL = "https://api.sarvam.ai/text-to-speech"
+# SARVAM_API_KEY = "32338cf8-5952-403c-851d-c7409c520316"  # Replace with your actual API key
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Allow all origins
@@ -119,18 +122,108 @@ async def upload_pdf(file: UploadFile = File(...)):
         if os.path.exists(temp_file_path):
             os.remove(temp_file_path)
 
+# @app.post("/ask-question")
+# async def ask_question(question_request: QuestionRequest):
+#     txt_file_path = "extracted_text.txt"  # Path to the extracted text file
+    
+#     # Call the function to ask the question based on the text in the txt file
+#     answer = ask_aura_question(question_request.question, txt_file_path)
+    
+#     # Return the AI's answer or error message
+#     if answer.startswith("Error"):
+#         raise HTTPException(status_code=500, detail=answer)
+    
+#     return {"answer": answer}
+
+# @app.post("/ask-question")
+# async def ask_question(question_request: QuestionRequest):
+#     # Generate text-based response (assuming `ask_aura_question` is your existing function)
+#     txt_file_path = "extracted_text.txt"  # Path to the extracted text file
+#     answer = ask_aura_question(question_request.question, txt_file_path)
+
+#     if answer.startswith("Error"):
+#         raise HTTPException(status_code=500, detail=answer)
+
+#     # Step 1: Prepare payload for Sarvam TTS
+#     payload = {
+#         "inputs": [answer],  # The bot's response text goes here
+#         "target_language_code": "hi-IN",  # Set the desired language code (e.g., hi-IN for Hindi)
+#         "speaker": "meera",  # You can customize this based on available voices
+#         "pitch": 0,
+#         "pace": 1.65,
+#         "loudness": 1.5,
+#         "speech_sample_rate": 8000,
+#         "enable_preprocessing": True,
+#         "model": "bulbul:v1"
+#     }
+
+#     headers = {
+#         "Content-Type": "application/json",
+#         "Authorization": f"Bearer {SARVAM_API_KEY}"  # Authorization header with your API key
+#     }
+
+#     # Step 2: Make the request to Sarvam TTS API
+#     try:
+#         tts_response = requests.post(SARVAM_TTS_API_URL, json=payload, headers=headers)
+        
+#         if tts_response.status_code == 200:
+#             tts_data = tts_response.json()
+#             audio_url = tts_data.get('audio_url')  # Assuming Sarvam returns the URL in 'audio_url'
+
+#             return {
+#                 "answer": answer,  # The text response
+#                 "audioUrl": audio_url  # The generated audio URL
+#             }
+#         else:
+#             raise HTTPException(status_code=500, detail="Sarvam TTS API Error")
+#     except Exception as e:
+#         raise HTTPException(status_code=500, detail=str(e))
+
 @app.post("/ask-question")
 async def ask_question(question_request: QuestionRequest):
-    txt_file_path = "extracted_text.txt"  # Path to the extracted text file
-    
-    # Call the function to ask the question based on the text in the txt file
-    answer = ask_aura_question(question_request.question, txt_file_path)
-    
-    # Return the AI's answer or error message
-    if answer.startswith("Error"):
-        raise HTTPException(status_code=500, detail=answer)
-    
-    return {"answer": answer}
+    try:
+        txt_file_path = "extracted_text.txt"  # Path to the extracted text file
+        answer = ask_aura_question(question_request.question, txt_file_path)
+
+        if answer.startswith("Error"):
+            raise HTTPException(status_code=500, detail=answer)
+
+        # Prepare payload for Sarvam TTS
+        payload = {
+            "inputs": [answer],  # The bot's response text goes here
+            "target_language_code": "hi-IN",  # Set the desired language code
+            "speaker": "meera",
+            "pitch": 0,
+            "pace": 1.65,
+            "loudness": 1.5,
+            "speech_sample_rate": 8000,
+            "enable_preprocessing": True,
+            "model": "bulbul:v1"
+        }
+
+        headers = {
+            "Content-Type": "application/json",
+            'API-Subscription-Key': '32338cf8-5952-403c-851d-c7409c520316'
+        }
+
+        # Make the request to Sarvam TTS API
+        tts_response = requests.post(SARVAM_TTS_API_URL, json=payload, headers=headers)
+        
+        # Check the response status
+        if tts_response.status_code == 200:
+            tts_data = tts_response.json()
+            audio_url = tts_data.get('audio_url')
+
+            return {
+                "answer": answer,
+                "audioUrl": audio_url
+            }
+        else:
+            raise HTTPException(status_code=500, detail="Sarvam TTS API Error: " + tts_response.text)
+
+    except Exception as e:
+        print(f"Error in ask_question: {str(e)}")  # Print error to console for debugging
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/get-images")
 async def list_images():
