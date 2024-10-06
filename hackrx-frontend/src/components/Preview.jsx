@@ -5,17 +5,25 @@ import Button from './Button';
 import { Linkedin } from 'lucide-react'; // Social media icons
 import { BsWhatsapp } from 'react-icons/bs';
 import { FaFacebook, FaTwitter } from 'react-icons/fa';
-import DemVideo from "../assets/final_slideshow.mp4"
-import Chatbot from "./Chatbot"
+import DemVideo from "../assets/final_slideshow.mp4";
 import ChatBot from './Chatbot';
+import { Gradient } from './design/Roadmap';
 
 const Preview = () => {
     const [videoUrl, setVideoUrl] = useState('http://127.0.0.1:8000/video/final_slideshow');
-    // const videoUrl = DemVideo;
     const [copied, setCopied] = useState(false);
+    const [showPopup, setShowPopup] = useState(false); // State for popup visibility
+    const dummyEmbedCode = `<iframe src="${videoUrl}" width="800" height="400" frameborder="0" allowfullscreen></iframe>`; // Dummy embed code
 
     const handleCopyLink = () => {
         navigator.clipboard.writeText(videoUrl).then(() => {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000); // Reset copied status after 2 seconds
+        });
+    };
+
+    const handleEmbedCopy = () => {
+        navigator.clipboard.writeText(dummyEmbedCode).then(() => {
             setCopied(true);
             setTimeout(() => setCopied(false), 2000); // Reset copied status after 2 seconds
         });
@@ -45,6 +53,14 @@ const Preview = () => {
         if (shareUrl) {
             window.open(shareUrl, '_blank');
         }
+    };
+
+    const handleEmbedCode = () => {
+        setShowPopup(true); // Show the popup when the button is clicked
+    };
+
+    const closePopup = () => {
+        setShowPopup(false); // Function to close the popup
     };
 
     return (
@@ -80,18 +96,15 @@ const Preview = () => {
                             <button onClick={() => handleSocialShare('whatsapp')} aria-label="Share on WhatsApp">
                                 <BsWhatsapp size={20} className="hover:text-purple-500 cursor-pointer" />
                             </button>
-                            {/* <Chatbot /> */}
-                            
-                            
-                                
-                            
                         </div>
+                        <ChatBot />
+
                     </div>
 
-                    <div className="mt-5 flex gap-4">
+                    <div className="mt-5  backdrop-blur flex gap-5">
                         <Button
                             onClick={handleCopyLink}
-                            white
+                            
                             className="flex gap-2 w-full"
                         >
                             <span>{copied ? 'Link Copied!' : 'Copy Link'}</span>
@@ -99,10 +112,38 @@ const Preview = () => {
                         <Button href="/quiz" className="flex gap-2 w-full">
                             Play Quiz
                         </Button>
-                        
-                        <ChatBot />
+                        <Button
+                            onClick={handleEmbedCode} // Handle embed code button click
+                            className="flex gap-5 w-full"
+                        >
+                        Embedded Code
+                        </Button>
+
                         
                     </div>
+
+                    {/* Popup for Embed Code */}
+                    {showPopup && (
+                        <div className="fixed inset-0 flex items-center justify-center bg-n-9 bg-opacity-0 backdrop-blur z-0 ">
+                            <div className="bg-n-8 p-8 border border-n-1/10 rounded-lg shadow-lg text-center overflow-hidden backdrop-blur">
+                            <Gradient />
+                                <h2 className="text-xl font-bold mb-4 text-white">Embed Code</h2>
+                                <textarea
+                                    className="w-full h-64 p-5 border border-gray-300 rounded mb-2"
+                                    readOnly
+                                    value={dummyEmbedCode}
+                                />
+                                <div className="flex gap-10">
+                                <Button onClick={closePopup} className="flex gap-2 w-full">
+                                    Cancel
+                                </Button>
+                                <Button onClick={handleEmbedCopy} className="flex gap-5 w-full">
+                                    Copy Code
+                                </Button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </Section>
