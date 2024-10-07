@@ -168,7 +168,7 @@ def generate_keywords_from_summary(summary, srt_file_path):
         for chunk in chunks:
             try:
                 # Generate keywords for each chunk
-                res = model.generate_content(f"Generate 20 unique, main and relevant keywords based on this text for image generation: {chunk}")
+                res = model.generate_content(f"Generate 1 unique, main and relevant keyword make sure it's one word and relevant enough to generate the video  based on this 1 chunk: {chunk}")
                 keywords += re.findall(r'\*\*(.*?)\*\*', res.text)
             except Exception as e:
                 print(f"Error generating keywords for chunk: {chunk}, Error: {e}")
@@ -251,7 +251,7 @@ def generate_prompts_from_srt_chunks(srt_file_path):
     for chunk in chunks:
         try:
             # Generate a prompt for each chunk using the model
-            inp = model.generate_content(f"Generate a unique and realistic prompt in JSON format for generating an image using AI based on this text: {chunk}")
+            inp = model.generate_content(f"Generate 1 Unique and realistic prompt containing 'description' in JSON list fromat for generating the images using AI based on the this 1 chunk: {chunk}")
             prompt_text = inp.text
             prompts.append(prompt_text)
         except Exception as e:
@@ -271,16 +271,41 @@ def generate_prompts_from_srt_chunks(srt_file_path):
 #     return promp_string
 
 
-def save_prompts_to_json(promp_string, output_file):
-    cleaned_string = promp_string.replace('```json', '').replace('```', '').strip()
+# def save_prompts_to_json(promp_string, output_file):
+#     # cleaned_string = promp_string.replace('```json', '').replace('```', '').strip()
+#     cleaned_string = [s.replace('```json', '').replace('```', '').strip() for s in promp_string]
     
+#     try:
+#         prompts_json = json.loads(cleaned_string)
+#         with open(output_file, 'w') as json_file:
+#             json.dump(prompts_json, json_file, indent=4)
+#         print(f"Prompts data saved successfully to {output_file}")
+#     except json.JSONDecodeError as e:
+#         print(f"Failed to decode JSON: {e}")
+
+def save_prompts_to_json(promp_string, output_file):
+    # Clean each string in the list
+    cleaned_strings = [s.replace('```json', '').replace('```', '').strip() for s in promp_string]
+
+    # Initialize an empty list to store the parsed JSON objects
+    prompts_json_list = []
+
+    # Process each cleaned string
+    for cleaned_string in cleaned_strings:
+        try:
+            # Parse the cleaned string into a JSON object
+            prompts_json = json.loads(cleaned_string)
+            prompts_json_list.append(prompts_json)
+        except json.JSONDecodeError as e:
+            print(f"Failed to decode JSON in string: {cleaned_string}\nError: {e}")
+    
+    # Save the list of JSON objects to the output file
     try:
-        prompts_json = json.loads(cleaned_string)
         with open(output_file, 'w') as json_file:
-            json.dump(prompts_json, json_file, indent=4)
+            json.dump(prompts_json_list, json_file, indent=4)
         print(f"Prompts data saved successfully to {output_file}")
-    except json.JSONDecodeError as e:
-        print(f"Failed to decode JSON: {e}")
+    except Exception as e:
+        print(f"Failed to save JSON to file: {e}")
 # Quiz part
 
 def generate_quiz(text):
@@ -389,7 +414,7 @@ def trim_video(video_path, duration=7):
 
 def generate_image_from_prompt(prompt, images_folder, image_index):
     headers = {
-        'Authorization': f'Bearer sk-{STABILITY_API_KEY}',
+        'Authorization': f'Bearer sk-Xips2HbQGXa2GTbRE3Y08s933bqp7eNhSUGw4eyFW1Vu4Cep',
         
         'accept': 'image/*'
     }

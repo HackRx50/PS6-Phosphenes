@@ -1,32 +1,32 @@
 [
     {
-        "question": "What is the maximum entry age for a proposer/spouse/dependent parent under this policy?",
+        "question": "What is the name of the insurance plan mentioned in the text?",
         "options": [
-            "18 years",
-            "65 years",
-            "75 years",
-            "There is no age limit"
+            "SARAL SURAKSHA BIMA",
+            "BAJAJ ALLIANZ GENERAL INSURANCE COMPANY",
+            "Durghatanaon ke kharch se khud ko bachane ka Saral Samaadhaan",
+            "Caringly Yours"
         ],
-        "answer": "65 years"
+        "answer": "SARAL SURAKSHA BIMA"
     },
     {
-        "question": "What is the waiting period for any of the listed vector borne diseases diagnosed within the first 15 days of the date of commencement of the policy?",
+        "question": "What is the premium for a sum insured of \u20b93,00,000 under Risk Class I?",
         "options": [
-            "15 days",
-            "30 days",
-            "60 days",
-            "90 days"
+            "\u20b9289",
+            "\u20b9518",
+            "\u20b9572",
+            "\u20b9629"
         ],
-        "answer": "15 days"
+        "answer": "\u20b9518"
     },
     {
-        "question": "What is the discount applicable if a customer buys the policy from the company's website?",
+        "question": "Which risk class is defined as a person engaged in manual labor, garage or motor mechanic, machine operator, and similar occupations?",
         "options": [
-            "10%",
-            "15%",
-            "20%",
-            "25%"
+            "Risk Class I",
+            "Risk Class II",
+            "Risk Class III",
+            "None of the above"
         ],
-        "answer": "20%"
+        "answer": "Risk Class II"
     }
 ]

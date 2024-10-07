@@ -85,7 +85,7 @@ async def upload_pdf(file: UploadFile = File(...)):
         with open("extracted_text.txt", "w", encoding="utf-8") as text_file:
             text_file.write(cleaned_summary)
 
-        output = generate_keywords_from_summary(cleaned_summary)
+        output = generate_keywords_from_summary(cleaned_summary, srt_file_path)
         selected_language = 'english'
         if selected_language in language_map:
             language_code = language_map[selected_language]
