@@ -21,6 +21,8 @@ from pydub import AudioSegment
 from moviepy.video.fx.all import colorx
 from moviepy.video.tools.subtitles import SubtitlesClip
 import base64
+from docx import Document
+from pptx import Presentation
 
 # Set up folders
 pictures_folder = "pictures"
@@ -102,6 +104,24 @@ def extract_text_from_pdf_images(pdf_path, output_folder):
     text = ocr_images_in_folder(output_folder)
     return text
 
+
+def extract_text_from_txt(txt_path):
+    with open(txt_path, 'r', encoding='utf-8') as file:
+        return file.read()
+
+def extract_text_from_docx(docx_path):
+    doc = Document(docx_path)
+    return "\n".join([para.text for para in doc.paragraphs])
+
+def extract_text_from_pptx(file_path):
+    prs = Presentation(file_path)
+    text = []
+    for slide in prs.slides:
+        for shape in slide.shapes:
+            if hasattr(shape, "text"):
+                text.append(shape.text)
+    return "\n".join(text)
+
 def extract_text_from_pdf(pdf_path):
     print("extract_text_from_pdf TRIGGERED")
     text = ""
@@ -112,30 +132,82 @@ def extract_text_from_pdf(pdf_path):
                 text += page_text + "\n"
     return text
 
-def generate_keywords_from_summary(summary):
+
+def extract_text_from_file(file_path):
+    if file_path.endswith('.pdf'):
+        return extract_text_from_pdf(file_path)
+    elif file_path.endswith('.txt'):
+        return extract_text_from_txt(file_path)
+    elif file_path.endswith('.docx'):
+        return extract_text_from_docx(file_path)
+    elif file_path.endswith('.pptx'):
+        return extract_text_from_pptx(file_path)
+    else:
+        raise ValueError("Unsupported file format")
+
+def extract_chunks_from_srt(srt_file_path):
+    subs = pysrt.open(srt_file_path)
+    chunks = [sub.text for sub in subs]
+    return chunks
+
+def generate_keywords_from_summary(summary, srt_file_path):
     speeches = ""
     keywords = []
-    
 
+    # Generate speech from summary
     try:
         inp = model.generate_content(f"Write a minimum exact 250 and maximum exact 300 words more accurate summary based on the previous summary in paragraph format and it should be plain text with no bullet points, no '/n' and no bold stuff, i am using it as input for my tts: {summary}")
         speeches = inp.text
     except Exception as e:
         print(f"Error generating speech: {e}")
 
-
-
+    # Extract chunks from SRT and generate keywords
     try:
-        res = model.generate_content(f"Generate 10 unique, main and relevant keywords based on summary make sure it's one word and relevant enough to generate an image which I can use in making video: {summary}")
-        keywords = re.findall(r'\*\*(.*?)\*\*', res.text)
+        chunks = extract_chunks_from_srt(srt_file_path)
+
+        for chunk in chunks:
+            try:
+                # Generate keywords for each chunk
+                res = model.generate_content(f"Generate 20 unique, main and relevant keywords based on this text for image generation: {chunk}")
+                keywords += re.findall(r'\*\*(.*?)\*\*', res.text)
+            except Exception as e:
+                print(f"Error generating keywords for chunk: {chunk}, Error: {e}")
+
+        # Deduplicate keywords
+        keywords = list(set(keywords))
     except Exception as e:
-        print(f"Error generating keywords: {e}")
+        print(f"Error extracting keywords from SRT: {e}")
 
     return {
         "speech": speeches,
         "keywords": keywords,
-        
     }
+
+
+# def generate_keywords_from_summary(summary):
+#     speeches = ""
+#     keywords = []
+    
+
+#     try:
+#         inp = model.generate_content(f"Write a minimum exact 250 and maximum exact 300 words more accurate summary based on the previous summary in paragraph format and it should be plain text with no bullet points, no '/n' and no bold stuff, i am using it as input for my tts: {summary}")
+#         speeches = inp.text
+#     except Exception as e:
+#         print(f"Error generating speech: {e}")
+
+
+
+#     try:
+#         res = model.generate_content(f"Generate 10 unique, main and relevant keywords based on summary make sure it's one word and relevant enough to generate an image which I can use in making video: {summary}")
+#         keywords = re.findall(r'\*\*(.*?)\*\*', res.text)
+#     except Exception as e:
+#         print(f"Error generating keywords: {e}")
+
+#     return {
+#         "speech": speeches,
+#         "keywords": keywords,
+        
+#     }
 
 # Subtitle part
 
@@ -172,16 +244,31 @@ def generate_subtitles_from_speech(speech_text, audio_duration, output_srt_path,
     subs.save(output_srt_path, encoding='utf-8')
     print(f"Subtitles saved to {output_srt_path}")
 
+def generate_prompts_from_srt_chunks(srt_file_path):
+    chunks = extract_chunks_from_srt(srt_file_path)
+    prompts = []
+
+    for chunk in chunks:
+        try:
+            # Generate a prompt for each chunk using the model
+            inp = model.generate_content(f"Generate a unique and realistic prompt in JSON format for generating an image using AI based on this text: {chunk}")
+            prompt_text = inp.text
+            prompts.append(prompt_text)
+        except Exception as e:
+            print(f"Error generating prompt for chunk: {chunk}, Error: {e}")
+    
+    return prompts
+
 #gen prompts from summmary
-def generate_prompts_from_summary(summary):
-    promp_string = ""
-    try:
-        inp = model.generate_content(f"Generate 10 Unique and realistic prompt containing 'description' in JSON list fromat for generating the images using AI based on the this summary: {summary} ")
-        promp_string = inp.text.strip("\n")
-        print(promp_string)
-    except Exception as e:
-        print(f"Error generating prompts: {e}")
-    return promp_string
+# def generate_prompts_from_summary(summary):
+#     promp_string = ""
+#     try:
+#         inp = model.generate_content(f"Generate 10 Unique and realistic prompt containing 'description' in JSON list fromat for generating the images using AI based on the this summary: {summary} ")
+#         promp_string = inp.text.strip("\n")
+#         print(promp_string)
+#     except Exception as e:
+#         print(f"Error generating prompts: {e}")
+#     return promp_string
 
 
 def save_prompts_to_json(promp_string, output_file):

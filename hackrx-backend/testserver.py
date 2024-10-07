@@ -40,7 +40,7 @@ async def upload_pdf(file: UploadFile = File(...)):
 
     try:
         # Extract text from the saved PDF file
-        text = extract_text_from_pdf(temp_file_path)
+        text = extract_text_from_file(temp_file_path)
         
         if not text:
             image_output_folder = "pdf_images"
@@ -59,7 +59,7 @@ async def upload_pdf(file: UploadFile = File(...)):
             
         quiz_string = generate_quiz(text)
         save_quiz_to_json(quiz_string, "questions.json")
-        promp_string = generate_prompts_from_summary(summary)
+        promp_string = generate_prompts_from_srt_chunks("subtitles.srt")
         print("promp string: ", promp_string)
         save_prompts_to_json(promp_string, "prompts.json")
         
