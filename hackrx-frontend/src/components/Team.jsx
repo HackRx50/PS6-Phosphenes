@@ -207,7 +207,7 @@ const Team = () => {
                 github: "https://github.com/happyyadav",
                 instagram: "https://instagram.com/happyyadav",
             },
-            line:"Collaboration fuels innovation.",
+            line:"Indeed a backend developer ;)",
         },
         {
             id: 3,
