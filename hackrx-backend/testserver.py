@@ -59,33 +59,8 @@ async def upload_pdf(file: UploadFile = File(...)):
             
         quiz_string = generate_quiz(text)
         save_quiz_to_json(quiz_string, "questions.json")
-        promp_string = generate_prompts_from_srt_chunks("subtitles.srt")
-        print("promp string: ", promp_string)
-        save_prompts_to_json(promp_string, "prompts.json")
-        
-        # Read prompts from prompts.json
-        with open("prompts.json", "r") as json_file:
-            prompts_data = json.load(json_file)
-        
-        # Ensure prompts_data is a list
-        if isinstance(prompts_data, list):
-            for i, prompt in enumerate(prompts_data):
-                if isinstance(prompt, dict) and 'description' in prompt:
-                    prompt_text = prompt['description']
-                    print(f"Generating image for prompt: {prompt_text}")
-                    generate_image_from_prompt(prompt_text, "./pictures", i)
-                else:
-                    print(f"Invalid prompt format at index {i}: {prompt}")
-        else:
-            print("Prompts data is not a list")
 
-        cleaned_summary = clean_text(summary)
-        
-        # Store extracted text in a txt file
-        with open("extracted_text.txt", "w", encoding="utf-8") as text_file:
-            text_file.write(cleaned_summary)
-
-        output = generate_keywords_from_summary(cleaned_summary, srt_file_path)
+        output = generate_keywords_from_summary(summary, "subtitles.srt")
         selected_language = 'english'
         if selected_language in language_map:
             language_code = language_map[selected_language]
@@ -96,10 +71,47 @@ async def upload_pdf(file: UploadFile = File(...)):
         translated_speech = translate_speech(speeches, language_code)
 
         # Generate audio from the speech text
+        audio_output_path = "final_audio.mp3"
         generate_audio_from_text(translated_speech, audio_output_path, language_code)
 
         # Speed up the generated audio
+        audio_output_speedup_path = "final_audio_speedup.mp3"
         speed_up_audio(audio_output_path, audio_output_speedup_path, background_music_path, speed=1.3)
+
+        # Generate the subtitles based on the speech
+        audio_length = AudioFileClip(audio_output_speedup_path).duration
+        srt_file_path = "subtitles.srt"
+        generate_subtitles_from_speech(speeches, audio_length, srt_file_path)
+
+        promp_string = generate_prompts_from_srt_chunks("subtitles.srt")
+        print("promp string: ", promp_string)
+
+        save_prompts_to_json(promp_string, "prompts.json")
+        
+        # Read prompts from prompts.json
+        with open("prompts.json", "r") as json_file:
+            prompts_data = json.load(json_file)
+        
+        # Generate images for each prompt
+        if isinstance(prompts_data, list):
+            for i, prompt in enumerate(prompts_data):
+                if isinstance(prompt, list) and isinstance(prompt[0], dict) and 'description' in prompt[0]:  # Check if it's a list of dicts
+                    prompt_text = prompt[0]['description']  # Extract the 'description' key
+                    print(f"Generating image for prompt: {prompt_text}")
+                    generate_image_from_prompt(prompt_text, "./pictures", i)
+                else:
+                    print(f"Invalid prompt format at index {i}: {prompt}")
+        else:
+            print("Prompts data is not a list")
+
+
+        cleaned_summary = clean_text(summary)
+        
+        # Store extracted text in a txt file
+        with open("extracted_text.txt", "w", encoding="utf-8") as text_file:
+            text_file.write(cleaned_summary)
+
+
 
         # Generate and save images and videos for the keywords
         generate_and_save_images_and_videos_for_keywords(output['keywords'])

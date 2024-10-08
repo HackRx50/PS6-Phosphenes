@@ -1,26 +1,26 @@
 [
     {
-        "question": "What is the name of the insurance plan mentioned in the text?",
+        "question": "What is the name of the insurance product mentioned in the text?",
         "options": [
             "SARAL SURAKSHA BIMA",
-            "BAJAJ ALLIANZ GENERAL INSURANCE COMPANY",
+            "BAJAJ ALLIANZ GENERAL INSURANCE",
             "Durghatanaon ke kharch se khud ko bachane ka Saral Samaadhaan",
             "Caringly Yours"
         ],
         "answer": "SARAL SURAKSHA BIMA"
     },
     {
-        "question": "What is the premium for a sum insured of \u20b93,00,000 under Risk Class I?",
+        "question": "What is the premium amount (excluding GST) for a sum insured of \u20b91,00,000?",
         "options": [
-            "\u20b9289",
-            "\u20b9518",
-            "\u20b9572",
-            "\u20b9629"
+            "\u20b9 289",
+            "\u20b9 395",
+            "\u20b9 572",
+            "\u20b9 589"
         ],
-        "answer": "\u20b9518"
+        "answer": "\u20b9 395"
     },
     {
-        "question": "Which risk class is defined as a person engaged in manual labor, garage or motor mechanic, machine operator, and similar occupations?",
+        "question": "Which risk class is suitable for a person working as a machine operator?",
         "options": [
             "Risk Class I",
             "Risk Class II",
