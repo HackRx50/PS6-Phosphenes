@@ -59,6 +59,7 @@ import feedback3 from '../assets/feedback/feedback3.avif';
 import feedback4 from '../assets/feedback/feedback4.avif';
 import feedback5 from '../assets/feedback/feedback5.avif';
 import feedback6 from '../assets/feedback/feedback6.jpg';
+// import happyp from "../assets/team/happyp.png"
 
 
 
@@ -479,4 +480,7 @@ export const singleBenefit = [
 
 ]
   
- 
+
+  
+
+  

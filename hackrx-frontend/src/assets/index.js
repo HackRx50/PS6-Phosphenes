@@ -75,8 +75,8 @@ import facebook from "./socials/facebook.svg";
 import instagram from "./socials/instagram.svg";
 import telegram from "./socials/telegram.svg";
 import twitter from "./socials/twitter.svg";
-import happy from "./team/happy.jpeg"
-import hishita from "./team/Hishita.jpg"
+// import happy from "./team/happy.jpeg"
+// import hishita from "./team/Hishita.jpg"
 import a from "./a.svg"
 import a1 from "./a1.svg"
 import logo from "../assets/logo/logo-aura.png"
@@ -162,8 +162,7 @@ export {
   instagram,
   telegram,
   twitter,
-  happy,
-  hishita,
+
   a,
   a1,
   logo,

@@ -5,7 +5,7 @@ import Hero from './components/Hero';
 import Benefits from './components/Features';
 import Collaboration from './components/TechStack';
 import Roadmap from './components/Enhancements';
-import Services from './components/TeamCards';
+
 import GetStarted from './components/GetStarted';
 import Quiz from './components/Quiz';
 import Login from './components/Login';
@@ -25,6 +25,7 @@ import UseCaseGrid from './components/UseCase';
 import Impact from './components/Impact';
 import FeedBack from './components/FeedBack';
 import Projects from './components/Projects';
+import Team from './components/Team';
 
 const App = () => {
   const location = useLocation();
@@ -57,6 +58,7 @@ const App = () => {
               <Impact/>
               <FeedBack/>
               <Pricing />
+              <Team/>
               {/* <Services /> */}
             </>
           } />
