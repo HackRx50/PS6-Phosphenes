@@ -61,19 +61,39 @@ async def upload_pdf(file: UploadFile = File(...)):
         quiz_string = generate_quiz(text)
         save_quiz_to_json(quiz_string, "questions.json")
 
-        output = generate_keywords_from_summary(summary, "subtitles.srt")
+        # output = generate_keywords_from_summary(summary, "subtitles.srt")
+        # selected_language = 'english'
+        # if selected_language in language_map:
+        #     language_code = language_map[selected_language]
+        # else:
+        #     language_code = 'en'
+
+        # speeches = output['speech']
+        # translated_speech = translate_speech(speeches, language_code)
+
+        # # Generate audio from the speech text
+        # audio_output_path = "final_audio.mp3"
+        # generate_audio_from_text(translated_speech, audio_output_path, language_code)
+
+        # # Speed up the generated audio
+        # audio_output_speedup_path = "final_audio_speedup.mp3"
+        # speed_up_audio(audio_output_path, audio_output_speedup_path, background_music_path, speed=1.3)
+
+        # # Generate the subtitles based on the speech
+        # audio_length = AudioFileClip(audio_output_speedup_path).duration
+        # srt_file_path = "subtitles.srt"
+        # generate_subtitles_from_speech(speeches, audio_length, srt_file_path)
         selected_language = 'english'
         if selected_language in language_map:
             language_code = language_map[selected_language]
         else:
             language_code = 'en'
 
-        speeches = output['speech']
-        translated_speech = translate_speech(speeches, language_code)
+        speeches = translate_speech(summary, language_code)
 
         # Generate audio from the speech text
         audio_output_path = "final_audio.mp3"
-        generate_audio_from_text(translated_speech, audio_output_path, language_code)
+        generate_audio_from_text(speeches, audio_output_path, language_code)
 
         # Speed up the generated audio
         audio_output_speedup_path = "final_audio_speedup.mp3"
@@ -83,6 +103,9 @@ async def upload_pdf(file: UploadFile = File(...)):
         audio_length = AudioFileClip(audio_output_speedup_path).duration
         srt_file_path = "subtitles.srt"
         generate_subtitles_from_speech(speeches, audio_length, srt_file_path)
+
+        # Generate keywords from summary after SRT is created
+        output = generate_keywords_from_summary(summary, srt_file_path)
 
         promp_string = generate_prompts_from_srt_chunks("subtitles.srt")
         print("promp string: ", promp_string)
