@@ -7,6 +7,7 @@ import { Gradient } from '../design/Roadmap';
 const PIXABAY_API_KEY = '41610740-2e3b4e3089898192b13673058'; // Replace with your actual Pixabay API key
 const VIDEO_API_URL = 'https://pixabay.com/api/videos/'; // Pixabay API endpoint for videos
 const IMAGE_API_URL = 'https://api.pexels.com/v1/search'; // Pexels API endpoint for images
+const STABILITY_API_URL = 'https://api.stability.ai/v2beta/stable-image/generate/core'; // Stability AI endpoint
 
 const categories = [
     'Nature',
@@ -46,12 +47,34 @@ const VisualSelection = () => {
                     }
                 });
                 setVideos(response.data.hits);
-            } else { // Fetch images from Pexels API
-                response = await axios.get(IMAGE_API_URL, {
-                    headers: { Authorization: 'your_pexels_api_key' }, // Replace with your actual Pexels API key
-                    params: { query: fullQuery, per_page: 10 }
+            } else if (type === 'images') {
+                // Fetch generated images from Stability AI API
+                const payload = new FormData();
+                payload.append('prompt', fullQuery);
+                payload.append('output_format', 'webp');
+
+                response = await axios.post(STABILITY_API_URL, payload, {
+                    headers: {
+                        Authorization: `Bearer sk-Xips2HbQGXa2GTbRE3Y08s933bqp7eNhSUGw4eyFW1Vu4Cep`, // Replace with your actual Stability AI API key
+                        Accept: "image/*",
+                        ...payload.getHeaders() // Include form headers
+                    },
+                    responseType: 'arraybuffer', // Expect image data as arraybuffer
                 });
-                setImages(response.data.photos);
+
+                if (response.status === 200) {
+                    // Convert the array buffer response to a blob for displaying in frontend
+                    const blob = new Blob([response.data], { type: 'image/webp' });
+                    const imageUrl = URL.createObjectURL(blob); // Create URL for the blob
+
+                    // Save the image URL to display it in frontend
+                    setImages([{ id: Date.now(), src: imageUrl }]);
+
+                    // Optional: Save the image to file if running on the server or Node.js environment
+                    // fs.writeFileSync("./lighthouse.webp", Buffer.from(response.data));
+                } else {
+                    throw new Error(`Error ${response.status}: ${response.data}`);
+                }
             }
         } catch (error) {
             console.error("Error fetching media:", error);
@@ -63,7 +86,7 @@ const VisualSelection = () => {
         if (mediaType === 'videos') {
             fetchMedia(query, mediaType, category);
         } else if (mediaType === 'images' && imagePrompt) {
-            fetchMedia(imagePrompt, 'images', category); // Fetch images based on the prompt
+            fetchMedia(imagePrompt, 'images', category); // Fetch images based on user prompt
         }
     }, [query, mediaType, category, imagePrompt]);
 
@@ -177,8 +200,8 @@ const VisualSelection = () => {
                         <div key={image.id} className="bg-n-8 rounded-lg shadow-md">
                             <img
                                 className="w-full h-auto rounded-lg mb-2"
-                                src={image.src.medium}
-                                alt={image.alt}
+                                src={image.src} // Use the generated image URL
+                                alt={image.alt || 'Generated visual'} // Provide a fallback alt text
                             />
                         </div>
                     ))

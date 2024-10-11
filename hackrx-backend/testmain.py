@@ -421,8 +421,9 @@ def generate_image_from_prompt(prompt, images_folder, image_index):
 
     data = {
         "prompt": prompt,
+        # "aspect_ratio": "16:9",
+        "output_format": "png",
         "aspect_ratio": "16:9",
-        "output_format": "png"
     }
     print("data: ", data['prompt'])
 
