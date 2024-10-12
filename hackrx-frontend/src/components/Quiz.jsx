@@ -112,14 +112,14 @@ const Quiz = () => {
                 <div className="h2 mb-4 lg:h4">{quizData[currentQuestion].question}</div>
                 <div className="space-y-2 mb-[2rem]">
                   {quizData[currentQuestion].options.map((option, index) => (
-                    <Button
+                    <button
                       key={index}
                       onClick={() => handleAnswerOptionClick(option)}
                       disabled={showFeedback}
                       className="block w-full disabled:bg-gray-300"
                     >
                       <h3 className="h6">{option}</h3>
-                    </Button>
+                    </button>
                   ))}
                 </div>
               </div>
