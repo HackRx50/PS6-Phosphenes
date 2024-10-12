@@ -259,6 +259,67 @@ def generate_prompts_from_srt_chunks(srt_file_path):
     
     return prompts
 
+def create_dynamic_pointers_from_srt(srt_file_path, image_path, output_video_path, duration=5, vertical_margin=50):
+    # Load the SRT file and extract chunks directly in one step
+    subs = pysrt.open(srt_file_path)
+    chunks = [sub.text for sub in subs]
+
+    # Generate pointers by grouping every 3 chunks into one set of 3 chunks
+    pointer_texts = []
+    for i in range(0, len(chunks), 3):
+        # Join every 3 chunks into one string
+        chunk_group = " ".join(chunks[i:i+3])
+        print(chunk_group)
+        # Generate a pointer from Gemini AI based on the chunk group
+        try:
+            prompt = f"Generate a concise 10-word pointer summarizing the following text: {chunk_group}"
+            response = model.generate_content(prompt)
+            pointer_text = response.text.strip()  # Get the generated pointer text
+            pointer_texts.append(pointer_text)  # Add it to the pointer list
+        except Exception as e:
+            print(f"Error generating pointer with Gemini AI: {e}")
+            pointer_texts.append("Error generating pointer")  # If error, append a placeholder text
+
+    # Load the image
+    image_clip = ImageClip(image_path, duration=duration)
+
+    # Create a list to hold the text clips
+    text_clips = []
+
+    # Get image height to position the text pointers vertically
+    image_width, image_height = image_clip.size
+
+    # Starting y-position for the first pointer
+    y_start = image_height // 4
+
+    # Add each text as a clip and position them vertically starting from the left
+    for idx, text in enumerate(pointer_texts):
+        # Create text clip
+        text_clip = TextClip(text, fontsize=35, color='white', font="Arial-Bold")
+
+        # Calculate the position: Left-aligned and vertically stacked
+        x_pos = 50  # Starting from the left with a 50px margin
+        y_pos = y_start + idx * (text_clip.size[1] + vertical_margin)  # Stacked vertically with margin
+
+        # Set the position and duration for the text clip
+        text_clip = text_clip.set_position((x_pos, y_pos)).set_duration(duration)
+
+        # Apply the fade-in effect with the text fully invisible at the start
+        text_clip = text_clip.crossfadein(1.5)  # Smooth fade-in over 1.5 seconds
+
+        # Add a delay for each text clip to make it fade in at different times
+        text_clip = text_clip.set_start(idx * 0.5)  # Delay between fades
+
+        text_clips.append(text_clip)
+
+    # Combine the image and text clips
+    final_clip = CompositeVideoClip([image_clip] + text_clips).set_duration(duration)
+
+    # Save the video
+    final_clip.write_videofile(output_video_path, fps=24)
+
+
+
 #gen prompts from summmary
 # def generate_prompts_from_summary(summary):
 #     promp_string = ""
