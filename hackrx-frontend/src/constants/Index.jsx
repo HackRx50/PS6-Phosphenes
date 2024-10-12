@@ -328,9 +328,9 @@ export const benefits = [
     {
         id: "2",
         title: "Multi Document Upload Support",
-        text: "uploading multiple document types: PDF, PPT, DOC, and Flyer for seamless video generation and enhanced customization.",
-        backgroundUrl: "./src/assets/benefits/card-5.svg",
-        iconUrl: benefitIcon6,
+        text: "Upload multiple document types: PDF, PPT, DOC, and Flyer for seamless video generation and enhanced customization.",
+        backgroundUrl: "./src/assets/benefits/card-6.svg",
+        iconUrl: benefitIcon5,
         imageUrl: purplegradient,
     },
     
