@@ -156,7 +156,7 @@ def generate_keywords_from_summary(summary, srt_file_path):
 
     # Generate speech from summary
     try:
-        inp = model.generate_content(f"Write a minimum exact 250 and maximum exact 300 words more accurate summary based on the previous summary in paragraph format and it should be plain text with no bullet points, no '/n' and no bold stuff, i am using it as input for my tts: {summary}")
+        inp = model.generate_content(f"Write a minimum exact 200 and maximum exact 250 words more accurate summary based on the previous summary: {summary}.It should be plain text with no bullet points, in paragraphs, stick to the content, no '/n', (no CIN, UIN and GST details), and no bold stuff.")
         speeches = inp.text
     except Exception as e:
         print(f"Error generating speech: {e}")
@@ -168,7 +168,7 @@ def generate_keywords_from_summary(summary, srt_file_path):
         for chunk in chunks:
             try:
                 # Generate keywords for each chunk
-                res = model.generate_content(f"Generate 1 unique, main and relevant keyword make sure it's one word and relevant enough to generate the video  based on this 1 chunk: {chunk}")
+                res = model.generate_content(f"Generate 1 unique, main and relevant keyword and to generate the video  based on this 1 chunk: {chunk}, and also ensure the keyword should strictly be based on the chunk and not go out of context. Also the keyword should be of the finance, health, insurance only without repeating the same keyword.")
                 keywords += re.findall(r'\*\*(.*?)\*\*', res.text)
             except Exception as e:
                 print(f"Error generating keywords for chunk: {chunk}, Error: {e}")
@@ -251,7 +251,7 @@ def generate_prompts_from_srt_chunks(srt_file_path):
     for chunk in chunks:
         try:
             # Generate a prompt for each chunk using the model
-            inp = model.generate_content(f"Generate 1 Unique and realistic prompt containing 'description' in JSON list fromat for generating the images using AI based on the this 1 chunk: {chunk}")
+            inp = model.generate_content(f"Generate 1 unique and realistic prompt containing 'description' in JSON list format for generating images using AI based strictly on this 1 chunk: {chunk}. The image should focus on topics like health, finance, or insurance companies, avoiding any numerical data or unrelated elements. Ensure the image is realistic, professional, and engaging, designed to hook the user while portraying themes of safety, security, and reliability in the context of insurance.Also the images should not contain any text.")
             prompt_text = inp.text
             prompts.append(prompt_text)
         except Exception as e:
@@ -425,7 +425,7 @@ def generate_image_from_prompt(prompt, images_folder, image_index):
         "output_format": "png",
         "aspect_ratio": "16:9",
     }
-    print("data: ", data['prompt'])
+    # print("data: ", data['prompt'])
 
     files = {
         'prompt': (None, prompt)  # Use None to indicate that it's not a file
@@ -437,7 +437,8 @@ def generate_image_from_prompt(prompt, images_folder, image_index):
         response = requests.post(
             "https://api.stability.ai/v2beta/stable-image/generate/core",
             headers=headers,
-            files=files  # Sending as multipart/form-data
+            files=files,  # Sending as multipart/form-data
+            data=data
         )
 
         # Check the response status
@@ -472,8 +473,6 @@ def generate_image_from_prompt(prompt, images_folder, image_index):
         print(f"Error generating image from prompt: {e}")
 
 
-
-
 #pixaby code 
 
 
@@ -488,8 +487,8 @@ def generate_and_save_images_and_videos_for_keywords(keywords):
         params = {
             'key': API_KEY,
             'q': keyword,
-            'video_type': 'animation',    # For videos
-            'per_page': 3             # Number of results per page
+            'video_type': 'all',    # For videos
+            'per_page': 3            # Number of results per page
         }
 
         try:

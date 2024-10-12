@@ -1,32 +1,32 @@
 [
     {
-        "question": "What is the name of the insurance policy mentioned in the text?",
+        "question": "What is the grace period for renewing Loan Care policy?",
         "options": [
-            "SARAL SURAKSHA BIMA",
-            "BAJAJ ALLIANZ GENERAL INSURANCE COMPANY",
-            "Durghatanaon ke kharch se khud ko bachane ka Saral Samaadhaan",
-            "Caringly Yours"
+            "15 days",
+            "30 days",
+            "60 days",
+            "90 days"
         ],
-        "answer": "SARAL SURAKSHA BIMA"
+        "answer": "30 days"
     },
     {
-        "question": "What is the premium for a sum insured of 1,00,000 INR for someone in Risk Class II?",
+        "question": "What is the minimum retention period for premium refund on cancellation of Loan Care policy by the policyholder?",
         "options": [
-            "\u20b9 289",
-            "\u20b9 395",
-            "\u20b9 104",
-            "\u20b9 572"
+            "10%",
+            "15%",
+            "25%",
+            "30%"
         ],
-        "answer": "\u20b9 395"
+        "answer": "25%"
     },
     {
-        "question": "Which of the following is NOT an occupation classified as Risk Class III?",
+        "question": "What is the maximum policy period for Loan Care?",
         "options": [
-            "Accountant",
-            "Jockey",
-            "Circus personnel",
-            "Mountaineering"
+            "1 year",
+            "2 years",
+            "3 years",
+            "5 years"
         ],
-        "answer": "Accountant"
+        "answer": "3 years"
     }
 ]
