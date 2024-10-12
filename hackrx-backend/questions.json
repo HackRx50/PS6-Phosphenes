@@ -1,32 +1,32 @@
 [
     {
-        "question": "What is the name of the insurance policy mentioned in the text?",
+        "question": "What are the Sum Insured options available under the Corona Kavach policy?",
         "options": [
-            "Saral Suraksha Bima",
-            "Bajaj Allianz General Insurance",
-            "Durghatanaon ke kharch se khud ko bachane ka Saral Samaadhaan",
-            "Caringly Yours"
+            "50,000 / 1 Lac / 1.5 Lac / 2 Lac / 2.5 Lac / 3 Lac / 3.5 Lac / 4 Lac / 4.5 Lac / 5 Lac",
+            "1 Lac / 2 Lac / 3 Lac / 4 Lac / 5 Lac / 6 Lac / 7 Lac / 8 Lac / 9 Lac / 10 Lac",
+            "10,000 / 20,000 / 30,000 / 40,000 / 50,000 / 60,000 / 70,000 / 80,000 / 90,000 / 1 Lac",
+            "50,000 / 100,000 / 200,000 / 300,000 / 400,000 / 500,000 / 600,000 / 700,000 / 800,000 / 900,000"
         ],
-        "answer": "Saral Suraksha Bima"
+        "answer": "50,000 / 1 Lac / 1.5 Lac / 2 Lac / 2.5 Lac / 3 Lac / 3.5 Lac / 4 Lac / 4.5 Lac / 5 Lac"
     },
     {
-        "question": "What is the premium for a sum insured of 1,00,000 \u20b9 for Risk Class II?",
+        "question": "What is the entry age for a Proposer under the Corona Kavach policy?",
         "options": [
-            "\u20b9 289",
-            "\u20b9 395",
-            "\u20b9 572",
-            "\u20b9 104"
+            "18 years to 55 years",
+            "18 years to 65 years",
+            "21 years to 60 years",
+            "25 years to 70 years"
         ],
-        "answer": "\u20b9 395"
+        "answer": "18 years to 65 years"
     },
     {
-        "question": "Which of the following occupations falls under Risk Class III?",
+        "question": "What are the Policy Period options available under the Corona Kavach policy?",
         "options": [
-            "Accountant",
-            "Machine Operator",
-            "Jockey",
-            "Teacher"
+            "3 Months / 6 Months / 9 Months",
+            "3 \u00bd Month / 6 \u00bd Month / 9 \u00bd Month",
+            "4 Months / 8 Months / 12 Months",
+            "6 Months / 12 Months / 24 Months"
         ],
-        "answer": "Jockey"
+        "answer": "3 \u00bd Month / 6 \u00bd Month / 9 \u00bd Month"
     }
 ]
