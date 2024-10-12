@@ -54,7 +54,7 @@ export default function Contact() {
           </p>
 
           {/* Button */}
-          <Button white>
+          <Button >
             Get in Touch
           </Button>
         </div>
