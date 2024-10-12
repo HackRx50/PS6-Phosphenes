@@ -1,22 +1,57 @@
 [
     [
         {
-            "description": "A portrait of Vedansh Sharma, a full-stack developer, working on a project. He's surrounded by multiple screens displaying code, and is wearing casual clothing like a t-shirt and jeans. There's a cup of coffee on the table and headphones around his neck. The atmosphere should be relaxed and focused, showing the natural creative flow of a developer."
+            "description": "A frustrated person holding a crumpled insurance policy, with a doctor's prescription for malaria treatment in their hand. In the background, an insurance company building with a 'No Refunds' sign is visible. The scene should evoke feelings of disappointment and injustice."
         }
     ],
     [
         {
-            "description": "A futuristic cityscape at night, with towering skyscrapers illuminated by neon signs. In the foreground, a team of diverse developers stand around a massive holographic display, collaborating on a complex web application. The display shows intricate code and data flowing in real-time, showcasing the application's scalability and power. The atmosphere is one of focused innovation and technological advancement."
+            "description": "A vintage insurance document with a classic design, emphasizing the words '\u0917\u0948\u0930-\u092a\u094d\u0930\u0915\u091f\u0940\u0915\u0930\u0923' and '\u0927\u094b\u0916\u093e\u0927\u0921\u093c\u0940' in bold, large font.  The document should also include details like 'INR 75,000', '18' (for the minimum age), and '15 \u0926\u093f\u0928\u094b\u0902 \u0915\u0940 \u0932\u093f\u0916\u093f\u0924 \u0928\u094b\u091f\u093f\u0938'. The overall tone should be formal and professional."
         }
     ],
     [
         {
-            "description": "A futuristic cityscape with towering buildings made of glowing neon lights, representing the innovation and research of a network like Research and Innovation Network. In the foreground, a group of diverse students are collaborating on a project, symbolizing the educational aspect of PhysicsWallah."
+            "description": "A futuristic cityscape with glowing neon signs displaying text in Hindi, advertising life insurance plans. The text highlights phrases like '\u0928\u0935\u0940\u0928\u0940\u0915\u0930\u0923 \u0932\u093e\u092d' and '\u092a\u094b\u0930\u094d\u091f\u0947\u092c\u093f\u0932\u093f\u091f\u0940' alongside graphic representations of health and financial security. The scene should be vibrant and inviting, conveying a sense of trust and confidence in the insurance company."
         }
     ],
     [
         {
-            "description": "A sleek, modern mobile application interface with a minimalist design. The screen displays a dashboard with various colorful graphs and charts representing user progress, showcasing their tracked data in an engaging and easy-to-understand way. The app's name is prominently displayed at the top, along with a clear navigation bar."
+            "description": "A visually appealing infographic explaining a health insurance policy. The infographic should include key details like coverage period, covered conditions, waiting period, and exclusions. The design should be modern and easy to understand, focusing on the key benefits for both individuals and families. Include elements like icons, charts, and clear typography to make the information accessible and engaging."
+        }
+    ],
+    [
+        {
+            "description": "A futuristic, abstract visualization of a policy document. Imagine a swirling vortex of data points representing medical expenses, premium payments, and coverage options. The vortex is illuminated by a central beam of light representing the policy's promise of financial protection."
+        }
+    ],
+    [
+        {
+            "description": "A stylized infographic depicting a clock face with hands pointing to 60 days, showing a policy renewal period. The infographic should include key information like 'Pro-Rata Basis', 'Underwriting Policy', 'Premium Charges', and 'Listed Vector-Borne Diseases' like Dengue Fever. The infographic should also have a visual representation of a hospital stay of less than 24 hours. The style should be clean and modern, using vibrant colors and bold text. The final image should be in the style of an informative brochure."
+        }
+    ],
+    [
+        {
+            "description": "A stylized infographic depicting a discount offer with 20% off, highlighting the terms and conditions. Include elements like a shopping cart, percentage symbol, and text mentioning 'Filaria', 'Waiting Period', 'Employee Discount', and 'Inusa Hong Kong.' Use a modern and professional aesthetic."
+        }
+    ],
+    [
+        {
+            "description": "A medical insurance policy document with the following details: 'Discharge/Discharge (if admitted) We provide cashless authorization and benefit limits. To avail documentation as per the list of claim documents specified below. Insured representative shall intimate such admission within 24 hours. Copy of final hospital bill Insured premium or consolidated floater premium. All necessary investigation reports. Medical certification from specialist exemption all members insured any discount'"
+        }
+    ],
+    [
+        {
+            "description": "A stylized image depicting a Bajaj Allianz insurance policy document. The document should be in Hindi, showcasing key details like the policy number, insured amount, address, and contact information. The design should be clean and modern, with a prominent Bajaj Allianz logo and a color scheme reflecting trust and security. The document should also feature a small illustration of a senior citizen, representing the policy's focus on elder care."
+        }
+    ],
+    [
+        {
+            "description": "A vintage, business-themed illustration depicting a desk with a stack of insurance documents. The documents should show  numbers, tables, and the text 'CIN: U66010PN2000PLC015329 |UIN: BAJHLIP22019V022122' prominently. The illustration should have a retro, almost steam-punk aesthetic with gears and cogs in the background. The overall feeling should be professional and slightly intimidating."
+        }
+    ],
+    [
+        {
+            "description": "A sleek, modern mobile app screen displaying a user's insurance policy details. The screen should show a clear headline 'Insurance Wallet' with a prominent 'One-Touch Access' button. In the background, use a blurred image of a city skyline representing financial security. The app should display a policy number like 'U66010PN2000PLC015329' and a UIN like 'BAJHLIP22019V022122', along with a text snippet mentioning the policy holder can access their policy anytime, anywhere. The overall tone should be confident and reassuring, highlighting the convenience of the app."
         }
     ]
 ]

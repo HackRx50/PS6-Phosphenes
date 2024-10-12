@@ -1,32 +1,32 @@
 [
     {
-        "question": "What is Vedansh Sharma's primary area of expertise?",
+        "question": "What is the maximum entry age for the proposer, spouse, or dependent parents?",
         "options": [
-            "Artificial Intelligence",
-            "Data Science",
-            "Full-Stack Development",
-            "Cloud Computing"
+            "18 years",
+            "65 years",
+            "75 years",
+            "No age limit"
         ],
-        "answer": "Full-Stack Development"
+        "answer": "65 years"
     },
     {
-        "question": "Which of the following is NOT a project listed in Vedansh Sharma's profile?",
+        "question": "What are the sum assured options available under the policy?",
         "options": [
-            "BookBozo",
-            "Fintrack",
-            "Better PW",
-            "CodeNinja"
+            "INR 10,000, INR 15,000, INR 25,000, INR 50,000, INR 75,000",
+            "INR 5,000, INR 10,000, INR 20,000, INR 50,000, INR 100,000",
+            "INR 10,000, INR 25,000, INR 50,000, INR 100,000, INR 150,000",
+            "INR 5,000, INR 10,000, INR 15,000, INR 25,000, INR 50,000"
         ],
-        "answer": "CodeNinja"
+        "answer": "INR 10,000, INR 15,000, INR 25,000, INR 50,000, INR 75,000"
     },
     {
-        "question": "Which programming language is NOT mentioned in Vedansh Sharma's key competencies?",
+        "question": "What is the discount applicable if a customer buys the policy from Bajaj Allianz's website?",
         "options": [
-            "Java",
-            "C++",
-            "Python",
-            "TypeScript"
+            "10%",
+            "15%",
+            "20%",
+            "25%"
         ],
-        "answer": "Java"
+        "answer": "20%"
     }
 ]
