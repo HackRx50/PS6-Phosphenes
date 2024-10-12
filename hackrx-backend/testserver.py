@@ -83,7 +83,7 @@ async def upload_pdf(file: UploadFile = File(...)):
         # audio_length = AudioFileClip(audio_output_speedup_path).duration
         # srt_file_path = "subtitles.srt"
         # generate_subtitles_from_speech(speeches, audio_length, srt_file_path)
-        selected_language = 'hindi'
+        selected_language = 'english'
         if selected_language in language_map:
             language_code = language_map[selected_language]
         else:
@@ -116,6 +116,8 @@ async def upload_pdf(file: UploadFile = File(...)):
         with open("prompts.json", "r") as json_file:
             prompts_data = json.load(json_file)
         
+        create_dynamic_pointers_from_srt("subtitles.srt", r"D:\hackerx\Phosphenes-HackRx-5.0\hackrx-backend\ai_generated_images\bg_img.png", "./videos/video_0_trimmed.mp4")
+
         # Generate images for each prompt
         if isinstance(prompts_data, list):
             for i, prompt in enumerate(prompts_data):

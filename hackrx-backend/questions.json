@@ -1,32 +1,32 @@
 [
     {
-        "question": "What is the name of the insurance policy mentioned in the text?",
+        "question": "What is Vedansh Sharma's primary area of expertise?",
         "options": [
-            "Saral Suraksha Bima",
-            "Bajaj Allianz General Insurance",
-            "Durghatanaon ke kharch se khud ko bachane ka Saral Samaadhaan",
-            "Caringly Yours"
+            "Artificial Intelligence",
+            "Data Science",
+            "Full-Stack Development",
+            "Cloud Computing"
         ],
-        "answer": "Saral Suraksha Bima"
+        "answer": "Full-Stack Development"
     },
     {
-        "question": "What is the premium for a sum insured of 1,00,000 \u20b9 for Risk Class II?",
+        "question": "Which of the following is NOT a project listed in Vedansh Sharma's profile?",
         "options": [
-            "\u20b9 289",
-            "\u20b9 395",
-            "\u20b9 572",
-            "\u20b9 104"
+            "BookBozo",
+            "Fintrack",
+            "Better PW",
+            "CodeNinja"
         ],
-        "answer": "\u20b9 395"
+        "answer": "CodeNinja"
     },
     {
-        "question": "Which of the following occupations falls under Risk Class III?",
+        "question": "Which programming language is NOT mentioned in Vedansh Sharma's key competencies?",
         "options": [
-            "Accountant",
-            "Machine Operator",
-            "Jockey",
-            "Teacher"
+            "Java",
+            "C++",
+            "Python",
+            "TypeScript"
         ],
-        "answer": "Jockey"
+        "answer": "Java"
     }
 ]
