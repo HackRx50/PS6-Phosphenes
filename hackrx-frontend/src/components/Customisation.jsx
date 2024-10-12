@@ -268,7 +268,7 @@ const VideoPanel = () => {
     const videoUrl = 'http://127.0.0.1:8000/video/final_slideshow';
 
     return (
-        <div className="lg:w-1/2 w-full h-full p-4 bg-n-9/40 backdrop-blur border border-n-1/10 text-white flex flex-col justify-center items-center">
+        <div className="lg:w-[40%] w-full h-full p-4 bg-n-9/40 backdrop-blur border border-n-1/10 text-white flex flex-col justify-center items-center">
             <div className="mb-4">
                 <h2 className="text-xl font-bold">Video Output</h2>
             </div>
