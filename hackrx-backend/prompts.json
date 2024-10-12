@@ -1,27 +1,33 @@
 [
     [
         {
-            "description": "A cartoon illustration of a smiling family standing in front of a house, with a large, colorful umbrella above them. The umbrella is labelled 'Saral Suraksha Bima' and has the Bajaj Allianz logo on it. The family is wearing bright clothes and smiling, representing a sense of security and peace of mind. In the background, a storm is brewing, symbolizing the potential risks and challenges life throws at you. The caption reads: 'Durghatanaon ke kharch se khud ko bachane ka Saral Samaadhaan.' (A simple solution to protect yourself from the costs of accidents)."
+            "description": "A vibrant and modern illustration depicting a happy family, including parents, children, and grandparents, all covered by a Bajaj Allianz Corona Kavach insurance policy. The image should showcase a sense of security, peace of mind, and financial protection, emphasizing the policy's comprehensive coverage for COVID-19 related hospitalisation expenses. The image should include the Bajaj Allianz logo and the tagline 'Corona Kavach: Your Shield Against COVID-19.'",
+            "style": "Illustration, realistic, vibrant colors"
         }
     ],
     [
         {
-            "description": "A minimalist design of a business card with the following information: 'CIN: U66010PN2000PLC015329, UIN: BAJPAIP21609V012021' printed in a clean, modern font. The background should be a subtle gradient of blue and grey."
+            "description": "A visually appealing infographic depicting the different options offered by Floater for COVID-19 coverage. The infographic should include clear visual representations of the following:  \n\n- Ambulance services with a maximum of 2000/hour for hospitalization.\n- Home care treatment with a maximum of 14 days per event.\n- A prominent call to action to visit the COVID website for more information."
         }
     ],
     [
         {
-            "description": "A futuristic, cyberpunk-inspired cityscape with neon lights and holographic displays. In the foreground, a futuristic device with a screen displaying the numbers '6 5,70,000 \u20b9 5858585,000 381 5,75,000, 586,90,000 and 587,95,000'. The device is surrounded by wires and cables, suggesting a complex technological system. The background features towering skyscrapers with flashing lights and holographic billboards displaying the text 'CIN: U66010PN2000PLC015329, UIN:BAJPAIP21609V012021 3Sum Net Premium Net PremiumSum InsuredInsured (Rates'."
+            "description": "A colorful and modern infographic illustrating the benefits of a health insurance policy. It should feature icons representing the different aspects of coverage, such as homecare, COVID-19 treatment, and alternative medicine (Ayurveda, Yoga, Naturopathy, Unani, Siddha, and Homeopathy). The infographic should be visually appealing and easy to understand, highlighting the key features of the policy."
         }
     ],
     [
         {
-            "description": "Two contrasting images depicting the difference between 'Risk Class I' and 'Risk Class II'.  \n\n**Risk Class I:** A person wearing a helmet and safety gear while safely climbing a ladder.  \n\n**Risk Class II:** A person standing on a wobbly ladder, precariously high up, without any safety gear. Both images should have a clean, minimalist style."
+            "description": "A medical insurance policy document with a highlighted section about pre-hospital/home care treatment medical expenses related to hospitalization in an approved hospital. The document should clearly state that expenses not included in the policy are listed under Annexure-A of List-I.  The document should also include a list of alternative policy benefits and SHA, with COVID hospitalisation expenses being specified separately. It should mention that the policy covers hospital daily cash for every 24 hours of continuous hospitalization."
         }
     ],
     [
         {
-            "description": "A stark and somber portrait of a person from Risk Class III, the lines etched on their face revealing a life lived on the edge. They are surrounded by ominous symbols representing the dangers they face, while a ghostly figure of their loved ones looks on with sorrow. The background is a hazy landscape of uncertainty and danger, emphasizing the fragility of their life."
+            "description": "A document with a legal disclaimer written in Hindi, mentioning insurance coverage for daily hospitalization, home care treatment limits, company identification numbers, and exclusion of COVID-19 treatment expenses. The document should have a formal and official tone."
+        }
+    ],
+    [
+        {
+            "description": "A document outlining insurance policy details. The document should include information about premium charges, coverage options, claim procedures, and required documents. The document should be in a professional and easily understandable format. The text should be written in Hindi and should include the following information: Premium charges for 2 or more members under the floater sum insured option. Claim submission process with required documents such as passport copy, patient ID proof, medical prescriptions, and hospital discharge summaries."
         }
     ]
 ]
