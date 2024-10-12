@@ -324,9 +324,18 @@ export const benefits = [
         iconUrl: benefitIcon6,
         imageUrl: purplegradient,
     },
-    
+
     {
         id: "2",
+        title: "Multi Document Upload Support",
+        text: "Upload multiple document types: PDF, PPT, DOC, and Flyer for seamless video generation and enhanced customization.",
+        backgroundUrl: "./src/assets/benefits/card-6.svg",
+        iconUrl: benefitIcon5,
+        imageUrl: purplegradient,
+    },
+    
+    {
+        id: "3",
         title: "Interactive Quiz Creation",
         text: "Enhance engagement by generating quizzes based on the video content, perfect for educational or training purposes.",
         backgroundUrl: "./src/assets/benefits/card-3.svg",
@@ -334,7 +343,7 @@ export const benefits = [
         imageUrl: purplegradient,
     },
     {
-        id: "3",
+        id: "4",
         title: "Advanced Analytics Dashboard",
         text: "Track user interaction with detailed metrics on video engagement, quiz performance, and audience retention.",
         backgroundUrl: "./src/assets/benefits/card-4.svg",
@@ -344,7 +353,7 @@ export const benefits = [
     },
 
     {
-        id: "4",
+        id: "5",
         title: "Team Collaboration Tools",
         text: "Team collaboration with real-time editing, feedback, and shared project management for enhanced productivity.",
         backgroundUrl: "./src/assets/benefits/card-6.svg",
@@ -352,7 +361,7 @@ export const benefits = [
         imageUrl: purplegradient,
     },
     {
-        id: "5",
+        id: "6",
         title: "AURA.ai Bot",
         text: "The bot is made to accurately solve any lingering queries the user has even after watching the video.",
         backgroundUrl: "./src/assets/benefits/card-2.svg",

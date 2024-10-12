@@ -35,7 +35,7 @@ const Collaboration = () => {
                 ease: "linear", // Smooth continuous motion
               }}
             >
-              {collabApps.map((app, index) => {
+              {/* {collabApps.map((app, index) => {
                 const angleDeg = index * angleIncrement; // Calculate the angle for positioning
                 const rotate = -angleDeg; // Rotate each item to keep it upright
                 return (
@@ -55,7 +55,7 @@ const Collaboration = () => {
                     </div>
                   </motion.li>
                 );
-              })}
+              })} */}
             </motion.ul>
           </div>
         </div>
