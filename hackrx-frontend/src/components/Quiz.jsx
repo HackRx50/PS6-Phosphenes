@@ -55,9 +55,11 @@ const Quiz = () => {
       setShowNextButton(false);
       setHasAnswered(false);  // Reset answered state for next question
       resetTimer();
-    } else {
-      setShowScore(true);
     }
+  };
+
+  const handleFinishQuiz = () => {
+    setShowScore(true);
   };
 
   const resetTimer = () => {
@@ -133,9 +135,14 @@ const Quiz = () => {
                 </div>
               )}
 
+              {/* Check if it's the last question to show "Finish Quiz" button, otherwise show "Next Question" */}
               {showNextButton && (
                 <div className="text-center mt-4">
-                  <Button onClick={handleNextQuestion}>Next Question</Button>
+                  {currentQuestion < quizData.length - 1 ? (
+                    <Button onClick={handleNextQuestion}>Next Question</Button>
+                  ) : (
+                    <Button onClick={handleFinishQuiz}>Finish Quiz</Button>
+                  )}
                 </div>
               )}
             </>
