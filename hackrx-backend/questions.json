@@ -1,32 +1,32 @@
 [
     {
-        "question": "What is the maximum entry age for the proposer, spouse, or dependent parents?",
+        "question": "What is the name of the insurance policy mentioned in the text?",
         "options": [
-            "18 years",
-            "65 years",
-            "75 years",
-            "No age limit"
+            "SARAL SURAKSHA BIMA",
+            "BAJAJ ALLIANZ GENERAL INSURANCE COMPANY",
+            "Durghatanaon ke kharch se khud ko bachane ka Saral Samaadhaan",
+            "Caringly Yours"
         ],
-        "answer": "65 years"
+        "answer": "SARAL SURAKSHA BIMA"
     },
     {
-        "question": "What are the sum assured options available under the policy?",
+        "question": "What is the premium for a sum insured of 1,00,000 INR for someone in Risk Class II?",
         "options": [
-            "INR 10,000, INR 15,000, INR 25,000, INR 50,000, INR 75,000",
-            "INR 5,000, INR 10,000, INR 20,000, INR 50,000, INR 100,000",
-            "INR 10,000, INR 25,000, INR 50,000, INR 100,000, INR 150,000",
-            "INR 5,000, INR 10,000, INR 15,000, INR 25,000, INR 50,000"
+            "\u20b9 289",
+            "\u20b9 395",
+            "\u20b9 104",
+            "\u20b9 572"
         ],
-        "answer": "INR 10,000, INR 15,000, INR 25,000, INR 50,000, INR 75,000"
+        "answer": "\u20b9 395"
     },
     {
-        "question": "What is the discount applicable if a customer buys the policy from Bajaj Allianz's website?",
+        "question": "Which of the following is NOT an occupation classified as Risk Class III?",
         "options": [
-            "10%",
-            "15%",
-            "20%",
-            "25%"
+            "Accountant",
+            "Jockey",
+            "Circus personnel",
+            "Mountaineering"
         ],
-        "answer": "20%"
+        "answer": "Accountant"
     }
 ]
