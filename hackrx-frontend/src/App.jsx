@@ -26,6 +26,8 @@ import Impact from './components/Impact';
 import FeedBack from './components/FeedBack';
 import Projects from './components/Projects';
 import Team from './components/Team';
+import Faq from './components/Faq';
+import Contact from './components/Contact';
 
 const App = () => {
   const location = useLocation();
@@ -59,6 +61,8 @@ const App = () => {
               <FeedBack/>
               <Pricing />
               <Team/>
+              <Faq/>
+              <Contact/>
               {/* <Services /> */}
             </>
           } />
