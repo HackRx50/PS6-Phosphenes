@@ -28,6 +28,7 @@ import Projects from './components/Projects';
 import Team from './components/Team';
 import Faq from './components/Faq';
 import Contact from './components/Contact';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 const App = () => {
   const location = useLocation();
@@ -75,6 +76,7 @@ const App = () => {
           <Route path="/quizanalytics" element={<><Header /><QuizAnalyticsPage /></>} />
           <Route path="/videoanalytics" element={<><Header /><VideoAnalyticsPage /></>} />
           <Route path="/projects" element={<><Header /><Projects/></>} />
+          <Route path="/privacypolicy" element={<><Header /><PrivacyPolicy/></>} />
           
         </Routes>
       </Layout>

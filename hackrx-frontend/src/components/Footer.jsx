@@ -34,12 +34,14 @@ import React from "react";
 import Section from "./Section";
 import { socials } from "../constants";
 import logo from "../assets/logo/logo-aura.png"
+import PrivacyPolicy from "./PrivacyPolicy";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <Section className="relative pt-11 pb-6 px-5 lg:pt-24 lg:px-10 lg:pb-12">
       <div className="flex items-center justify-center h-24 mb-6 border-b border-n-6 lg:justify-start">
-        <a className="flex w-[11.875rem]" href="/">
+        <a className="pl-4 flex w-[11.875rem]" href="/">
           <img
             fetchpriority="high"
             width={35}
@@ -64,43 +66,49 @@ const Footer = () => {
             className="px-12 py-8 font-code text-xs font-semibold leading-5 uppercase text-n-1/50 transition-colors hover:text-n-1"
             href="/pricing"
           >
-            Pricing
+            How It Works
           </a>
           <a
             className="px-12 py-8 font-code text-xs font-semibold leading-5 uppercase text-n-1/50 transition-colors hover:text-n-1"
             href="/how-to-use"
           >
-            How to Use
+            Use Cases
           </a>
           <a
             className="px-12 py-8 font-code text-xs font-semibold leading-5 uppercase text-n-1/50 transition-colors hover:text-n-1"
             href="/roadmap"
           >
-            Roadmap
+            Impact
           </a>
           <a
             className="px-12 py-8 font-code text-xs font-semibold leading-5 uppercase text-n-1/50 transition-colors hover:text-n-1"
             href="/login?new=true"
           >
-            New Account
+            Pricing
+          </a>
+          <a
+            className="px-12 py-8 font-code text-xs font-semibold leading-5 uppercase text-n-1/50 transition-colors hover:text-n-1"
+            href="/login?new=true"
+          >
+            FAQs
           </a>
         </nav>
       </div>
 
       <div className="lg:flex lg:items-center lg:justify-between">
         {/* Copyright and Privacy Policy */}
-        <div className="hidden lg:block caption text-n-4">
+        <div className="pl-4  hidden lg:block caption text-n-4">
           ©&nbsp;{new Date().getFullYear()} AURA.ai&nbsp; All rights reserved.&nbsp;{" "}
-          <a
-            href="/privacy-policy"
+          <Link
+            to="/privacypolicy"
             className="hover:text-n-1 transition-colors"
           >
             Privacy Policy
-          </a>
+          </Link>
         </div>
 
         {/* Social Icons */}
-        <div className="flex justify-center -mx-4">
+        <div className="flex justify-center -mx-4 pr-8">
           {socials.map((social) => (
             <a
               key={social.id}

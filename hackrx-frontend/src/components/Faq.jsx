@@ -134,6 +134,7 @@ export default function FAQ() {
       crosses
       crossesOffset="lg:translate-y-[5.25rem]"
       customPaddings
+      id="faq"
     >
       {/* Background Image */}
       <div className="absolute inset-0 top-40 -z-10 left-160">

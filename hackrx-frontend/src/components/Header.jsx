@@ -14,7 +14,8 @@ const homeNavigation = [
   { id: 3, title: "Use Cases", url: "#Usecases" },
   { id: 4, title: "Impact", url: "#impact" },
   { id: 5, title: "Pricing", url: "#pricing" },
- 
+  // { id: 6, title: "FAQs", url: "#faq" },
+
 ];
 
 const dashboardNavigation = [
@@ -102,9 +103,8 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-50 border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm ${
-        openNavigation ? "bg-n-8" : "bg-n-8/90 backdrop-blur-sm"
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm ${openNavigation ? "bg-n-8" : "bg-n-8/90 backdrop-blur-sm"
+        }`}
     >
       <div className="flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
         <Link className="flex w-[12rem] xl:mr-8" to="/">
@@ -114,7 +114,7 @@ const Header = () => {
           </p>
         </Link>
 
-        <nav
+        {/* <nav
           className={`${
             openNavigation ? "flex" : "hidden"
           } fixed top-[5rem] left-0 right-0 bottom-0 bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent ${
@@ -127,7 +127,7 @@ const Header = () => {
                 key={item.id}
                 href={item.url}
                 onClick={() => setOpenNavigation(false)}
-                className={`block relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1 px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${
+                className={`block relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1 px-4 py-4 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${
                   location.pathname === item.url
                     ? "lg:text-n-1"
                     : "lg:text-n-1/50"
@@ -139,7 +139,27 @@ const Header = () => {
           </div>
 
           <HamburgerMenu />
+        </nav> */}
+        <nav
+          className={`${openNavigation ? "flex" : "hidden"
+            } fixed top-[5rem] left-0 right-0 bottom-0 bg-n-8 lg:static flex-nowrap lg:flex lg:mx-auto lg:bg-transparent ${location.pathname.startsWith("/overview") ? "lg:ml-auto" : ""
+            }`}
+        >
+          <div className="relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row flex-nowrap">
+            {navigationLinks.map((item) => (
+              <a
+                key={item.id}
+                href={item.url}
+                onClick={() => setOpenNavigation(false)}
+                className={`block relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1 px-2 py-4 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${location.pathname === item.url ? "lg:text-n-1" : "lg:text-n-1/50"
+                  } lg:leading-5 lg:hover:text-n-1 xl:px-12`}
+              >
+                {item.title}
+              </a>
+            ))}
+          </div>
         </nav>
+
 
         {location.pathname.startsWith("/projects") && (
           <Button
