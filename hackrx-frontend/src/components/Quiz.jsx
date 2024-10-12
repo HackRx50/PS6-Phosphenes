@@ -116,7 +116,7 @@ const Quiz = () => {
                       key={index}
                       onClick={() => handleAnswerOptionClick(option)}
                       disabled={showFeedback}
-                      className="block w-full disabled:bg-gray-300"
+                      className="block w-full disabled:bg-gray-300 border bg-n-9/40 backdrop-blur px-4 py-"
                     >
                       <h3 className="h6">{option}</h3>
                     </button>
