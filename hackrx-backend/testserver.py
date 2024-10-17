@@ -12,7 +12,6 @@ class QuestionRequest(BaseModel):
     question: str
 
 SARVAM_TTS_API_URL = "https://api.sarvam.ai/text-to-speech"
-# SARVAM_API_KEY = "32338cf8-5952-403c-851d-c7409c520316"  # Replace with your actual API key
 
 app.add_middleware(
     CORSMiddleware,
@@ -238,7 +237,7 @@ async def ask_question(question_request: QuestionRequest):
 
         headers = {
             "Content-Type": "application/json",
-            'API-Subscription-Key': '32338cf8-5952-403c-851d-c7409c520316'
+            'API-Subscription-Key': 'YOUR_GEMINI_API_KEY'
         }
 
         # Make the request to Sarvam TTS API
